@@ -1,1 +1,1 @@
-  1, /home/gio/Desktop/training/domain/sokoban-strips/p01.pddl, 72, 102, 10, 17, 1.700000, -3, -0.069444, 0.769675, -3, -2.500000, 0.500000, 8.500000, 4.568627, 115
+  1, /home/gio/Desktop/ExtractModel/domain/sokoban-strips/p01.pddl, 72, 102, 10, 17, 1.700000, -3, -0.069444, 0.769675, -3, -2.500000, 0.500000, 8.500000, 4.568627, 115
