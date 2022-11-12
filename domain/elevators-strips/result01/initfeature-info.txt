@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/training/domain/elevators-strips/p01.pddl, 61, 270, 5, 13, 2.600000, -3, 0.000000, 0.627250, 1, 1.000000, 0.000000, 6.574074, 0.655556, 15

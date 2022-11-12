@@ -1,0 +1,103 @@
+digraph G {
+v17  [label="NegatedAtom at-goal(stone-01)"]
+v22  [label="Atom at-goal(stone-01)"]
+v16  [label="NegatedAtom at-goal(stone-02)"]
+v0  [label="Atom at-goal(stone-02)"]
+v15  [label="Atom at(stone-02, pos-5-3)"]
+v14  [label="Atom at(stone-02, pos-4-5)"]
+v13  [label="Atom at(stone-02, pos-4-4)"]
+v12  [label="Atom at(stone-02, pos-4-3)"]
+v11  [label="Atom at(player-01, pos-6-3)"]
+v10  [label="Atom at(player-01, pos-6-2)"]
+v9  [label="Atom at(player-01, pos-5-2)"]
+v8  [label="Atom at(player-01, pos-4-4)"]
+v7  [label="Atom at(player-01, pos-4-3)"]
+v6  [label="Atom at(player-01, pos-4-2)"]
+v5  [label="Atom clear(pos-4-5)"]
+v4  [label="Atom at(stone-01, pos-4-5)"]
+v3  [label="Atom at(stone-01, pos-4-4)"]
+v21  [label="Atom at(stone-01, pos-4-3)"]
+v20  [label="Atom clear(pos-4-4)"]
+v19  [label="Atom clear(pos-3-6)"]
+v18  [label="Atom clear(pos-4-3)"]
+v2  [label="Atom clear(pos-4-2)"]
+v1  [label="Atom clear(pos-5-2)"]
+v23  [label="Atom clear(pos-6-2)"]
+v17 -> v22
+v16 -> v0
+v15 -> v13
+v15 -> v0
+v15 -> v12
+v14 -> v0
+v13 -> v0
+v13 -> v14
+v12 -> v13
+v12 -> v0
+v12 -> v14
+v11 -> v13
+v11 -> v0
+v11 -> v10
+v11 -> v12
+v11 -> v22
+v10 -> v0
+v10 -> v9
+v10 -> v12
+v10 -> v22
+v9 -> v0
+v9 -> v6
+v9 -> v7
+v9 -> v22
+v8 -> v0
+v8 -> v22
+v7 -> v0
+v7 -> v18
+v7 -> v14
+v7 -> v8
+v7 -> v4
+v7 -> v12
+v7 -> v22
+v6 -> v13
+v6 -> v0
+v6 -> v8
+v6 -> v3
+v6 -> v7
+v6 -> v12
+v6 -> v22
+v5 -> v0
+v5 -> v14
+v5 -> v4
+v5 -> v22
+v4 -> v22
+v3 -> v4
+v3 -> v22
+v21 -> v0
+v21 -> v8
+v21 -> v3
+v21 -> v7
+v21 -> v12
+v21 -> v22
+v20 -> v13
+v20 -> v0
+v20 -> v8
+v20 -> v3
+v20 -> v7
+v20 -> v12
+v20 -> v22
+v19 -> v0
+v19 -> v22
+v18 -> v13
+v18 -> v0
+v18 -> v12
+v2 -> v0
+v2 -> v6
+v2 -> v7
+v2 -> v22
+v1 -> v0
+v1 -> v9
+v1 -> v12
+v1 -> v22
+v23 -> v0
+v23 -> v10
+v23 -> v12
+v23 -> v22
+}

@@ -1,0 +1,99 @@
+digraph G {
+v28  [label="Atom location(sheet1, colorprinter_exit-colorcontainer_entryfromime), Atom location(sheet1, down_topexit-htmovercolor_entry)"]
+v12  [label="Atom location(sheet1, colorcontainer_exit-up_bottomentry), Atom location(sheet1, htmovercolor_exit-up_topentry)"]
+v11  [label="Atom location(sheet1, blackcontainer_exittoime-blackprinter_entry), Atom location(sheet1, colorcontainer_exittoime-colorprinter_entry)"]
+v27  [label="Atom location(sheet1, blackcontainer_entry-blackfeeder_exit), Atom location(sheet1, colorcontainer_entry-down_bottomexit)"]
+v13  [label="Atom available(colorcontainer-rsrc), Atom available(blackcontainer-rsrc)"]
+v9  [label="Atom available(colorfeeder-rsrc), Atom available(blackfeeder-rsrc)"]
+v10  [label="Atom available(colorprinter-rsrc), Atom available(blackprinter-rsrc)"]
+v16  [label="NegatedAtom hasimage(sheet1, front, image-1)"]
+v26  [label="Atom hasimage(sheet1, front, image-1)"]
+v15  [label="NegatedAtom stackedin(sheet1, finisher1_tray)"]
+v23  [label="Atom stackedin(sheet1, finisher1_tray)"]
+v14  [label="NegatedAtom sideup(sheet1, front)"]
+v25  [label="Atom sideup(sheet1, front)"]
+v22  [label="Atom notprintedwith(sheet1, back, black)"]
+v1  [label="Atom location(sheet1, some_feeder_tray)"]
+v0  [label="Atom location(sheet1, finisher1_entry-up_topexit)"]
+v21  [label="Atom notprintedwith(sheet1, front, black)"]
+v8  [label="NegatedAtom available(blackcontainer-rsrc)"]
+v18  [label="NegatedAtom available(blackfeeder-rsrc)"]
+v5  [label="NegatedAtom available(blackprinter-rsrc)"]
+v7  [label="NegatedAtom available(colorcontainer-rsrc)"]
+v17  [label="NegatedAtom available(colorfeeder-rsrc)"]
+v4  [label="NegatedAtom available(colorprinter-rsrc)"]
+v20  [label="Atom available(down-rsrc)"]
+v19  [label="NegatedAtom available(finisher1-rsrc)"]
+v3  [label="Atom available(finisher1-rsrc)"]
+v6  [label="NegatedAtom available(up-rsrc)"]
+v2  [label="Atom available(up-rsrc)"]
+v24  [label="Atom uninitialized()"]
+v28 -> v0
+v28 -> v23
+v28 -> v12
+v12 -> v0
+v12 -> v23
+v11 -> v0
+v11 -> v23
+v11 -> v26
+v27 -> v0
+v27 -> v23
+v27 -> v11
+v27 -> v26
+v13 -> v0
+v13 -> v23
+v13 -> v11
+v13 -> v25
+v13 -> v26
+v9 -> v0
+v9 -> v23
+v9 -> v25
+v9 -> v26
+v10 -> v0
+v10 -> v23
+v10 -> v25
+v10 -> v26
+v16 -> v26
+v26 -> v0
+v26 -> v23
+v15 -> v23
+v14 -> v25
+v25 -> v0
+v25 -> v23
+v25 -> v26
+v1 -> v0
+v1 -> v23
+v1 -> v25
+v1 -> v26
+v0 -> v23
+v21 -> v0
+v21 -> v23
+v21 -> v26
+v8 -> v13
+v18 -> v9
+v5 -> v10
+v7 -> v13
+v17 -> v9
+v4 -> v10
+v20 -> v0
+v20 -> v23
+v19 -> v3
+v3 -> v0
+v3 -> v23
+v3 -> v25
+v3 -> v26
+v6 -> v2
+v2 -> v0
+v2 -> v23
+v2 -> v25
+v2 -> v26
+v24 -> v20
+v24 -> v23
+v24 -> v13
+v24 -> v9
+v24 -> v2
+v24 -> v25
+v24 -> v3
+v24 -> v26
+v24 -> v10
+}

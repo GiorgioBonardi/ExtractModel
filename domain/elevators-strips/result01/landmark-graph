@@ -1,0 +1,52 @@
+digraph G {
+v17  [label="Atom passenger-at(p1, n0), Atom passenger-at(p1, n2), Atom passenger-at(p1, n4)"]
+v13  [label="Atom boarded(p0, fast0), Atom boarded(p0, slow0-0), Atom boarded(p0, slow1-0)"]
+v15  [label="Atom boarded(p1, fast0), Atom boarded(p1, slow1-0)"]
+v16  [label="Atom lift-at(slow1-0, n8), Atom lift-at(fast0, n8)"]
+v14  [label="Atom lift-at(slow1-0, n6), Atom lift-at(fast0, n6)"]
+v4  [label="Atom passenger-at(p2, n2)"]
+v6  [label="Atom passenger-at(p2, n1)"]
+v12  [label="Atom boarded(p2, slow0-0)"]
+v10  [label="Atom passenger-at(p1, n6)"]
+v11  [label="Atom passenger-at(p1, n3)"]
+v9  [label="Atom boarded(p1, slow0-0)"]
+v2  [label="Atom passenger-at(p0, n8)"]
+v5  [label="Atom passenger-at(p0, n4)"]
+v0  [label="Atom passengers(slow0-0, n1)"]
+v7  [label="Atom passengers(slow0-0, n0)"]
+v8  [label="Atom lift-at(slow0-0, n3)"]
+v1  [label="Atom lift-at(slow0-0, n2)"]
+v3  [label="Atom lift-at(slow0-0, n1)"]
+v17 -> v10
+v17 -> v15
+v13 -> v5
+v15 -> v10
+v16 -> v13
+v16 -> v5
+v14 -> v10
+v4 -> v12
+v4 -> v6
+v12 -> v6
+v11 -> v10
+v11 -> v9
+v9 -> v10
+v9 -> v17
+v2 -> v13
+v2 -> v5
+v0 -> v10
+v0 -> v6
+v7 -> v12
+v7 -> v0
+v7 -> v10
+v7 -> v6
+v7 -> v9
+v8 -> v10
+v8 -> v9
+v1 -> v3
+v1 -> v12
+v1 -> v0
+v1 -> v10
+v1 -> v8
+v1 -> v6
+v3 -> v6
+}
