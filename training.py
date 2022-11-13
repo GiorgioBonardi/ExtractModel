@@ -32,8 +32,23 @@ def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***end extract features***\n")
 
 #fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
-def execute_problem():
-    res = [True,False,False,True]
+def execute_problem(problem):
+    """
+    Returns a list in which each element contains `planner.name` and a `boolean` 
+    which tells if that planner can solve the problem or not.
+
+    :param problem: Problem to be solved
+    :return res: The list created
+    """
+    plannerList = ['tamer', 'enhsp'] # must fetch planners from UP
+    res = []
+    for p in plannerList:
+        with OneshotPlanner(name=p) as planner:
+            result = planner.solve(problem)
+            toBeAppended = planner.name + " " + result.status in unified_planning.engines.results.POSITIVE_OUTCOMES
+            res.append(toBeAppended)
+
+    res = [True,False,False,True] # deprecated once we import UP
 
     return res
 
@@ -58,7 +73,7 @@ for dir in os.listdir(pathDomain):
             #extract_features(original_domain, original_problem, currentpath)
 
             ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
-            res_planners = execute_problem()
+            res_planners = execute_problem(original_problem)
             #join file
             actual_rootpath = rootpath + "/models"
             command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + str(res_planners[0]) + " " + str(res_planners[1]) + " " + str(res_planners[2]) + " " + str(res_planners[3])
