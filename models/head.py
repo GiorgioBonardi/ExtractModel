@@ -153,7 +153,7 @@ class Head:
         self.head.append("@attribute blackstronglpyarents numeric\n")
         self.head.append("@attribute Maximaleffectsblack numeric\n")
         self.head.append("@attribute Hred-black numeric\n")
-        self.head.append("@attribute planner {tamer, enhsp, pyperplan, lgp}\n")
+        self.head.append("@attribute planner {tamer, enhsp, fast-downward, lpg}\n")
         self.head.append("@attribute class {True,False}\n\n")
  
         

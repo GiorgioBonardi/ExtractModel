@@ -82,7 +82,7 @@ for dir in os.listdir(pathDomain):
             if(not os.path.isdir(currentpath)):
                 os.mkdir(currentpath)
             os.chdir(currentpath)
-            #extract_features(original_domain, original_problem, currentpath)
+            extract_features(original_domain, original_problem, currentpath)
 
             ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
             res_planner = execute_problem(original_problem)

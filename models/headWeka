@@ -99,7 +99,7 @@
 @attribute Landmark_count numeric
 @attribute Landmark-cut numeric
 @attribute Max numeric
-@attribute planner {tamer, enhsp, pyperplan, lgp}
+@attribute planner {tamer, enhsp, fast-downward, lgp}
 @attribute class {True,False}
 
 

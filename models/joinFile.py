@@ -38,22 +38,25 @@ def segurityNumberFeature(listFeatures, number):
 		aux = listFeatures.count(',')
 	return listFeatures
 
-def writeFile(name, data, head):
+def writeFile(name, data, head, res_planner):
 	fd = open(name,'w')
 	for i in head.head:
 		fd.write(i)
 	line = ""
 	for i in data:
 		line = line + i
-	print line
-	entry = line + ",tamer, True\n"
-	fd.write(entry)
-	entry = line + ",enhsp, True\n"
-	fd.write(entry)
-	entry = line + ",pyperplan, True\n"
-	fd.write(entry)
-	entry = line + ",lgp, True\n"
-	fd.write(entry)
+	print(line)
+	for res in res_planner:
+		entry = line + "," + res + "\n"
+		fd.write(entry)
+	# entry = line + ",tamer, True\n"
+	# fd.write(entry)
+	# entry = line + ",enhsp, True\n"
+	# fd.write(entry)
+	# entry = line + ",pyperplan, True\n"
+	# fd.write(entry)
+	# entry = line + ",lgp, True\n"
+	# fd.write(entry)
 	fd.close()
 	
 def join(translate, preprocess, fflearner, heuristics, landmarks, redblack, union):
@@ -138,18 +141,10 @@ if __name__ == '__main__':
     
     if (len(sys.argv) == 6):
         route = sys.argv[1]
-        print(sys.argv)
-        print(len(sys.argv))
         res_planner = []
         for n in range(2,len(sys.argv)):
             res_planner.append(sys.argv[n])
 
-        # res_planners = []
-        # res_planners.append(sys.argv[2])
-        # res_planners.append(sys.argv[3])
-        # res_planners.append(sys.argv[4])
-        # res_planners.append(sys.argv[5])
-        print(res_planner)
     else:
         print "ERROR:::: Need one argument to create the features file" 
         sys.exit(-1)
@@ -199,5 +194,5 @@ if __name__ == '__main__':
     union_final = union_final.replace("inf", "?")
     union_final = union_final.replace("-2147483647", "-1000")
     union_final = union_final.replace("2147483647", "1000")
-    writeFile(route+"/global_features.arff", union_final, head)
+    writeFile(route+"/global_features.arff", union_final, head, res_planner)
 

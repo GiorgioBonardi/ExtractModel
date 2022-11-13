@@ -9,31 +9,31 @@ begin_variable
 var5
 -1
 5
+Atom lift-at(fast0, n0)
+Atom lift-at(fast0, n6)
+Atom lift-at(fast0, n8)
 Atom lift-at(fast0, n4)
 Atom lift-at(fast0, n2)
-Atom lift-at(fast0, n0)
-Atom lift-at(fast0, n8)
-Atom lift-at(fast0, n6)
 end_variable
 begin_variable
 var4
 -1
 5
+Atom lift-at(slow1-0, n4)
+Atom lift-at(slow1-0, n5)
 Atom lift-at(slow1-0, n8)
 Atom lift-at(slow1-0, n6)
 Atom lift-at(slow1-0, n7)
-Atom lift-at(slow1-0, n4)
-Atom lift-at(slow1-0, n5)
 end_variable
 begin_variable
 var3
 -1
 5
-Atom lift-at(slow0-0, n1)
-Atom lift-at(slow0-0, n0)
 Atom lift-at(slow0-0, n3)
 Atom lift-at(slow0-0, n2)
 Atom lift-at(slow0-0, n4)
+Atom lift-at(slow0-0, n1)
+Atom lift-at(slow0-0, n0)
 end_variable
 begin_variable
 var7
@@ -64,70 +64,70 @@ begin_variable
 var0
 -1
 12
-Atom passenger-at(p1, n6)
-Atom passenger-at(p1, n5)
-Atom passenger-at(p1, n8)
-Atom boarded(p1, fast0)
 Atom boarded(p1, slow1-0)
+Atom passenger-at(p1, n5)
 Atom passenger-at(p1, n0)
-Atom boarded(p1, slow0-0)
-Atom passenger-at(p1, n7)
-Atom passenger-at(p1, n2)
-Atom passenger-at(p1, n1)
-Atom passenger-at(p1, n4)
 Atom passenger-at(p1, n3)
+Atom passenger-at(p1, n8)
+Atom passenger-at(p1, n7)
+Atom passenger-at(p1, n1)
+Atom passenger-at(p1, n6)
+Atom boarded(p1, slow0-0)
+Atom passenger-at(p1, n4)
+Atom boarded(p1, fast0)
+Atom passenger-at(p1, n2)
 end_variable
 begin_variable
 var1
 -1
 12
-Atom passenger-at(p2, n6)
-Atom passenger-at(p2, n3)
-Atom passenger-at(p2, n0)
-Atom passenger-at(p2, n5)
 Atom passenger-at(p2, n2)
-Atom boarded(p2, slow0-0)
-Atom passenger-at(p2, n8)
 Atom boarded(p2, fast0)
+Atom passenger-at(p2, n6)
+Atom passenger-at(p2, n0)
 Atom passenger-at(p2, n7)
+Atom passenger-at(p2, n5)
+Atom boarded(p2, slow1-0)
+Atom passenger-at(p2, n3)
 Atom passenger-at(p2, n4)
 Atom passenger-at(p2, n1)
-Atom boarded(p2, slow1-0)
+Atom passenger-at(p2, n8)
+Atom boarded(p2, slow0-0)
 end_variable
 begin_variable
 var2
 -1
 12
-Atom passenger-at(p0, n0)
-Atom passenger-at(p0, n5)
-Atom passenger-at(p0, n6)
-Atom passenger-at(p0, n3)
 Atom passenger-at(p0, n4)
-Atom boarded(p0, slow1-0)
-Atom passenger-at(p0, n8)
-Atom boarded(p0, slow0-0)
-Atom passenger-at(p0, n1)
-Atom passenger-at(p0, n2)
 Atom boarded(p0, fast0)
+Atom passenger-at(p0, n0)
+Atom passenger-at(p0, n6)
+Atom passenger-at(p0, n1)
+Atom passenger-at(p0, n3)
+Atom passenger-at(p0, n5)
+Atom passenger-at(p0, n2)
 Atom passenger-at(p0, n7)
+Atom passenger-at(p0, n8)
+Atom boarded(p0, slow1-0)
+Atom boarded(p0, slow0-0)
 end_variable
 0
 begin_state
-2
-3
-3
+0
+0
+1
 1
 1
 0
-11
-4
-6
+3
+0
+9
 end_state
 begin_goal
 3
-6 0
-7 10
-8 4
+6 7
+7 9
+8 0
 end_goal
 270
 begin_operator
@@ -135,7 +135,7 @@ move-up-fast fast0 n0 n2
 0
 1
 0
-0 2 1
+0 0 4
 7
 end_operator
 begin_operator
@@ -143,7 +143,7 @@ move-up-fast fast0 n0 n4
 0
 1
 0
-0 2 0
+0 0 3
 13
 end_operator
 begin_operator
@@ -151,7 +151,7 @@ move-up-fast fast0 n0 n6
 0
 1
 0
-0 2 4
+0 0 1
 19
 end_operator
 begin_operator
@@ -159,7 +159,7 @@ move-up-fast fast0 n0 n8
 0
 1
 0
-0 2 3
+0 0 2
 25
 end_operator
 begin_operator
@@ -167,7 +167,7 @@ move-up-slow slow0-0 n2 n3
 0
 1
 0
-2 3 2
+2 1 0
 6
 end_operator
 begin_operator
@@ -175,7 +175,7 @@ move-up-slow slow0-0 n2 n4
 0
 1
 0
-2 3 4
+2 1 2
 7
 end_operator
 begin_operator
@@ -183,7 +183,7 @@ move-down-slow slow0-0 n2 n0
 0
 1
 0
-2 3 1
+2 1 4
 7
 end_operator
 begin_operator
@@ -191,7 +191,7 @@ move-down-slow slow0-0 n2 n1
 0
 1
 0
-2 3 0
+2 1 3
 6
 end_operator
 begin_operator
@@ -199,7 +199,7 @@ move-up-slow slow1-0 n4 n5
 0
 1
 0
-1 3 4
+1 0 1
 6
 end_operator
 begin_operator
@@ -207,7 +207,7 @@ move-up-slow slow1-0 n4 n6
 0
 1
 0
-1 3 1
+1 0 3
 7
 end_operator
 begin_operator
@@ -215,7 +215,7 @@ move-up-slow slow1-0 n4 n7
 0
 1
 0
-1 3 2
+1 0 4
 8
 end_operator
 begin_operator
@@ -223,16 +223,16 @@ move-up-slow slow1-0 n4 n8
 0
 1
 0
-1 3 0
+1 0 2
 9
 end_operator
 begin_operator
 board p2 slow0-0 n2 n0 n1
 1
-2 3
+2 1
 2
 0
-7 4 5
+7 0 11
 0
 3 1 2
 0
@@ -242,7 +242,7 @@ move-up-fast fast0 n2 n4
 0
 1
 0
-0 1 0
+0 4 3
 7
 end_operator
 begin_operator
@@ -250,7 +250,7 @@ move-up-fast fast0 n2 n6
 0
 1
 0
-0 1 4
+0 4 1
 13
 end_operator
 begin_operator
@@ -258,7 +258,7 @@ move-up-fast fast0 n2 n8
 0
 1
 0
-0 1 3
+0 4 2
 19
 end_operator
 begin_operator
@@ -266,7 +266,7 @@ move-down-fast fast0 n2 n0
 0
 1
 0
-0 1 2
+0 4 0
 7
 end_operator
 begin_operator
@@ -274,7 +274,7 @@ move-up-fast fast0 n4 n6
 0
 1
 0
-0 0 4
+0 3 1
 7
 end_operator
 begin_operator
@@ -282,7 +282,7 @@ move-up-fast fast0 n4 n8
 0
 1
 0
-0 0 3
+0 3 2
 13
 end_operator
 begin_operator
@@ -290,7 +290,7 @@ move-down-fast fast0 n4 n0
 0
 1
 0
-0 0 2
+0 3 0
 13
 end_operator
 begin_operator
@@ -298,7 +298,7 @@ move-down-fast fast0 n4 n2
 0
 1
 0
-0 0 1
+0 3 4
 7
 end_operator
 begin_operator
@@ -306,7 +306,7 @@ move-up-fast fast0 n6 n8
 0
 1
 0
-0 4 3
+0 1 2
 7
 end_operator
 begin_operator
@@ -314,7 +314,7 @@ move-down-fast fast0 n6 n0
 0
 1
 0
-0 4 2
+0 1 0
 19
 end_operator
 begin_operator
@@ -322,7 +322,7 @@ move-down-fast fast0 n6 n2
 0
 1
 0
-0 4 1
+0 1 4
 13
 end_operator
 begin_operator
@@ -330,7 +330,7 @@ move-down-fast fast0 n6 n4
 0
 1
 0
-0 4 0
+0 1 3
 7
 end_operator
 begin_operator
@@ -338,7 +338,7 @@ move-down-fast fast0 n8 n0
 0
 1
 0
-0 3 2
+0 2 0
 25
 end_operator
 begin_operator
@@ -346,7 +346,7 @@ move-down-fast fast0 n8 n2
 0
 1
 0
-0 3 1
+0 2 4
 19
 end_operator
 begin_operator
@@ -354,7 +354,7 @@ move-down-fast fast0 n8 n4
 0
 1
 0
-0 3 0
+0 2 3
 13
 end_operator
 begin_operator
@@ -362,7 +362,7 @@ move-down-fast fast0 n8 n6
 0
 1
 0
-0 3 4
+0 2 1
 7
 end_operator
 begin_operator
@@ -370,7 +370,7 @@ move-up-slow slow0-0 n3 n4
 0
 1
 0
-2 2 4
+2 0 2
 6
 end_operator
 begin_operator
@@ -378,7 +378,7 @@ move-down-slow slow0-0 n3 n0
 0
 1
 0
-2 2 1
+2 0 4
 8
 end_operator
 begin_operator
@@ -386,7 +386,7 @@ move-down-slow slow0-0 n3 n1
 0
 1
 0
-2 2 0
+2 0 3
 7
 end_operator
 begin_operator
@@ -394,7 +394,7 @@ move-down-slow slow0-0 n3 n2
 0
 1
 0
-2 2 3
+2 0 1
 6
 end_operator
 begin_operator
@@ -402,7 +402,7 @@ move-down-slow slow0-0 n4 n0
 0
 1
 0
-2 4 1
+2 2 4
 9
 end_operator
 begin_operator
@@ -410,7 +410,7 @@ move-down-slow slow0-0 n4 n1
 0
 1
 0
-2 4 0
+2 2 3
 8
 end_operator
 begin_operator
@@ -418,7 +418,7 @@ move-down-slow slow0-0 n4 n2
 0
 1
 0
-2 4 3
+2 2 1
 7
 end_operator
 begin_operator
@@ -426,7 +426,7 @@ move-down-slow slow0-0 n4 n3
 0
 1
 0
-2 4 2
+2 2 0
 6
 end_operator
 begin_operator
@@ -434,7 +434,7 @@ move-up-slow slow0-0 n0 n1
 0
 1
 0
-2 1 0
+2 4 3
 6
 end_operator
 begin_operator
@@ -442,7 +442,7 @@ move-up-slow slow0-0 n0 n2
 0
 1
 0
-2 1 3
+2 4 1
 7
 end_operator
 begin_operator
@@ -450,7 +450,7 @@ move-up-slow slow0-0 n0 n3
 0
 1
 0
-2 1 2
+2 4 0
 8
 end_operator
 begin_operator
@@ -458,7 +458,7 @@ move-up-slow slow0-0 n0 n4
 0
 1
 0
-2 1 4
+2 4 2
 9
 end_operator
 begin_operator
@@ -466,7 +466,7 @@ move-up-slow slow0-0 n1 n2
 0
 1
 0
-2 0 3
+2 3 1
 6
 end_operator
 begin_operator
@@ -474,7 +474,7 @@ move-up-slow slow0-0 n1 n3
 0
 1
 0
-2 0 2
+2 3 0
 7
 end_operator
 begin_operator
@@ -482,7 +482,7 @@ move-up-slow slow0-0 n1 n4
 0
 1
 0
-2 0 4
+2 3 2
 8
 end_operator
 begin_operator
@@ -490,7 +490,7 @@ move-down-slow slow0-0 n1 n0
 0
 1
 0
-2 0 1
+2 3 4
 6
 end_operator
 begin_operator
@@ -498,7 +498,7 @@ move-up-slow slow1-0 n5 n6
 0
 1
 0
-1 4 1
+1 1 3
 6
 end_operator
 begin_operator
@@ -506,7 +506,7 @@ move-up-slow slow1-0 n5 n7
 0
 1
 0
-1 4 2
+1 1 4
 7
 end_operator
 begin_operator
@@ -514,7 +514,7 @@ move-up-slow slow1-0 n5 n8
 0
 1
 0
-1 4 0
+1 1 2
 8
 end_operator
 begin_operator
@@ -522,7 +522,7 @@ move-down-slow slow1-0 n5 n4
 0
 1
 0
-1 4 3
+1 1 0
 6
 end_operator
 begin_operator
@@ -530,7 +530,7 @@ move-up-slow slow1-0 n6 n7
 0
 1
 0
-1 1 2
+1 3 4
 6
 end_operator
 begin_operator
@@ -538,7 +538,7 @@ move-up-slow slow1-0 n6 n8
 0
 1
 0
-1 1 0
+1 3 2
 7
 end_operator
 begin_operator
@@ -546,7 +546,7 @@ move-down-slow slow1-0 n6 n4
 0
 1
 0
-1 1 3
+1 3 0
 7
 end_operator
 begin_operator
@@ -554,7 +554,7 @@ move-down-slow slow1-0 n6 n5
 0
 1
 0
-1 1 4
+1 3 1
 6
 end_operator
 begin_operator
@@ -562,7 +562,7 @@ move-up-slow slow1-0 n7 n8
 0
 1
 0
-1 2 0
+1 4 2
 6
 end_operator
 begin_operator
@@ -570,7 +570,7 @@ move-down-slow slow1-0 n7 n4
 0
 1
 0
-1 2 3
+1 4 0
 8
 end_operator
 begin_operator
@@ -578,7 +578,7 @@ move-down-slow slow1-0 n7 n5
 0
 1
 0
-1 2 4
+1 4 1
 7
 end_operator
 begin_operator
@@ -586,7 +586,7 @@ move-down-slow slow1-0 n7 n6
 0
 1
 0
-1 2 1
+1 4 3
 6
 end_operator
 begin_operator
@@ -594,7 +594,7 @@ move-down-slow slow1-0 n8 n4
 0
 1
 0
-1 0 3
+1 2 0
 9
 end_operator
 begin_operator
@@ -602,7 +602,7 @@ move-down-slow slow1-0 n8 n5
 0
 1
 0
-1 0 4
+1 2 1
 8
 end_operator
 begin_operator
@@ -610,7 +610,7 @@ move-down-slow slow1-0 n8 n6
 0
 1
 0
-1 0 1
+1 2 3
 7
 end_operator
 begin_operator
@@ -618,16 +618,16 @@ move-down-slow slow1-0 n8 n7
 0
 1
 0
-1 0 2
+1 2 4
 6
 end_operator
 begin_operator
 board p2 fast0 n2 n0 n1
 1
-0 1
+0 4
 2
 0
-7 4 7
+7 0 1
 0
 5 0 1
 0
@@ -635,10 +635,10 @@ end_operator
 begin_operator
 board p0 fast0 n8 n0 n1
 1
-0 3
+0 2
 2
 0
-8 6 10
+8 9 1
 0
 5 0 1
 0
@@ -646,10 +646,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n3 n0 n1
 1
-2 2
+2 0
 2
 0
-6 11 6
+6 3 8
 0
 3 1 2
 0
@@ -657,10 +657,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n8 n0 n1
 1
-1 0
+1 2
 2
 0
-8 6 5
+8 9 10
 0
 4 1 0
 0
@@ -668,10 +668,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n2 n1 n2
 1
-2 3
+2 1
 2
 0
-7 4 5
+7 0 11
 0
 3 2 0
 0
@@ -679,10 +679,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n3 n1 n2
 1
-2 2
+2 0
 2
 0
-6 11 6
+6 3 8
 0
 3 2 0
 0
@@ -690,10 +690,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n2 n1 n0
 1
-2 3
+2 1
 2
 0
-7 5 4
+7 11 0
 0
 3 2 1
 0
@@ -701,10 +701,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n3 n1 n0
 1
-2 2
+2 0
 2
 0
-7 5 1
+7 11 7
 0
 3 2 1
 0
@@ -712,10 +712,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n4 n1 n0
 1
-2 4
+2 2
 2
 0
-7 5 9
+7 11 8
 0
 3 2 1
 0
@@ -723,10 +723,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n0 n1 n0
 1
-2 1
+2 4
 2
 0
-7 5 2
+7 11 3
 0
 3 2 1
 0
@@ -734,10 +734,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n1 n1 n0
 1
-2 0
+2 3
 2
 0
-7 5 10
+7 11 9
 0
 3 2 1
 0
@@ -745,10 +745,10 @@ end_operator
 begin_operator
 board p2 fast0 n2 n1 n2
 1
-0 1
+0 4
 2
 0
-7 4 7
+7 0 1
 0
 5 1 2
 0
@@ -756,10 +756,10 @@ end_operator
 begin_operator
 board p0 fast0 n8 n1 n2
 1
-0 3
+0 2
 2
 0
-8 6 10
+8 9 1
 0
 5 1 2
 0
@@ -767,10 +767,10 @@ end_operator
 begin_operator
 leave p2 fast0 n0 n1 n0
 1
-0 2
+0 0
 2
 0
-7 7 2
+7 1 3
 0
 5 1 0
 0
@@ -778,10 +778,10 @@ end_operator
 begin_operator
 leave p2 fast0 n2 n1 n0
 1
-0 1
+0 4
 2
 0
-7 7 4
+7 1 0
 0
 5 1 0
 0
@@ -789,10 +789,10 @@ end_operator
 begin_operator
 leave p2 fast0 n4 n1 n0
 1
-0 0
+0 3
 2
 0
-7 7 9
+7 1 8
 0
 5 1 0
 0
@@ -800,10 +800,10 @@ end_operator
 begin_operator
 leave p2 fast0 n6 n1 n0
 1
-0 4
+0 1
 2
 0
-7 7 0
+7 1 2
 0
 5 1 0
 0
@@ -811,10 +811,10 @@ end_operator
 begin_operator
 leave p2 fast0 n8 n1 n0
 1
-0 3
+0 2
 2
 0
-7 7 6
+7 1 10
 0
 5 1 0
 0
@@ -822,10 +822,10 @@ end_operator
 begin_operator
 leave p0 fast0 n0 n1 n0
 1
-0 2
+0 0
 2
 0
-8 10 0
+8 1 2
 0
 5 1 0
 0
@@ -833,10 +833,10 @@ end_operator
 begin_operator
 leave p0 fast0 n2 n1 n0
 1
-0 1
+0 4
 2
 0
-8 10 9
+8 1 7
 0
 5 1 0
 0
@@ -844,10 +844,10 @@ end_operator
 begin_operator
 leave p0 fast0 n4 n1 n0
 1
-0 0
+0 3
 2
 0
-8 10 4
+8 1 0
 0
 5 1 0
 0
@@ -855,10 +855,10 @@ end_operator
 begin_operator
 leave p0 fast0 n6 n1 n0
 1
-0 4
+0 1
 2
 0
-8 10 2
+8 1 3
 0
 5 1 0
 0
@@ -866,10 +866,10 @@ end_operator
 begin_operator
 leave p0 fast0 n8 n1 n0
 1
-0 3
+0 2
 2
 0
-8 10 6
+8 1 9
 0
 5 1 0
 0
@@ -877,10 +877,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n2 n1 n0
 1
-2 3
+2 1
 2
 0
-6 6 8
+6 8 11
 0
 3 2 1
 0
@@ -888,10 +888,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n3 n1 n0
 1
-2 2
+2 0
 2
 0
-6 6 11
+6 8 3
 0
 3 2 1
 0
@@ -899,10 +899,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n4 n1 n0
 1
-2 4
+2 2
 2
 0
-6 6 10
+6 8 9
 0
 3 2 1
 0
@@ -910,10 +910,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n0 n1 n0
 1
-2 1
+2 4
 2
 0
-6 6 5
+6 8 2
 0
 3 2 1
 0
@@ -921,10 +921,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n1 n1 n0
 1
-2 0
+2 3
 2
 0
-6 6 9
+6 8 6
 0
 3 2 1
 0
@@ -932,10 +932,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n3 n0 n1
 1
-2 2
+2 0
 2
 0
-7 1 5
+7 7 11
 0
 3 1 2
 0
@@ -943,10 +943,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n3 n1 n2
 1
-2 2
+2 0
 2
 0
-7 1 5
+7 7 11
 0
 3 2 0
 0
@@ -954,10 +954,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n4 n0 n1
 1
-1 3
+1 0
 2
 0
-7 9 11
+7 8 6
 0
 4 1 0
 0
@@ -965,10 +965,10 @@ end_operator
 begin_operator
 board p2 fast0 n4 n0 n1
 1
-0 0
+0 3
 2
 0
-7 9 7
+7 8 1
 0
 5 0 1
 0
@@ -976,10 +976,10 @@ end_operator
 begin_operator
 board p2 fast0 n4 n1 n2
 1
-0 0
+0 3
 2
 0
-7 9 7
+7 8 1
 0
 5 1 2
 0
@@ -987,10 +987,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n4 n0 n1
 1
-2 4
+2 2
 2
 0
-7 9 5
+7 8 11
 0
 3 1 2
 0
@@ -998,10 +998,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n4 n1 n2
 1
-2 4
+2 2
 2
 0
-7 9 5
+7 8 11
 0
 3 2 0
 0
@@ -1009,10 +1009,10 @@ end_operator
 begin_operator
 board p2 fast0 n0 n0 n1
 1
-0 2
+0 0
 2
 0
-7 2 7
+7 3 1
 0
 5 0 1
 0
@@ -1020,10 +1020,10 @@ end_operator
 begin_operator
 board p2 fast0 n0 n1 n2
 1
-0 2
+0 0
 2
 0
-7 2 7
+7 3 1
 0
 5 1 2
 0
@@ -1031,10 +1031,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n0 n0 n1
 1
-2 1
+2 4
 2
 0
-7 2 5
+7 3 11
 0
 3 1 2
 0
@@ -1042,10 +1042,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n0 n1 n2
 1
-2 1
+2 4
 2
 0
-7 2 5
+7 3 11
 0
 3 2 0
 0
@@ -1053,10 +1053,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n1 n0 n1
 1
-2 0
+2 3
 2
 0
-7 10 5
+7 9 11
 0
 3 1 2
 0
@@ -1064,10 +1064,10 @@ end_operator
 begin_operator
 board p2 slow0-0 n1 n1 n2
 1
-2 0
+2 3
 2
 0
-7 10 5
+7 9 11
 0
 3 2 0
 0
@@ -1075,10 +1075,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n8 n1 n2
 1
-1 0
+1 2
 2
 0
-8 6 5
+8 9 10
 0
 4 0 2
 0
@@ -1086,10 +1086,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n4 n1 n2
 1
-1 3
+1 0
 2
 0
-7 9 11
+7 8 6
 0
 4 0 2
 0
@@ -1097,10 +1097,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n4 n1 n0
 1
-1 3
+1 0
 2
 0
-8 5 4
+8 10 0
 0
 4 0 1
 0
@@ -1108,10 +1108,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n5 n1 n0
 1
-1 4
+1 1
 2
 0
-8 5 1
+8 10 6
 0
 4 0 1
 0
@@ -1119,10 +1119,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n6 n1 n0
 1
-1 1
+1 3
 2
 0
-8 5 2
+8 10 3
 0
 4 0 1
 0
@@ -1130,10 +1130,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n7 n1 n0
 1
-1 2
+1 4
 2
 0
-8 5 11
+8 10 8
 0
 4 0 1
 0
@@ -1141,10 +1141,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n8 n1 n0
 1
-1 0
+1 2
 2
 0
-8 5 6
+8 10 9
 0
 4 0 1
 0
@@ -1152,10 +1152,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n2 n2 n1
 1
-2 3
+2 1
 2
 0
-7 5 4
+7 11 0
 0
 3 0 2
 0
@@ -1163,10 +1163,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n3 n2 n1
 1
-2 2
+2 0
 2
 0
-7 5 1
+7 11 7
 0
 3 0 2
 0
@@ -1174,10 +1174,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n4 n2 n1
 1
-2 4
+2 2
 2
 0
-7 5 9
+7 11 8
 0
 3 0 2
 0
@@ -1185,10 +1185,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n0 n2 n1
 1
-2 1
+2 4
 2
 0
-7 5 2
+7 11 3
 0
 3 0 2
 0
@@ -1196,10 +1196,10 @@ end_operator
 begin_operator
 leave p2 slow0-0 n1 n2 n1
 1
-2 0
+2 3
 2
 0
-7 5 10
+7 11 9
 0
 3 0 2
 0
@@ -1207,10 +1207,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n2 n2 n1
 1
-2 3
+2 1
 2
 0
-6 6 8
+6 8 11
 0
 3 0 2
 0
@@ -1218,10 +1218,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n3 n2 n1
 1
-2 2
+2 0
 2
 0
-6 6 11
+6 8 3
 0
 3 0 2
 0
@@ -1229,10 +1229,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n4 n2 n1
 1
-2 4
+2 2
 2
 0
-6 6 10
+6 8 9
 0
 3 0 2
 0
@@ -1240,10 +1240,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n0 n2 n1
 1
-2 1
+2 4
 2
 0
-6 6 5
+6 8 2
 0
 3 0 2
 0
@@ -1251,10 +1251,10 @@ end_operator
 begin_operator
 leave p1 slow0-0 n1 n2 n1
 1
-2 0
+2 3
 2
 0
-6 6 9
+6 8 6
 0
 3 0 2
 0
@@ -1262,10 +1262,10 @@ end_operator
 begin_operator
 board p2 fast0 n6 n0 n1
 1
-0 4
+0 1
 2
 0
-7 0 7
+7 2 1
 0
 5 0 1
 0
@@ -1273,10 +1273,10 @@ end_operator
 begin_operator
 board p2 fast0 n6 n1 n2
 1
-0 4
+0 1
 2
 0
-7 0 7
+7 2 1
 0
 5 1 2
 0
@@ -1284,10 +1284,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n6 n0 n1
 1
-1 1
+1 3
 2
 0
-7 0 11
+7 2 6
 0
 4 1 0
 0
@@ -1295,10 +1295,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n6 n1 n2
 1
-1 1
+1 3
 2
 0
-7 0 11
+7 2 6
 0
 4 0 2
 0
@@ -1306,10 +1306,10 @@ end_operator
 begin_operator
 board p2 fast0 n8 n0 n1
 1
-0 3
+0 2
 2
 0
-7 6 7
+7 10 1
 0
 5 0 1
 0
@@ -1317,10 +1317,10 @@ end_operator
 begin_operator
 board p2 fast0 n8 n1 n2
 1
-0 3
+0 2
 2
 0
-7 6 7
+7 10 1
 0
 5 1 2
 0
@@ -1328,10 +1328,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n8 n0 n1
 1
-1 0
+1 2
 2
 0
-7 6 11
+7 10 6
 0
 4 1 0
 0
@@ -1339,10 +1339,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n8 n1 n2
 1
-1 0
+1 2
 2
 0
-7 6 11
+7 10 6
 0
 4 0 2
 0
@@ -1350,10 +1350,10 @@ end_operator
 begin_operator
 board p0 fast0 n0 n0 n1
 1
-0 2
+0 0
 2
 0
-8 0 10
+8 2 1
 0
 5 0 1
 0
@@ -1361,10 +1361,10 @@ end_operator
 begin_operator
 board p0 fast0 n0 n1 n2
 1
-0 2
+0 0
 2
 0
-8 0 10
+8 2 1
 0
 5 1 2
 0
@@ -1372,10 +1372,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n0 n0 n1
 1
-2 1
+2 4
 2
 0
-8 0 7
+8 2 11
 0
 3 1 2
 0
@@ -1383,10 +1383,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n0 n1 n2
 1
-2 1
+2 4
 2
 0
-8 0 7
+8 2 11
 0
 3 2 0
 0
@@ -1394,10 +1394,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n2 n0 n1
 1
-2 3
+2 1
 2
 0
-8 9 7
+8 7 11
 0
 3 1 2
 0
@@ -1405,10 +1405,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n2 n1 n2
 1
-2 3
+2 1
 2
 0
-8 9 7
+8 7 11
 0
 3 2 0
 0
@@ -1416,10 +1416,10 @@ end_operator
 begin_operator
 board p0 fast0 n2 n0 n1
 1
-0 1
+0 4
 2
 0
-8 9 10
+8 7 1
 0
 5 0 1
 0
@@ -1427,10 +1427,10 @@ end_operator
 begin_operator
 board p0 fast0 n2 n1 n2
 1
-0 1
+0 4
 2
 0
-8 9 10
+8 7 1
 0
 5 1 2
 0
@@ -1438,10 +1438,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n4 n0 n1
 1
-1 3
+1 0
 2
 0
-8 4 5
+8 0 10
 0
 4 1 0
 0
@@ -1449,10 +1449,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n4 n1 n2
 1
-1 3
+1 0
 2
 0
-8 4 5
+8 0 10
 0
 4 0 2
 0
@@ -1460,10 +1460,10 @@ end_operator
 begin_operator
 board p0 fast0 n4 n0 n1
 1
-0 0
+0 3
 2
 0
-8 4 10
+8 0 1
 0
 5 0 1
 0
@@ -1471,10 +1471,10 @@ end_operator
 begin_operator
 board p0 fast0 n4 n1 n2
 1
-0 0
+0 3
 2
 0
-8 4 10
+8 0 1
 0
 5 1 2
 0
@@ -1482,10 +1482,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n4 n0 n1
 1
-2 4
+2 2
 2
 0
-8 4 7
+8 0 11
 0
 3 1 2
 0
@@ -1493,10 +1493,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n4 n1 n2
 1
-2 4
+2 2
 2
 0
-8 4 7
+8 0 11
 0
 3 2 0
 0
@@ -1504,10 +1504,10 @@ end_operator
 begin_operator
 board p0 fast0 n6 n0 n1
 1
-0 4
+0 1
 2
 0
-8 2 10
+8 3 1
 0
 5 0 1
 0
@@ -1515,10 +1515,10 @@ end_operator
 begin_operator
 board p0 fast0 n6 n1 n2
 1
-0 4
+0 1
 2
 0
-8 2 10
+8 3 1
 0
 5 1 2
 0
@@ -1526,10 +1526,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n6 n0 n1
 1
-1 1
+1 3
 2
 0
-8 2 5
+8 3 10
 0
 4 1 0
 0
@@ -1537,10 +1537,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n6 n1 n2
 1
-1 1
+1 3
 2
 0
-8 2 5
+8 3 10
 0
 4 0 2
 0
@@ -1548,10 +1548,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n2 n0 n1
 1
-2 3
+2 1
 2
 0
-6 8 6
+6 11 8
 0
 3 1 2
 0
@@ -1559,10 +1559,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n2 n1 n2
 1
-2 3
+2 1
 2
 0
-6 8 6
+6 11 8
 0
 3 2 0
 0
@@ -1570,10 +1570,10 @@ end_operator
 begin_operator
 board p1 fast0 n2 n0 n1
 1
-0 1
+0 4
 2
 0
-6 8 3
+6 11 10
 0
 5 0 1
 0
@@ -1581,10 +1581,10 @@ end_operator
 begin_operator
 board p1 fast0 n2 n1 n2
 1
-0 1
+0 4
 2
 0
-6 8 3
+6 11 10
 0
 5 1 2
 0
@@ -1592,10 +1592,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n4 n0 n1
 1
-1 3
+1 0
 2
 0
-6 10 4
+6 9 0
 0
 4 1 0
 0
@@ -1603,10 +1603,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n4 n1 n2
 1
-1 3
+1 0
 2
 0
-6 10 4
+6 9 0
 0
 4 0 2
 0
@@ -1614,10 +1614,10 @@ end_operator
 begin_operator
 board p1 fast0 n4 n0 n1
 1
-0 0
+0 3
 2
 0
-6 10 3
+6 9 10
 0
 5 0 1
 0
@@ -1625,10 +1625,10 @@ end_operator
 begin_operator
 board p1 fast0 n4 n1 n2
 1
-0 0
+0 3
 2
 0
-6 10 3
+6 9 10
 0
 5 1 2
 0
@@ -1636,10 +1636,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n4 n0 n1
 1
-2 4
+2 2
 2
 0
-6 10 6
+6 9 8
 0
 3 1 2
 0
@@ -1647,10 +1647,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n4 n1 n2
 1
-2 4
+2 2
 2
 0
-6 10 6
+6 9 8
 0
 3 2 0
 0
@@ -1658,10 +1658,10 @@ end_operator
 begin_operator
 board p1 fast0 n0 n0 n1
 1
-0 2
+0 0
 2
 0
-6 5 3
+6 2 10
 0
 5 0 1
 0
@@ -1669,10 +1669,10 @@ end_operator
 begin_operator
 board p1 fast0 n0 n1 n2
 1
-0 2
+0 0
 2
 0
-6 5 3
+6 2 10
 0
 5 1 2
 0
@@ -1680,10 +1680,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n0 n0 n1
 1
-2 1
+2 4
 2
 0
-6 5 6
+6 2 8
 0
 3 1 2
 0
@@ -1691,10 +1691,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n0 n1 n2
 1
-2 1
+2 4
 2
 0
-6 5 6
+6 2 8
 0
 3 2 0
 0
@@ -1702,10 +1702,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n1 n0 n1
 1
-2 0
+2 3
 2
 0
-6 9 6
+6 6 8
 0
 3 1 2
 0
@@ -1713,10 +1713,10 @@ end_operator
 begin_operator
 board p1 slow0-0 n1 n1 n2
 1
-2 0
+2 3
 2
 0
-6 9 6
+6 6 8
 0
 3 2 0
 0
@@ -1724,10 +1724,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n5 n0 n1
 1
-1 4
+1 1
 2
 0
-8 1 5
+8 6 10
 0
 4 1 0
 0
@@ -1735,10 +1735,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n5 n1 n2
 1
-1 4
+1 1
 2
 0
-8 1 5
+8 6 10
 0
 4 0 2
 0
@@ -1746,10 +1746,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n7 n0 n1
 1
-1 2
+1 4
 2
 0
-8 11 5
+8 8 10
 0
 4 1 0
 0
@@ -1757,10 +1757,10 @@ end_operator
 begin_operator
 board p0 slow1-0 n7 n1 n2
 1
-1 2
+1 4
 2
 0
-8 11 5
+8 8 10
 0
 4 0 2
 0
@@ -1768,10 +1768,10 @@ end_operator
 begin_operator
 board p2 fast0 n2 n2 n3
 1
-0 1
+0 4
 2
 0
-7 4 7
+7 0 1
 0
 5 2 3
 0
@@ -1779,10 +1779,10 @@ end_operator
 begin_operator
 board p0 fast0 n8 n2 n3
 1
-0 3
+0 2
 2
 0
-8 6 10
+8 9 1
 0
 5 2 3
 0
@@ -1790,10 +1790,10 @@ end_operator
 begin_operator
 board p2 fast0 n4 n2 n3
 1
-0 0
+0 3
 2
 0
-7 9 7
+7 8 1
 0
 5 2 3
 0
@@ -1801,10 +1801,10 @@ end_operator
 begin_operator
 board p2 fast0 n0 n2 n3
 1
-0 2
+0 0
 2
 0
-7 2 7
+7 3 1
 0
 5 2 3
 0
@@ -1812,10 +1812,10 @@ end_operator
 begin_operator
 board p2 fast0 n6 n2 n3
 1
-0 4
+0 1
 2
 0
-7 0 7
+7 2 1
 0
 5 2 3
 0
@@ -1823,10 +1823,10 @@ end_operator
 begin_operator
 board p2 fast0 n8 n2 n3
 1
-0 3
+0 2
 2
 0
-7 6 7
+7 10 1
 0
 5 2 3
 0
@@ -1834,10 +1834,10 @@ end_operator
 begin_operator
 board p0 fast0 n0 n2 n3
 1
-0 2
+0 0
 2
 0
-8 0 10
+8 2 1
 0
 5 2 3
 0
@@ -1845,10 +1845,10 @@ end_operator
 begin_operator
 board p0 fast0 n2 n2 n3
 1
-0 1
+0 4
 2
 0
-8 9 10
+8 7 1
 0
 5 2 3
 0
@@ -1856,10 +1856,10 @@ end_operator
 begin_operator
 board p0 fast0 n4 n2 n3
 1
-0 0
+0 3
 2
 0
-8 4 10
+8 0 1
 0
 5 2 3
 0
@@ -1867,10 +1867,10 @@ end_operator
 begin_operator
 board p0 fast0 n6 n2 n3
 1
-0 4
+0 1
 2
 0
-8 2 10
+8 3 1
 0
 5 2 3
 0
@@ -1878,10 +1878,10 @@ end_operator
 begin_operator
 board p1 fast0 n2 n2 n3
 1
-0 1
+0 4
 2
 0
-6 8 3
+6 11 10
 0
 5 2 3
 0
@@ -1889,10 +1889,10 @@ end_operator
 begin_operator
 board p1 fast0 n4 n2 n3
 1
-0 0
+0 3
 2
 0
-6 10 3
+6 9 10
 0
 5 2 3
 0
@@ -1900,10 +1900,10 @@ end_operator
 begin_operator
 board p1 fast0 n0 n2 n3
 1
-0 2
+0 0
 2
 0
-6 5 3
+6 2 10
 0
 5 2 3
 0
@@ -1911,10 +1911,10 @@ end_operator
 begin_operator
 leave p2 fast0 n0 n2 n1
 1
-0 2
+0 0
 2
 0
-7 7 2
+7 1 3
 0
 5 2 1
 0
@@ -1922,10 +1922,10 @@ end_operator
 begin_operator
 leave p2 fast0 n2 n2 n1
 1
-0 1
+0 4
 2
 0
-7 7 4
+7 1 0
 0
 5 2 1
 0
@@ -1933,10 +1933,10 @@ end_operator
 begin_operator
 leave p2 fast0 n4 n2 n1
 1
-0 0
+0 3
 2
 0
-7 7 9
+7 1 8
 0
 5 2 1
 0
@@ -1944,10 +1944,10 @@ end_operator
 begin_operator
 leave p2 fast0 n6 n2 n1
 1
-0 4
+0 1
 2
 0
-7 7 0
+7 1 2
 0
 5 2 1
 0
@@ -1955,10 +1955,10 @@ end_operator
 begin_operator
 leave p2 fast0 n8 n2 n1
 1
-0 3
+0 2
 2
 0
-7 7 6
+7 1 10
 0
 5 2 1
 0
@@ -1966,10 +1966,10 @@ end_operator
 begin_operator
 leave p0 fast0 n0 n2 n1
 1
-0 2
+0 0
 2
 0
-8 10 0
+8 1 2
 0
 5 2 1
 0
@@ -1977,10 +1977,10 @@ end_operator
 begin_operator
 leave p0 fast0 n2 n2 n1
 1
-0 1
+0 4
 2
 0
-8 10 9
+8 1 7
 0
 5 2 1
 0
@@ -1988,10 +1988,10 @@ end_operator
 begin_operator
 leave p0 fast0 n4 n2 n1
 1
-0 0
+0 3
 2
 0
-8 10 4
+8 1 0
 0
 5 2 1
 0
@@ -1999,10 +1999,10 @@ end_operator
 begin_operator
 leave p0 fast0 n6 n2 n1
 1
-0 4
+0 1
 2
 0
-8 10 2
+8 1 3
 0
 5 2 1
 0
@@ -2010,10 +2010,10 @@ end_operator
 begin_operator
 leave p0 fast0 n8 n2 n1
 1
-0 3
+0 2
 2
 0
-8 10 6
+8 1 9
 0
 5 2 1
 0
@@ -2021,10 +2021,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n4 n1 n0
 1
-1 3
+1 0
 2
 0
-7 11 9
+7 6 8
 0
 4 0 1
 0
@@ -2032,10 +2032,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n5 n1 n0
 1
-1 4
+1 1
 2
 0
-7 11 3
+7 6 5
 0
 4 0 1
 0
@@ -2043,10 +2043,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n6 n1 n0
 1
-1 1
+1 3
 2
 0
-7 11 0
+7 6 2
 0
 4 0 1
 0
@@ -2054,10 +2054,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n7 n1 n0
 1
-1 2
+1 4
 2
 0
-7 11 8
+7 6 4
 0
 4 0 1
 0
@@ -2065,10 +2065,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n8 n1 n0
 1
-1 0
+1 2
 2
 0
-7 11 6
+7 6 10
 0
 4 0 1
 0
@@ -2076,10 +2076,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n4 n2 n1
 1
-1 3
+1 0
 2
 0
-8 5 4
+8 10 0
 0
 4 2 0
 0
@@ -2087,10 +2087,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n5 n2 n1
 1
-1 4
+1 1
 2
 0
-8 5 1
+8 10 6
 0
 4 2 0
 0
@@ -2098,10 +2098,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n6 n2 n1
 1
-1 1
+1 3
 2
 0
-8 5 2
+8 10 3
 0
 4 2 0
 0
@@ -2109,10 +2109,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n7 n2 n1
 1
-1 2
+1 4
 2
 0
-8 5 11
+8 10 8
 0
 4 2 0
 0
@@ -2120,10 +2120,10 @@ end_operator
 begin_operator
 leave p0 slow1-0 n8 n2 n1
 1
-1 0
+1 2
 2
 0
-8 5 6
+8 10 9
 0
 4 2 0
 0
@@ -2131,10 +2131,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n4 n2 n1
 1
-1 3
+1 0
 2
 0
-7 11 9
+7 6 8
 0
 4 2 0
 0
@@ -2142,10 +2142,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n5 n2 n1
 1
-1 4
+1 1
 2
 0
-7 11 3
+7 6 5
 0
 4 2 0
 0
@@ -2153,10 +2153,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n6 n2 n1
 1
-1 1
+1 3
 2
 0
-7 11 0
+7 6 2
 0
 4 2 0
 0
@@ -2164,10 +2164,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n7 n2 n1
 1
-1 2
+1 4
 2
 0
-7 11 8
+7 6 4
 0
 4 2 0
 0
@@ -2175,10 +2175,10 @@ end_operator
 begin_operator
 leave p2 slow1-0 n8 n2 n1
 1
-1 0
+1 2
 2
 0
-7 11 6
+7 6 10
 0
 4 2 0
 0
@@ -2186,10 +2186,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n2 n1 n0
 1
-2 3
+2 1
 2
 0
-8 7 9
+8 11 7
 0
 3 2 1
 0
@@ -2197,10 +2197,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n3 n1 n0
 1
-2 2
+2 0
 2
 0
-8 7 3
+8 11 5
 0
 3 2 1
 0
@@ -2208,10 +2208,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n4 n1 n0
 1
-2 4
+2 2
 2
 0
-8 7 4
+8 11 0
 0
 3 2 1
 0
@@ -2219,10 +2219,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n0 n1 n0
 1
-2 1
+2 4
 2
 0
-8 7 0
+8 11 2
 0
 3 2 1
 0
@@ -2230,10 +2230,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n1 n1 n0
 1
-2 0
+2 3
 2
 0
-8 7 8
+8 11 4
 0
 3 2 1
 0
@@ -2241,10 +2241,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n2 n2 n1
 1
-2 3
+2 1
 2
 0
-8 7 9
+8 11 7
 0
 3 0 2
 0
@@ -2252,10 +2252,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n3 n2 n1
 1
-2 2
+2 0
 2
 0
-8 7 3
+8 11 5
 0
 3 0 2
 0
@@ -2263,10 +2263,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n4 n2 n1
 1
-2 4
+2 2
 2
 0
-8 7 4
+8 11 0
 0
 3 0 2
 0
@@ -2274,10 +2274,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n0 n2 n1
 1
-2 1
+2 4
 2
 0
-8 7 0
+8 11 2
 0
 3 0 2
 0
@@ -2285,10 +2285,10 @@ end_operator
 begin_operator
 leave p0 slow0-0 n1 n2 n1
 1
-2 0
+2 3
 2
 0
-8 7 8
+8 11 4
 0
 3 0 2
 0
@@ -2296,10 +2296,10 @@ end_operator
 begin_operator
 leave p1 fast0 n0 n1 n0
 1
-0 2
+0 0
 2
 0
-6 3 5
+6 10 2
 0
 5 1 0
 0
@@ -2307,10 +2307,10 @@ end_operator
 begin_operator
 leave p1 fast0 n2 n1 n0
 1
-0 1
+0 4
 2
 0
-6 3 8
+6 10 11
 0
 5 1 0
 0
@@ -2318,10 +2318,10 @@ end_operator
 begin_operator
 leave p1 fast0 n4 n1 n0
 1
-0 0
+0 3
 2
 0
-6 3 10
+6 10 9
 0
 5 1 0
 0
@@ -2329,10 +2329,10 @@ end_operator
 begin_operator
 leave p1 fast0 n6 n1 n0
 1
-0 4
+0 1
 2
 0
-6 3 0
+6 10 7
 0
 5 1 0
 0
@@ -2340,10 +2340,10 @@ end_operator
 begin_operator
 leave p1 fast0 n8 n1 n0
 1
-0 3
+0 2
 2
 0
-6 3 2
+6 10 4
 0
 5 1 0
 0
@@ -2351,10 +2351,10 @@ end_operator
 begin_operator
 leave p1 fast0 n0 n2 n1
 1
-0 2
+0 0
 2
 0
-6 3 5
+6 10 2
 0
 5 2 1
 0
@@ -2362,10 +2362,10 @@ end_operator
 begin_operator
 leave p1 fast0 n2 n2 n1
 1
-0 1
+0 4
 2
 0
-6 3 8
+6 10 11
 0
 5 2 1
 0
@@ -2373,10 +2373,10 @@ end_operator
 begin_operator
 leave p1 fast0 n4 n2 n1
 1
-0 0
+0 3
 2
 0
-6 3 10
+6 10 9
 0
 5 2 1
 0
@@ -2384,10 +2384,10 @@ end_operator
 begin_operator
 leave p1 fast0 n6 n2 n1
 1
-0 4
+0 1
 2
 0
-6 3 0
+6 10 7
 0
 5 2 1
 0
@@ -2395,10 +2395,10 @@ end_operator
 begin_operator
 leave p1 fast0 n8 n2 n1
 1
-0 3
+0 2
 2
 0
-6 3 2
+6 10 4
 0
 5 2 1
 0
@@ -2406,10 +2406,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n4 n1 n0
 1
-1 3
+1 0
 2
 0
-6 4 10
+6 0 9
 0
 4 0 1
 0
@@ -2417,10 +2417,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n5 n1 n0
 1
-1 4
+1 1
 2
 0
-6 4 1
+6 0 1
 0
 4 0 1
 0
@@ -2428,10 +2428,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n6 n1 n0
 1
-1 1
+1 3
 2
 0
-6 4 0
+6 0 7
 0
 4 0 1
 0
@@ -2439,10 +2439,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n7 n1 n0
 1
-1 2
+1 4
 2
 0
-6 4 7
+6 0 5
 0
 4 0 1
 0
@@ -2450,10 +2450,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n8 n1 n0
 1
-1 0
+1 2
 2
 0
-6 4 2
+6 0 4
 0
 4 0 1
 0
@@ -2461,10 +2461,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n4 n2 n1
 1
-1 3
+1 0
 2
 0
-6 4 10
+6 0 9
 0
 4 2 0
 0
@@ -2472,10 +2472,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n5 n2 n1
 1
-1 4
+1 1
 2
 0
-6 4 1
+6 0 1
 0
 4 2 0
 0
@@ -2483,10 +2483,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n6 n2 n1
 1
-1 1
+1 3
 2
 0
-6 4 0
+6 0 7
 0
 4 2 0
 0
@@ -2494,10 +2494,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n7 n2 n1
 1
-1 2
+1 4
 2
 0
-6 4 7
+6 0 5
 0
 4 2 0
 0
@@ -2505,10 +2505,10 @@ end_operator
 begin_operator
 leave p1 slow1-0 n8 n2 n1
 1
-1 0
+1 2
 2
 0
-6 4 2
+6 0 4
 0
 4 2 0
 0
@@ -2516,10 +2516,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n5 n0 n1
 1
-1 4
+1 1
 2
 0
-7 3 11
+7 5 6
 0
 4 1 0
 0
@@ -2527,10 +2527,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n5 n1 n2
 1
-1 4
+1 1
 2
 0
-7 3 11
+7 5 6
 0
 4 0 2
 0
@@ -2538,10 +2538,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n7 n0 n1
 1
-1 2
+1 4
 2
 0
-7 8 11
+7 4 6
 0
 4 1 0
 0
@@ -2549,10 +2549,10 @@ end_operator
 begin_operator
 board p2 slow1-0 n7 n1 n2
 1
-1 2
+1 4
 2
 0
-7 8 11
+7 4 6
 0
 4 0 2
 0
@@ -2560,10 +2560,10 @@ end_operator
 begin_operator
 leave p2 fast0 n0 n3 n2
 1
-0 2
+0 0
 2
 0
-7 7 2
+7 1 3
 0
 5 3 2
 0
@@ -2571,10 +2571,10 @@ end_operator
 begin_operator
 leave p2 fast0 n2 n3 n2
 1
-0 1
+0 4
 2
 0
-7 7 4
+7 1 0
 0
 5 3 2
 0
@@ -2582,10 +2582,10 @@ end_operator
 begin_operator
 leave p2 fast0 n4 n3 n2
 1
-0 0
+0 3
 2
 0
-7 7 9
+7 1 8
 0
 5 3 2
 0
@@ -2593,10 +2593,10 @@ end_operator
 begin_operator
 leave p2 fast0 n6 n3 n2
 1
-0 4
+0 1
 2
 0
-7 7 0
+7 1 2
 0
 5 3 2
 0
@@ -2604,10 +2604,10 @@ end_operator
 begin_operator
 leave p2 fast0 n8 n3 n2
 1
-0 3
+0 2
 2
 0
-7 7 6
+7 1 10
 0
 5 3 2
 0
@@ -2615,10 +2615,10 @@ end_operator
 begin_operator
 leave p0 fast0 n0 n3 n2
 1
-0 2
+0 0
 2
 0
-8 10 0
+8 1 2
 0
 5 3 2
 0
@@ -2626,10 +2626,10 @@ end_operator
 begin_operator
 leave p0 fast0 n2 n3 n2
 1
-0 1
+0 4
 2
 0
-8 10 9
+8 1 7
 0
 5 3 2
 0
@@ -2637,10 +2637,10 @@ end_operator
 begin_operator
 leave p0 fast0 n4 n3 n2
 1
-0 0
+0 3
 2
 0
-8 10 4
+8 1 0
 0
 5 3 2
 0
@@ -2648,10 +2648,10 @@ end_operator
 begin_operator
 leave p0 fast0 n6 n3 n2
 1
-0 4
+0 1
 2
 0
-8 10 2
+8 1 3
 0
 5 3 2
 0
@@ -2659,10 +2659,10 @@ end_operator
 begin_operator
 leave p0 fast0 n8 n3 n2
 1
-0 3
+0 2
 2
 0
-8 10 6
+8 1 9
 0
 5 3 2
 0
@@ -2670,10 +2670,10 @@ end_operator
 begin_operator
 leave p1 fast0 n0 n3 n2
 1
-0 2
+0 0
 2
 0
-6 3 5
+6 10 2
 0
 5 3 2
 0
@@ -2681,10 +2681,10 @@ end_operator
 begin_operator
 leave p1 fast0 n2 n3 n2
 1
-0 1
+0 4
 2
 0
-6 3 8
+6 10 11
 0
 5 3 2
 0
@@ -2692,10 +2692,10 @@ end_operator
 begin_operator
 leave p1 fast0 n4 n3 n2
 1
-0 0
+0 3
 2
 0
-6 3 10
+6 10 9
 0
 5 3 2
 0
@@ -2703,10 +2703,10 @@ end_operator
 begin_operator
 leave p1 fast0 n6 n3 n2
 1
-0 4
+0 1
 2
 0
-6 3 0
+6 10 7
 0
 5 3 2
 0
@@ -2714,10 +2714,10 @@ end_operator
 begin_operator
 leave p1 fast0 n8 n3 n2
 1
-0 3
+0 2
 2
 0
-6 3 2
+6 10 4
 0
 5 3 2
 0
@@ -2725,10 +2725,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n3 n0 n1
 1
-2 2
+2 0
 2
 0
-8 3 7
+8 5 11
 0
 3 1 2
 0
@@ -2736,10 +2736,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n3 n1 n2
 1
-2 2
+2 0
 2
 0
-8 3 7
+8 5 11
 0
 3 2 0
 0
@@ -2747,10 +2747,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n1 n0 n1
 1
-2 0
+2 3
 2
 0
-8 8 7
+8 4 11
 0
 3 1 2
 0
@@ -2758,10 +2758,10 @@ end_operator
 begin_operator
 board p0 slow0-0 n1 n1 n2
 1
-2 0
+2 3
 2
 0
-8 8 7
+8 4 11
 0
 3 2 0
 0
@@ -2769,10 +2769,10 @@ end_operator
 begin_operator
 board p1 fast0 n6 n0 n1
 1
-0 4
+0 1
 2
 0
-6 0 3
+6 7 10
 0
 5 0 1
 0
@@ -2780,10 +2780,10 @@ end_operator
 begin_operator
 board p1 fast0 n6 n1 n2
 1
-0 4
+0 1
 2
 0
-6 0 3
+6 7 10
 0
 5 1 2
 0
@@ -2791,10 +2791,10 @@ end_operator
 begin_operator
 board p1 fast0 n6 n2 n3
 1
-0 4
+0 1
 2
 0
-6 0 3
+6 7 10
 0
 5 2 3
 0
@@ -2802,10 +2802,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n6 n0 n1
 1
-1 1
+1 3
 2
 0
-6 0 4
+6 7 0
 0
 4 1 0
 0
@@ -2813,10 +2813,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n6 n1 n2
 1
-1 1
+1 3
 2
 0
-6 0 4
+6 7 0
 0
 4 0 2
 0
@@ -2824,10 +2824,10 @@ end_operator
 begin_operator
 board p1 fast0 n8 n0 n1
 1
-0 3
+0 2
 2
 0
-6 2 3
+6 4 10
 0
 5 0 1
 0
@@ -2835,10 +2835,10 @@ end_operator
 begin_operator
 board p1 fast0 n8 n1 n2
 1
-0 3
+0 2
 2
 0
-6 2 3
+6 4 10
 0
 5 1 2
 0
@@ -2846,10 +2846,10 @@ end_operator
 begin_operator
 board p1 fast0 n8 n2 n3
 1
-0 3
+0 2
 2
 0
-6 2 3
+6 4 10
 0
 5 2 3
 0
@@ -2857,10 +2857,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n8 n0 n1
 1
-1 0
+1 2
 2
 0
-6 2 4
+6 4 0
 0
 4 1 0
 0
@@ -2868,10 +2868,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n8 n1 n2
 1
-1 0
+1 2
 2
 0
-6 2 4
+6 4 0
 0
 4 0 2
 0
@@ -2879,10 +2879,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n5 n0 n1
 1
-1 4
+1 1
 2
 0
-6 1 4
+6 1 0
 0
 4 1 0
 0
@@ -2890,10 +2890,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n5 n1 n2
 1
-1 4
+1 1
 2
 0
-6 1 4
+6 1 0
 0
 4 0 2
 0
@@ -2901,10 +2901,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n7 n0 n1
 1
-1 2
+1 4
 2
 0
-6 7 4
+6 5 0
 0
 4 1 0
 0
@@ -2912,10 +2912,10 @@ end_operator
 begin_operator
 board p1 slow1-0 n7 n1 n2
 1
-1 2
+1 4
 2
 0
-6 7 4
+6 5 0
 0
 4 0 2
 0
@@ -2926,135 +2926,21 @@ switch 6
 check 0
 switch 1
 check 0
+switch 4
+check 0
+check 1
+223
+check 0
+check 1
+228
 check 0
 switch 4
 check 0
 check 1
-260
-check 1
-259
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 5
+224
 check 0
 check 1
-256
-check 1
-257
-check 1
-258
-check 0
-check 0
-check 0
-switch 1
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 4
-check 0
-check 1
-267
-check 1
-266
-check 0
-check 0
-check 0
-switch 1
-check 0
-switch 4
-check 0
-check 1
-265
-check 1
-264
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-check 0
-check 0
-check 0
-switch 5
-check 0
-check 1
-261
-check 1
-262
-check 1
-263
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-switch 5
-check 0
-check 0
-check 1
-215
-check 1
-220
-check 1
-249
-check 0
-switch 5
-check 0
-check 0
-check 1
-214
-check 1
-219
-check 1
-248
-check 0
-switch 5
-check 0
-check 0
-check 1
-213
-check 1
-218
-check 1
-247
-check 0
-switch 5
-check 0
-check 0
-check 1
-217
-check 1
-222
-check 1
-251
-check 0
-switch 5
-check 0
-check 0
-check 1
-216
-check 1
-221
-check 1
-250
-check 0
-check 0
-switch 1
+229
 check 0
 switch 4
 check 0
@@ -3080,24 +2966,26 @@ check 0
 check 1
 231
 check 0
-switch 4
 check 0
-check 1
-223
+switch 1
 check 0
-check 1
-228
 check 0
 switch 4
 check 0
 check 1
-224
-check 0
+267
 check 1
-229
+266
+check 0
+check 0
+check 0
+check 0
 check 0
 check 0
 switch 2
+check 0
+check 0
+check 0
 check 0
 check 0
 switch 3
@@ -3108,12 +2996,7 @@ check 1
 check 1
 158
 check 0
-check 0
-check 0
-check 0
 switch 0
-check 0
-check 0
 check 0
 switch 5
 check 0
@@ -3128,23 +3011,116 @@ check 0
 check 0
 check 0
 check 0
+check 0
+check 0
 switch 2
 check 0
 switch 3
 check 0
-check 1
-118
 check 0
 check 1
-88
+63
+check 1
+66
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 0
+check 0
+switch 4
+check 0
+check 1
+265
+check 1
+264
+check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+check 0
+switch 5
+check 0
+check 1
+261
+check 1
+262
+check 1
+263
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 4
+check 0
+check 1
+269
+check 1
+268
+check 0
+check 0
+check 0
+switch 2
+check 0
+check 0
+check 0
 check 0
 switch 3
 check 0
-check 1
-117
 check 0
 check 1
-87
+159
+check 1
+160
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 0
+check 0
+check 0
+switch 4
+check 0
+check 1
+260
+check 1
+259
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+switch 5
+check 0
+check 1
+256
+check 1
+257
+check 1
+258
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 2
 check 0
 switch 3
 check 0
@@ -3170,71 +3146,24 @@ check 0
 check 1
 86
 check 0
-check 0
-switch 1
-check 0
-check 0
-check 0
-switch 4
+switch 3
 check 0
 check 1
-269
+118
+check 0
 check 1
-268
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 2
-check 0
-check 0
-check 0
+88
 check 0
 switch 3
 check 0
+check 1
+117
 check 0
 check 1
-145
-check 1
-146
-check 0
-check 0
-switch 0
-check 0
-check 0
-switch 5
-check 0
-check 1
-147
-check 1
-148
-check 1
-175
-check 0
-check 0
-check 0
-check 0
+87
 check 0
 check 0
 switch 2
-check 0
-switch 3
-check 0
-check 0
-check 1
-159
-check 1
-160
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 2
-check 0
-check 0
 check 0
 check 0
 check 0
@@ -3246,10 +3175,9 @@ check 1
 check 1
 154
 check 0
+check 0
+check 0
 switch 1
-check 0
-check 0
-check 0
 check 0
 switch 4
 check 0
@@ -3260,7 +3188,13 @@ check 1
 check 0
 check 0
 check 0
+check 0
+check 0
+check 0
 switch 0
+check 0
+check 0
+check 0
 check 0
 switch 5
 check 0
@@ -3274,121 +3208,93 @@ check 0
 check 0
 check 0
 check 0
+switch 0
 check 0
+switch 5
+check 0
+check 0
+check 1
+213
+check 1
+218
+check 1
+247
+check 0
+switch 5
+check 0
+check 0
+check 1
+216
+check 1
+221
+check 1
+250
+check 0
+switch 5
+check 0
+check 0
+check 1
+217
+check 1
+222
+check 1
+251
+check 0
+switch 5
+check 0
+check 0
+check 1
+215
+check 1
+220
+check 1
+249
+check 0
+switch 5
+check 0
+check 0
+check 1
+214
+check 1
+219
+check 1
+248
 check 0
 check 0
 switch 2
-check 0
 check 0
 check 0
 switch 3
 check 0
 check 0
 check 1
-63
+145
 check 1
-66
+146
 check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 5
+check 0
+check 1
+147
+check 1
+148
+check 1
+175
 check 0
 check 0
 check 0
 switch 7
 check 0
-switch 1
-check 0
-check 0
-switch 4
-check 0
-check 1
-122
-check 1
-121
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 5
-check 0
-check 1
-119
-check 1
-120
-check 1
-169
-check 0
-check 0
-check 0
 switch 2
-check 0
-check 0
-check 0
-switch 3
-check 0
-check 0
-check 1
-89
-check 1
-90
-check 0
-check 0
-check 0
-check 0
-switch 2
-check 0
-check 0
-switch 3
-check 0
-check 0
-check 1
-98
-check 1
-99
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-check 0
-check 0
-switch 5
-check 0
-check 1
-96
-check 1
-97
-check 1
-168
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 1
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 4
-check 0
-check 1
-234
-check 1
-233
-check 0
-check 0
-check 0
-switch 2
-check 0
-check 0
 check 0
 check 0
 switch 3
@@ -3400,7 +3306,12 @@ check 1
 65
 check 0
 check 0
+check 0
+check 0
 switch 0
+check 0
+check 0
+check 0
 check 0
 check 0
 switch 5
@@ -3414,84 +3325,37 @@ check 1
 check 0
 check 0
 check 0
-check 0
-check 0
-check 0
-switch 2
-check 0
-switch 3
-check 0
-check 1
-113
-check 0
-check 1
-71
-check 0
-switch 3
-check 0
-check 1
-112
-check 0
-check 1
-70
-check 0
-switch 3
-check 0
-check 1
-110
-check 0
-check 1
-68
-check 0
-switch 3
-check 0
-check 1
-109
-check 0
-check 1
-67
-check 0
-switch 3
-check 0
-check 1
-111
-check 0
-check 1
-69
-check 0
-check 0
-switch 1
-check 0
-switch 4
-check 0
-check 1
-126
-check 1
-125
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
 switch 0
-check 0
-check 0
-check 0
 check 0
 switch 5
 check 0
+check 0
 check 1
-123
+74
 check 1
-124
+178
 check 1
-170
+237
+check 0
+switch 5
 check 0
 check 0
+check 1
+77
+check 1
+181
+check 1
+240
+check 0
+switch 5
 check 0
 check 0
-switch 0
+check 1
+78
+check 1
+182
+check 1
+241
 check 0
 switch 5
 check 0
@@ -3513,38 +3377,72 @@ check 1
 check 1
 238
 check 0
+check 0
+switch 1
+check 0
+check 0
+check 0
+check 0
+switch 4
+check 0
+check 1
+122
+check 1
+121
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
 switch 5
 check 0
+check 1
+119
+check 1
+120
+check 1
+169
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 2
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 3
+check 0
 check 0
 check 1
-74
+98
 check 1
-178
-check 1
-237
+99
+check 0
+switch 0
 check 0
 switch 5
 check 0
-check 0
 check 1
-78
+96
 check 1
-182
+97
 check 1
-241
-check 0
-switch 5
+168
 check 0
 check 0
-check 1
-77
-check 1
-181
-check 1
-240
+check 0
+check 0
+check 0
 check 0
 check 0
 switch 1
+check 0
+check 0
 check 0
 check 0
 check 0
@@ -3557,62 +3455,15 @@ check 1
 check 0
 check 0
 check 0
-check 0
-check 0
-switch 2
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 3
-check 0
-check 0
-check 1
-94
-check 1
-95
-check 0
 switch 1
-check 0
-check 0
 check 0
 check 0
 switch 4
 check 0
 check 1
-103
+234
 check 1
-91
-check 0
-check 0
-check 0
-switch 0
-check 0
-switch 5
-check 0
-check 1
-92
-check 1
-93
-check 1
-167
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 2
-check 0
-switch 3
-check 0
-check 0
-check 1
-100
-check 1
-101
+233
 check 0
 check 0
 check 0
@@ -3620,6 +3471,22 @@ check 0
 check 0
 check 0
 switch 1
+check 0
+switch 4
+check 0
+check 1
+188
+check 0
+check 1
+198
+check 0
+switch 4
+check 0
+check 1
+189
+check 0
+check 1
+199
 check 0
 switch 4
 check 0
@@ -3645,21 +3512,154 @@ check 0
 check 1
 201
 check 0
+check 0
+switch 2
+check 0
+switch 3
+check 0
+check 0
+check 1
+89
+check 1
+90
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 2
+check 0
+check 0
+check 0
+switch 3
+check 0
+check 0
+check 1
+94
+check 1
+95
+check 0
+check 0
+check 0
+switch 1
+check 0
 switch 4
 check 0
 check 1
-188
+103
+check 1
+91
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+check 0
+check 0
+switch 5
 check 0
 check 1
-198
+92
+check 1
+93
+check 1
+167
+check 0
+check 0
+check 0
+check 0
+switch 2
+check 0
+check 0
+check 0
+check 0
+switch 3
+check 0
+check 0
+check 1
+100
+check 1
+101
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 0
 check 0
 switch 4
 check 0
 check 1
-189
+126
+check 1
+125
+check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+check 0
+switch 5
 check 0
 check 1
-199
+123
+check 1
+124
+check 1
+170
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 2
+check 0
+switch 3
+check 0
+check 1
+110
+check 0
+check 1
+68
+check 0
+switch 3
+check 0
+check 1
+109
+check 0
+check 1
+67
+check 0
+switch 3
+check 0
+check 1
+111
+check 0
+check 1
+69
+check 0
+switch 3
+check 0
+check 1
+113
+check 0
+check 1
+71
+check 0
+switch 3
+check 0
+check 1
+112
+check 0
+check 1
+70
 check 0
 check 0
 switch 8
@@ -3667,6 +3667,107 @@ check 0
 switch 2
 check 0
 check 0
+check 0
+switch 3
+check 0
+check 0
+check 1
+139
+check 1
+140
+check 0
+check 0
+check 0
+switch 1
+check 0
+switch 4
+check 0
+check 1
+136
+check 1
+135
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+check 0
+check 0
+switch 5
+check 0
+check 1
+137
+check 1
+138
+check 1
+173
+check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+switch 5
+check 0
+check 0
+check 1
+79
+check 1
+183
+check 1
+242
+check 0
+switch 5
+check 0
+check 0
+check 1
+82
+check 1
+186
+check 1
+245
+check 0
+switch 5
+check 0
+check 0
+check 1
+83
+check 1
+187
+check 1
+246
+check 0
+switch 5
+check 0
+check 0
+check 1
+81
+check 1
+185
+check 1
+244
+check 0
+switch 5
+check 0
+check 0
+check 1
+80
+check 1
+184
+check 1
+243
+check 0
+check 0
+switch 2
+check 0
+check 0
+check 0
+check 0
+check 0
 switch 3
 check 0
 check 0
@@ -3675,12 +3776,7 @@ check 1
 check 1
 130
 check 0
-check 0
-check 0
-check 0
 switch 0
-check 0
-check 0
 check 0
 switch 5
 check 0
@@ -3695,22 +3791,11 @@ check 0
 check 0
 check 0
 check 0
-switch 1
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 4
-check 0
-check 1
-162
-check 1
-161
-check 0
 check 0
 check 0
 switch 1
+check 0
+check 0
 check 0
 check 0
 switch 4
@@ -3722,12 +3807,7 @@ check 1
 check 0
 check 0
 check 0
-check 0
-check 0
 switch 0
-check 0
-check 0
-check 0
 check 0
 check 0
 switch 5
@@ -3741,9 +3821,25 @@ check 1
 check 0
 check 0
 check 0
+check 0
+check 0
+check 0
 switch 2
 check 0
 check 0
+check 0
+check 0
+switch 3
+check 0
+check 0
+check 1
+254
+check 1
+255
+check 0
+check 0
+check 0
+switch 2
 check 0
 switch 3
 check 0
@@ -3756,21 +3852,56 @@ check 0
 check 0
 check 0
 check 0
+check 0
+check 0
+switch 1
+check 0
+check 0
+switch 4
+check 0
+check 1
+162
+check 1
+161
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
 switch 2
-check 0
-check 0
-check 0
 check 0
 check 0
 switch 3
 check 0
 check 0
 check 1
-139
+131
 check 1
-140
+132
+check 0
+check 0
+check 0
+check 0
+switch 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 5
+check 0
+check 1
+133
+check 1
+134
+check 1
+172
+check 0
+check 0
 check 0
 switch 1
+check 0
 check 0
 check 0
 check 0
@@ -3778,30 +3909,60 @@ check 0
 switch 4
 check 0
 check 1
-136
+164
 check 1
-135
+163
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 0
+check 0
+switch 4
+check 0
+check 1
+102
+check 1
+64
+check 0
 check 0
 check 0
 check 0
 switch 0
 check 0
+check 0
+check 0
 switch 5
 check 0
 check 1
-137
+62
 check 1
-138
+73
 check 1
-173
-check 0
-check 0
+166
 check 0
 check 0
 check 0
 check 0
 check 0
 switch 1
+check 0
+switch 4
+check 0
+check 1
+104
+check 0
+check 1
+193
+check 0
+switch 4
+check 0
+check 1
+105
+check 0
+check 1
+194
 check 0
 switch 4
 check 0
@@ -3827,71 +3988,8 @@ check 0
 check 1
 196
 check 0
-switch 4
-check 0
-check 1
-104
-check 0
-check 1
-193
-check 0
-switch 4
-check 0
-check 1
-105
-check 0
-check 1
-194
-check 0
-check 0
-switch 1
-check 0
-switch 4
-check 0
-check 1
-102
-check 1
-64
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-check 0
-check 0
-check 0
-switch 5
-check 0
-check 1
-62
-check 1
-73
-check 1
-166
-check 0
-check 0
-check 0
 check 0
 switch 2
-check 0
-switch 3
-check 0
-check 1
-212
-check 0
-check 1
-207
-check 0
-switch 3
-check 0
-check 1
-211
-check 0
-check 1
-206
 check 0
 switch 3
 check 0
@@ -3917,133 +4015,25 @@ check 0
 check 1
 205
 check 0
+switch 3
 check 0
-switch 2
+check 1
+212
+check 0
+check 1
+207
 check 0
 switch 3
 check 0
+check 1
+211
 check 0
 check 1
-254
-check 1
-255
-check 0
-check 0
-check 0
-check 0
+206
 check 0
 check 0
 switch 2
 check 0
-check 0
-check 0
-check 0
-switch 3
-check 0
-check 0
-check 1
-131
-check 1
-132
-check 0
-check 0
-switch 0
-check 0
-check 0
-switch 5
-check 0
-check 1
-133
-check 1
-134
-check 1
-172
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 0
-check 0
-switch 5
-check 0
-check 0
-check 1
-81
-check 1
-185
-check 1
-244
-check 0
-switch 5
-check 0
-check 0
-check 1
-80
-check 1
-184
-check 1
-243
-check 0
-switch 5
-check 0
-check 0
-check 1
-79
-check 1
-183
-check 1
-242
-check 0
-switch 5
-check 0
-check 0
-check 1
-83
-check 1
-187
-check 1
-246
-check 0
-switch 5
-check 0
-check 0
-check 1
-82
-check 1
-186
-check 1
-245
-check 0
-check 0
-switch 1
-check 0
-check 0
-check 0
-switch 4
-check 0
-check 1
-164
-check 1
-163
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 2
-check 0
-check 4
-41
-42
-43
-44
-check 4
-37
-38
-39
-40
 check 4
 29
 30
@@ -4059,8 +4049,28 @@ check 4
 34
 35
 36
+check 4
+41
+42
+43
+44
+check 4
+37
+38
+39
+40
 switch 1
 check 0
+check 4
+8
+9
+10
+11
+check 4
+45
+46
+47
+48
 check 4
 57
 58
@@ -4076,18 +4086,23 @@ check 4
 54
 55
 56
-check 4
-8
-9
-10
-11
-check 4
-45
-46
-47
-48
 switch 0
 check 0
+check 4
+0
+1
+2
+3
+check 4
+21
+22
+23
+24
+check 4
+25
+26
+27
+28
 check 4
 17
 18
@@ -4098,222 +4113,207 @@ check 4
 14
 15
 16
-check 4
-0
-1
-2
-3
-check 4
-25
-26
-27
-28
-check 4
-21
-22
-23
-24
 check 0
 end_SG
 begin_DTG
 4
 1
-20
+2
 0
 2
-19
+3
 0
 3
+1
+0
+4
+0
+0
+4
+0
+22
+0
+2
+21
+0
+3
+24
+0
+4
+23
+0
+4
+0
+25
+0
+1
+28
+0
+3
+27
+0
+4
+26
+0
+4
+0
+19
+0
+1
+17
+0
+2
 18
 0
 4
-17
+20
 0
 4
 0
-13
-0
-2
 16
 0
-3
-15
-0
-4
+1
 14
 0
-4
-0
-1
-0
-1
-0
+2
+15
 0
 3
-3
-0
-4
-2
-0
-4
-0
-27
-0
-1
-26
-0
-2
-25
-0
-4
-28
-0
-4
-0
-24
-0
-1
-23
-0
-2
-22
-0
-3
-21
+13
 0
 end_DTG
 begin_DTG
 4
 1
-59
+8
 0
 2
-60
-0
-3
-57
-0
-4
-58
-0
-4
-0
-50
-0
-2
-49
-0
-3
-51
-0
-4
-52
-0
-4
-0
-53
-0
-1
-56
-0
-3
-54
-0
-4
-55
-0
-4
-0
 11
 0
-1
+3
 9
 0
-2
+4
 10
 0
 4
-8
+0
+48
+0
+2
+47
+0
+3
+45
+0
+4
+46
 0
 4
 0
-47
+57
 0
 1
-45
-0
-2
-46
+58
 0
 3
-48
+59
+0
+4
+60
+0
+4
+0
+51
+0
+1
+52
+0
+2
+50
+0
+4
+49
+0
+4
+0
+54
+0
+1
+55
+0
+2
+53
+0
+3
+56
 0
 end_DTG
 begin_DTG
 4
 1
-44
+32
 0
 2
-42
+29
 0
 3
-41
+31
 0
 4
+30
+0
+4
+0
+4
+0
+2
+5
+0
+3
+7
+0
+4
+6
+0
+4
+0
+36
+0
+1
+35
+0
+3
+34
+0
+4
+33
+0
+4
+0
+42
+0
+1
+41
+0
+2
 43
 0
 4
+44
 0
-37
+4
 0
-2
 39
 0
-3
+1
 38
 0
-4
+2
 40
 0
-4
-0
-31
-0
-1
-30
-0
 3
-32
-0
-4
-29
-0
-4
-0
-7
-0
-1
-6
-0
-2
-4
-0
-4
-5
-0
-4
-0
-34
-0
-1
-33
-0
-2
-36
-0
-3
-35
+37
 0
 end_DTG
 begin_DTG
@@ -4321,2158 +4321,2158 @@ begin_DTG
 2
 109
 2
-7 5
-2 3
+7 11
+2 1
 2
 110
 2
-7 5
-2 2
+7 11
+2 0
 2
 111
 2
-7 5
-2 4
+7 11
+2 2
 2
 112
 2
-7 5
-2 1
+7 11
+2 4
 2
 113
 2
-7 5
-2 0
+7 11
+2 3
 2
 114
 2
-6 6
-2 3
+6 8
+2 1
 2
 115
 2
-6 6
-2 2
+6 8
+2 0
 2
 116
 2
-6 6
-2 4
+6 8
+2 2
 2
 117
 2
-6 6
-2 1
+6 8
+2 4
 2
 118
-2
-6 6
-2 0
-2
-208
-2
-8 7
-2 3
-2
-209
-2
-8 7
-2 2
-2
-210
-2
-8 7
-2 4
-2
-211
-2
-8 7
-2 1
-2
-212
-2
-8 7
-2 0
-15
-2
-12
-2
-7 4
-2 3
-2
-63
-2
-6 11
-2 2
-2
-89
-2
-7 1
-2 2
-2
-94
-2
-7 9
-2 4
-2
-98
-2
-7 2
-2 1
-2
-100
-2
-7 10
-2 0
-2
-129
-2
-8 0
-2 1
-2
-131
-2
-8 9
-2 3
-2
-139
-2
-8 4
-2 4
-2
-145
 2
 6 8
 2 3
 2
+208
+2
+8 11
+2 1
+2
+209
+2
+8 11
+2 0
+2
+210
+2
+8 11
+2 2
+2
+211
+2
+8 11
+2 4
+2
+212
+2
+8 11
+2 3
+15
+2
+12
+2
+7 0
+2 1
+2
+63
+2
+6 3
+2 0
+2
+89
+2
+7 7
+2 0
+2
+94
+2
+7 8
+2 2
+2
+98
+2
+7 3
+2 4
+2
+100
+2
+7 9
+2 3
+2
+129
+2
+8 2
+2 4
+2
+131
+2
+8 7
+2 1
+2
+139
+2
+8 0
+2 2
+2
+145
+2
+6 11
+2 1
+2
 153
 2
-6 10
-2 4
+6 9
+2 2
 2
 157
 2
-6 5
-2 1
+6 2
+2 4
 2
 159
 2
-6 9
-2 0
+6 6
+2 3
 2
 252
 2
-8 3
-2 2
+8 5
+2 0
 2
 254
 2
-8 8
-2 0
+8 4
+2 3
 30
 0
 101
 2
-7 10
-2 0
+7 9
+2 3
 0
 255
 2
-8 8
-2 0
+8 4
+2 3
 0
 253
 2
-8 3
-2 2
+8 5
+2 0
 0
 160
 2
-6 9
-2 0
+6 6
+2 3
 0
 158
 2
-6 5
-2 1
+6 2
+2 4
 0
 154
 2
-6 10
-2 4
+6 9
+2 2
 0
 146
 2
-6 8
-2 3
+6 11
+2 1
 0
 140
 2
-8 4
-2 4
+8 0
+2 2
 0
 132
 2
-8 9
-2 3
+8 7
+2 1
 0
 130
 2
-8 0
-2 1
+8 2
+2 4
 0
 65
 2
-7 4
-2 3
+7 0
+2 1
 0
 99
 2
-7 2
-2 1
+7 3
+2 4
 0
 95
 2
-7 9
-2 4
+7 8
+2 2
 0
 66
 2
-6 11
-2 2
+6 3
+2 0
 0
 90
 2
-7 1
-2 2
+7 7
+2 0
 1
 69
 2
-7 5
-2 4
+7 11
+2 2
 1
 67
 2
-7 5
-2 3
+7 11
+2 1
 1
 207
 2
-8 7
-2 0
+8 11
+2 3
 1
 206
 2
-8 7
-2 1
+8 11
+2 4
 1
 205
 2
-8 7
-2 4
+8 11
+2 2
 1
 204
 2
-8 7
-2 2
+8 11
+2 0
 1
 203
 2
-8 7
-2 3
+8 11
+2 1
 1
 68
 2
-7 5
-2 2
+7 11
+2 0
 1
 70
 2
-7 5
-2 1
+7 11
+2 4
 1
 71
 2
-7 5
-2 0
+7 11
+2 3
 1
 84
 2
-6 6
-2 3
+6 8
+2 1
 1
 85
 2
-6 6
-2 2
+6 8
+2 0
 1
 86
 2
-6 6
-2 4
+6 8
+2 2
 1
 87
 2
-6 6
-2 1
+6 8
+2 4
 1
 88
 2
-6 6
-2 0
+6 8
+2 3
 end_DTG
 begin_DTG
 30
 1
 225
 2
-6 4
-1 1
+6 0
+1 3
 1
 104
 2
-8 5
-1 3
+8 10
+1 0
 1
 105
 2
-8 5
-1 4
+8 10
+1 1
 1
 106
 2
-8 5
-1 1
+8 10
+1 3
 1
 107
 2
-8 5
-1 2
+8 10
+1 4
 1
 108
 2
-8 5
-1 0
+8 10
+1 2
 1
 224
 2
-6 4
-1 4
+6 0
+1 1
 1
 223
 2
-6 4
-1 3
+6 0
+1 0
 1
 192
 2
-7 11
-1 0
+7 6
+1 2
 1
 191
 2
-7 11
-1 2
+7 6
+1 4
 1
 190
 2
-7 11
-1 1
+7 6
+1 3
 1
 227
 2
-6 4
-1 0
+6 0
+1 2
 1
 226
 2
-6 4
-1 2
+6 0
+1 4
 1
 188
 2
-7 11
-1 3
+7 6
+1 0
 1
 189
 2
-7 11
-1 4
+7 6
+1 1
 2
 234
 2
-7 3
-1 4
+7 5
+1 1
 2
 269
 2
-6 7
-1 2
+6 5
+1 4
 2
 236
 2
-7 8
-1 2
+7 4
+1 4
 2
 260
 2
-6 0
-1 1
+6 7
+1 3
 2
 265
 2
-6 2
-1 0
+6 4
+1 2
 2
 267
 2
 6 1
-1 4
+1 1
 2
 102
 2
-8 6
-1 0
+8 9
+1 2
 2
 164
 2
-8 11
-1 2
+8 8
+1 4
 2
 162
 2
-8 1
-1 4
+8 6
+1 1
 2
 150
 2
-6 10
-1 3
+6 9
+1 0
 2
 144
 2
-8 2
-1 1
+8 3
+1 3
 2
 136
 2
-8 4
-1 3
+8 0
+1 0
 2
 126
 2
-7 6
-1 0
+7 10
+1 2
 2
 122
 2
-7 0
-1 1
+7 2
+1 3
 2
 103
 2
-7 9
-1 3
+7 8
+1 0
 15
 0
 64
 2
-8 6
-1 0
+8 9
+1 2
 0
 91
 2
-7 9
-1 3
+7 8
+1 0
 0
 121
 2
-7 0
-1 1
+7 2
+1 3
 0
 125
 2
-7 6
-1 0
+7 10
+1 2
 0
 135
 2
-8 4
-1 3
+8 0
+1 0
 0
 143
 2
-8 2
-1 1
+8 3
+1 3
 0
 149
 2
-6 10
-1 3
+6 9
+1 0
 0
 161
 2
-8 1
-1 4
+8 6
+1 1
 0
 163
 2
-8 11
-1 2
+8 8
+1 4
 0
 233
 2
-7 3
-1 4
+7 5
+1 1
 0
 235
 2
-7 8
-1 2
+7 4
+1 4
 0
 259
 2
-6 0
-1 1
+6 7
+1 3
 0
 264
 2
-6 2
-1 0
+6 4
+1 2
 0
 266
 2
 6 1
-1 4
+1 1
 0
 268
 2
-6 7
-1 2
+6 5
+1 4
 15
 0
 193
 2
-8 5
-1 3
+8 10
+1 0
 0
 194
 2
-8 5
-1 4
+8 10
+1 1
 0
 195
 2
-8 5
-1 1
+8 10
+1 3
 0
 196
 2
-8 5
-1 2
+8 10
+1 4
 0
 197
 2
-8 5
-1 0
+8 10
+1 2
 0
 198
 2
-7 11
-1 3
+7 6
+1 0
 0
 199
 2
-7 11
-1 4
+7 6
+1 1
 0
 200
 2
-7 11
-1 1
+7 6
+1 3
 0
 201
 2
-7 11
-1 2
+7 6
+1 4
 0
 202
 2
-7 11
-1 0
+7 6
+1 2
 0
 228
 2
-6 4
-1 3
+6 0
+1 0
 0
 229
 2
-6 4
-1 4
+6 0
+1 1
 0
 230
 2
-6 4
-1 1
+6 0
+1 3
 0
 231
 2
-6 4
-1 2
+6 0
+1 4
 0
 232
 2
-6 4
-1 0
+6 0
+1 2
 end_DTG
 begin_DTG
 15
 1
 61
 2
-7 4
-0 1
-1
-62
-2
-8 6
-0 3
-1
-92
-2
-7 9
-0 0
-1
-96
-2
-7 2
-0 2
-1
-119
-2
 7 0
 0 4
 1
+62
+2
+8 9
+0 2
+1
+92
+2
+7 8
+0 3
+1
+96
+2
+7 3
+0 0
+1
+119
+2
+7 2
+0 1
+1
 123
 2
-7 6
-0 3
+7 10
+0 2
 1
 127
 2
-8 0
-0 2
+8 2
+0 0
 1
 133
 2
-8 9
-0 1
+8 7
+0 4
 1
 137
 2
-8 4
-0 0
+8 0
+0 3
 1
 141
 2
-8 2
-0 4
+8 3
+0 1
 1
 147
 2
-6 8
-0 1
+6 11
+0 4
 1
 151
 2
-6 10
-0 0
+6 9
+0 3
 1
 155
 2
-6 5
-0 2
+6 2
+0 0
 1
 256
 2
-6 0
-0 4
+6 7
+0 1
 1
 261
 2
-6 2
-0 3
+6 4
+0 2
 30
 0
 81
 2
-8 10
-0 0
+8 1
+0 3
 0
 213
 2
-6 3
-0 2
+6 10
+0 0
 0
 214
 2
-6 3
-0 1
+6 10
+0 4
 0
 215
 2
-6 3
-0 0
+6 10
+0 3
 0
 216
 2
-6 3
-0 4
+6 10
+0 1
 0
 217
 2
-6 3
-0 3
+6 10
+0 2
 0
 83
 2
-8 10
-0 3
+8 1
+0 2
 0
 82
 2
-8 10
-0 4
+8 1
+0 1
 0
 80
 2
-8 10
-0 1
+8 1
+0 4
 0
 79
 2
-8 10
-0 2
+8 1
+0 0
 0
 78
 2
-7 7
-0 3
+7 1
+0 2
 0
 77
 2
-7 7
-0 4
+7 1
+0 1
 0
 76
 2
-7 7
-0 0
+7 1
+0 3
 0
 75
 2
-7 7
-0 1
+7 1
+0 4
 0
 74
 2
-7 7
-0 2
+7 1
+0 0
 2
 152
 2
-6 10
-0 0
+6 9
+0 3
 2
 156
 2
-6 5
-0 2
+6 2
+0 0
 2
 124
 2
-7 6
-0 3
+7 10
+0 2
 2
 257
 2
-6 0
-0 4
+6 7
+0 1
 2
 262
 2
-6 2
-0 3
+6 4
+0 2
 2
 148
 2
-6 8
-0 1
+6 11
+0 4
 2
 142
 2
-8 2
-0 4
+8 3
+0 1
 2
 138
 2
-8 4
-0 0
+8 0
+0 3
 2
 134
 2
-8 9
-0 1
+8 7
+0 4
 2
 128
 2
-8 0
-0 2
+8 2
+0 0
 2
 72
-2
-7 4
-0 1
-2
-120
 2
 7 0
 0 4
 2
-97
+120
 2
 7 2
-0 2
+0 1
+2
+97
+2
+7 3
+0 0
 2
 93
 2
-7 9
-0 0
+7 8
+0 3
 2
 73
 2
-8 6
-0 3
+8 9
+0 2
 30
 1
 186
 2
-8 10
-0 4
+8 1
+0 1
 1
 182
 2
-7 7
-0 3
+7 1
+0 2
 1
 181
 2
-7 7
-0 4
+7 1
+0 1
 1
 180
 2
-7 7
-0 0
+7 1
+0 3
 1
 179
 2
-7 7
-0 1
+7 1
+0 4
 1
 178
 2
-7 7
-0 2
+7 1
+0 0
 1
 183
 2
-8 10
-0 2
+8 1
+0 0
 1
 184
 2
-8 10
-0 1
+8 1
+0 4
 1
 185
 2
-8 10
-0 0
+8 1
+0 3
 1
 187
 2
-8 10
-0 3
+8 1
+0 2
 1
 218
 2
-6 3
-0 2
+6 10
+0 0
 1
 219
 2
-6 3
-0 1
+6 10
+0 4
 1
 220
 2
-6 3
-0 0
+6 10
+0 3
 1
 221
 2
-6 3
-0 4
+6 10
+0 1
 1
 222
 2
-6 3
-0 3
+6 10
+0 2
 3
 263
 2
-6 2
-0 3
+6 4
+0 2
 3
 258
 2
-6 0
-0 4
+6 7
+0 1
 3
 165
-2
-7 4
-0 1
-3
-177
-2
-6 5
-0 2
-3
-176
-2
-6 10
-0 0
-3
-175
-2
-6 8
-0 1
-3
-174
-2
-8 2
-0 4
-3
-173
-2
-8 4
-0 0
-3
-172
-2
-8 9
-0 1
-3
-171
-2
-8 0
-0 2
-3
-170
-2
-7 6
-0 3
-3
-169
 2
 7 0
 0 4
 3
-168
+177
+2
+6 2
+0 0
+3
+176
+2
+6 9
+0 3
+3
+175
+2
+6 11
+0 4
+3
+174
+2
+8 3
+0 1
+3
+173
+2
+8 0
+0 3
+3
+172
+2
+8 7
+0 4
+3
+171
+2
+8 2
+0 0
+3
+170
+2
+7 10
+0 2
+3
+169
 2
 7 2
-0 2
+0 1
+3
+168
+2
+7 3
+0 0
 3
 167
 2
-7 9
-0 0
+7 8
+0 3
 3
 166
 2
-8 6
-0 3
+8 9
+0 2
 15
 2
 237
 2
-7 7
-0 2
+7 1
+0 0
 2
 238
 2
-7 7
-0 1
+7 1
+0 4
 2
 239
 2
-7 7
-0 0
+7 1
+0 3
 2
 240
 2
-7 7
-0 4
+7 1
+0 1
 2
 241
 2
-7 7
-0 3
+7 1
+0 2
 2
 242
 2
-8 10
-0 2
+8 1
+0 0
 2
 243
 2
-8 10
-0 1
+8 1
+0 4
 2
 244
 2
-8 10
-0 0
+8 1
+0 3
 2
 245
 2
-8 10
-0 4
+8 1
+0 1
 2
 246
 2
-8 10
-0 3
+8 1
+0 2
 2
 247
 2
-6 3
-0 2
+6 10
+0 0
 2
 248
 2
-6 3
-0 1
+6 10
+0 4
 2
 249
 2
-6 3
-0 0
+6 10
+0 3
 2
 250
 2
-6 3
-0 4
+6 10
+0 1
 2
 251
 2
-6 3
-0 3
+6 10
+0 2
 end_DTG
 begin_DTG
-5
-3
-256
-2
-0 4
-5 0
-3
-257
-2
-0 4
-5 1
-3
-258
-2
-0 4
-5 2
-4
-259
-2
-1 1
-4 1
-4
-260
-2
-1 1
-4 0
-2
-4
-266
-2
-1 4
-4 1
-4
-267
-2
-1 4
-4 0
-5
-3
-261
-2
-0 3
-5 0
-3
-262
-2
-0 3
-5 1
-3
-263
-2
-0 3
-5 2
-4
-264
-2
-1 0
-4 1
-4
-265
-2
-1 0
-4 0
-15
-0
-216
-2
-0 4
-5 1
-0
-221
-2
-0 4
-5 2
-0
-250
-2
-0 4
-5 3
-2
-217
-2
-0 3
-5 1
-2
-222
-2
-0 3
-5 2
-2
-251
-2
-0 3
-5 3
-5
-213
-2
-0 2
-5 1
-5
-218
-2
-0 2
-5 2
-5
-247
-2
-0 2
-5 3
-8
-214
-2
-0 1
-5 1
-8
-219
-2
-0 1
-5 2
-8
-248
-2
-0 1
-5 3
 10
-215
-2
-0 0
-5 1
-10
-220
-2
-0 0
-5 2
-10
-249
-2
-0 0
-5 3
-10
-0
-225
-2
-1 1
-4 0
-0
-230
-2
-1 1
-4 2
 1
 224
 2
-1 4
+1 1
 4 0
 1
 229
 2
-1 4
+1 1
 4 2
-2
+4
 227
 2
-1 0
+1 2
 4 0
-2
+4
 232
 2
-1 0
+1 2
 4 2
-7
+5
 226
 2
-1 2
+1 4
 4 0
-7
+5
 231
 2
-1 2
+1 4
 4 2
-10
+7
+225
+2
+1 3
+4 0
+7
+230
+2
+1 3
+4 2
+9
 223
 2
-1 3
+1 0
 4 0
-10
+9
 228
 2
-1 3
+1 0
 4 2
+2
+0
+266
+2
+1 1
+4 1
+0
+267
+2
+1 1
+4 0
 5
-3
-155
-2
-0 2
-5 0
-3
-156
-2
-0 2
-5 1
-3
-177
-2
-0 2
-5 2
-6
+8
 157
 2
-2 1
+2 4
 3 1
-6
+8
 158
 2
-2 1
-3 2
-10
-5
-87
-2
-2 1
-3 2
-5
-117
-2
-2 1
-3 0
-8
-84
-2
-2 3
-3 2
-8
-114
-2
-2 3
-3 0
-9
-88
-2
-2 0
-3 2
-9
-118
-2
-2 0
-3 0
-10
-86
-2
 2 4
 3 2
 10
-116
-2
-2 4
-3 0
-11
-85
-2
-2 2
-3 2
-11
-115
-2
-2 2
-3 0
-2
-4
-268
-2
-1 2
-4 1
-4
-269
-2
-1 2
-4 0
-5
-3
-147
-2
-0 1
-5 0
-3
-148
-2
-0 1
-5 1
-3
-175
-2
-0 1
-5 2
-6
-145
-2
-2 3
-3 1
-6
-146
-2
-2 3
-3 2
-2
-6
-159
-2
-2 0
-3 1
-6
-160
-2
-2 0
-3 2
-7
-3
-151
+155
 2
 0 0
 5 0
-3
-152
+10
+156
 2
 0 0
 5 1
-3
-176
+10
+177
 2
 0 0
 5 2
-4
-149
 2
-1 3
-4 1
-4
-150
-2
-1 3
-4 0
-6
-153
-2
-2 4
-3 1
-6
-154
-2
-2 4
-3 2
-2
-6
+8
 63
 2
-2 2
+2 0
 3 1
-6
+8
 66
+2
+2 0
+3 2
+5
+0
+264
+2
+1 2
+4 1
+0
+265
+2
+1 2
+4 0
+10
+261
+2
+0 2
+5 0
+10
+262
+2
+0 2
+5 1
+10
+263
+2
+0 2
+5 2
+2
+0
+268
+2
+1 4
+4 1
+0
+269
+2
+1 4
+4 0
+2
+8
+159
+2
+2 3
+3 1
+8
+160
+2
+2 3
+3 2
+5
+0
+259
+2
+1 3
+4 1
+0
+260
+2
+1 3
+4 0
+10
+256
+2
+0 1
+5 0
+10
+257
+2
+0 1
+5 1
+10
+258
+2
+0 1
+5 2
+10
+2
+87
+2
+2 4
+3 2
+2
+117
+2
+2 4
+3 0
+3
+85
+2
+2 0
+3 2
+3
+115
+2
+2 0
+3 0
+6
+88
+2
+2 3
+3 2
+6
+118
+2
+2 3
+3 0
+9
+86
 2
 2 2
 3 2
+9
+116
+2
+2 2
+3 0
+11
+84
+2
+2 1
+3 2
+11
+114
+2
+2 1
+3 0
+7
+0
+149
+2
+1 0
+4 1
+0
+150
+2
+1 0
+4 0
+8
+153
+2
+2 2
+3 1
+8
+154
+2
+2 2
+3 2
+10
+151
+2
+0 3
+5 0
+10
+152
+2
+0 3
+5 1
+10
+176
+2
+0 3
+5 2
+15
+2
+213
+2
+0 0
+5 1
+2
+218
+2
+0 0
+5 2
+2
+247
+2
+0 0
+5 3
+4
+217
+2
+0 2
+5 1
+4
+222
+2
+0 2
+5 2
+4
+251
+2
+0 2
+5 3
+7
+216
+2
+0 1
+5 1
+7
+221
+2
+0 1
+5 2
+7
+250
+2
+0 1
+5 3
+9
+215
+2
+0 3
+5 1
+9
+220
+2
+0 3
+5 2
+9
+249
+2
+0 3
+5 3
+11
+214
+2
+0 4
+5 1
+11
+219
+2
+0 4
+5 2
+11
+248
+2
+0 4
+5 3
+5
+8
+145
+2
+2 1
+3 1
+8
+146
+2
+2 1
+3 2
+10
+147
+2
+0 4
+5 0
+10
+148
+2
+0 4
+5 1
+10
+175
+2
+0 4
+5 2
 end_DTG
 begin_DTG
 5
-7
-119
-2
-0 4
-5 0
-7
-120
-2
-0 4
-5 1
-7
-169
-2
-0 4
-5 2
-11
-121
-2
-1 1
-4 1
-11
-122
-2
-1 1
-4 0
-2
-5
-89
-2
-2 2
-3 1
-5
-90
-2
-2 2
-3 2
-5
-5
-98
-2
-2 1
-3 1
-5
-99
-2
-2 1
-3 2
-7
-96
-2
-0 2
-5 0
-7
-97
-2
-0 2
-5 1
-7
-168
-2
-0 2
-5 2
-2
-11
-233
-2
-1 4
-4 1
-11
-234
-2
-1 4
-4 0
-5
-5
-12
-2
-2 3
-3 1
-5
-65
-2
-2 3
-3 2
-7
+1
 61
 2
-0 1
+0 4
 5 0
-7
+1
 72
+2
+0 4
+5 1
+1
+165
+2
+0 4
+5 2
+11
+12
+2
+2 1
+3 1
+11
+65
+2
+2 1
+3 2
+15
+0
+75
+2
+0 4
+5 1
+0
+179
+2
+0 4
+5 2
+0
+238
+2
+0 4
+5 3
+2
+77
 2
 0 1
 5 1
-7
-165
+2
+181
 2
 0 1
 5 2
+2
+240
+2
+0 1
+5 3
+3
+74
+2
+0 0
+5 1
+3
+178
+2
+0 0
+5 2
+3
+237
+2
+0 0
+5 3
+8
+76
+2
+0 3
+5 1
+8
+180
+2
+0 3
+5 2
+8
+239
+2
+0 3
+5 3
 10
+78
+2
+0 2
+5 1
+10
+182
+2
+0 2
+5 2
+10
+241
+2
+0 2
+5 3
+5
 1
-68
+119
 2
-2 2
-3 2
+0 1
+5 0
 1
-110
+120
 2
-2 2
-3 0
+0 1
+5 1
+1
+169
 2
-70
+0 1
+5 2
+6
+121
 2
-2 1
+1 3
+4 1
+6
+122
+2
+1 3
+4 0
+5
+1
+96
+2
+0 0
+5 0
+1
+97
+2
+0 0
+5 1
+1
+168
+2
+0 0
+5 2
+11
+98
+2
+2 4
+3 1
+11
+99
+2
+2 4
 3 2
 2
-112
+6
+235
 2
-2 1
-3 0
+1 4
+4 1
+6
+236
+2
+1 4
+4 0
+2
+6
+233
+2
+1 1
+4 1
+6
+234
+2
+1 1
+4 0
+10
+2
+190
+2
+1 3
+4 0
+2
+200
+2
+1 3
+4 2
 4
-67
+191
+2
+1 4
+4 0
+4
+201
+2
+1 4
+4 2
+5
+189
+2
+1 1
+4 0
+5
+199
+2
+1 1
+4 2
+8
+188
+2
+1 0
+4 0
+8
+198
+2
+1 0
+4 2
+10
+192
+2
+1 2
+4 0
+10
+202
+2
+1 2
+4 2
+2
+11
+89
+2
+2 0
+3 1
+11
+90
+2
+2 0
+3 2
+7
+1
+92
+2
+0 3
+5 0
+1
+93
+2
+0 3
+5 1
+1
+167
+2
+0 3
+5 2
+6
+91
+2
+1 0
+4 1
+6
+103
+2
+1 0
+4 0
+11
+94
+2
+2 2
+3 1
+11
+95
+2
+2 2
+3 2
+2
+11
+100
+2
+2 3
+3 1
+11
+101
 2
 2 3
 3 2
-4
+5
+1
+123
+2
+0 2
+5 0
+1
+124
+2
+0 2
+5 1
+1
+170
+2
+0 2
+5 2
+6
+125
+2
+1 2
+4 1
+6
+126
+2
+1 2
+4 0
+10
+0
+67
+2
+2 1
+3 2
+0
 109
 2
-2 3
+2 1
 3 0
-9
+3
+70
+2
+2 4
+3 2
+3
+112
+2
+2 4
+3 0
+7
+68
+2
+2 0
+3 2
+7
+110
+2
+2 0
+3 0
+8
 69
 2
-2 4
+2 2
 3 2
-9
+8
 111
 2
-2 4
+2 2
 3 0
-10
+9
 71
 2
-2 0
+2 3
 3 2
-10
+9
 113
 2
-2 0
+2 3
 3 0
-5
-7
-123
-2
-0 3
-5 0
-7
-124
-2
-0 3
-5 1
-7
-170
-2
-0 3
-5 2
-11
-125
-2
-1 0
-4 1
-11
-126
-2
-1 0
-4 0
-15
-0
-77
-2
-0 4
-5 1
-0
-181
-2
-0 4
-5 2
-0
-240
-2
-0 4
-5 3
-2
-74
-2
-0 2
-5 1
-2
-178
-2
-0 2
-5 2
-2
-237
-2
-0 2
-5 3
-4
-75
-2
-0 1
-5 1
-4
-179
-2
-0 1
-5 2
-4
-238
-2
-0 1
-5 3
-6
-78
-2
-0 3
-5 1
-6
-182
-2
-0 3
-5 2
-6
-241
-2
-0 3
-5 3
-9
-76
-2
-0 0
-5 1
-9
-180
-2
-0 0
-5 2
-9
-239
-2
-0 0
-5 3
-2
-11
-235
-2
-1 2
-4 1
-11
-236
-2
-1 2
-4 0
-7
-5
-94
-2
-2 4
-3 1
-5
-95
-2
-2 4
-3 2
-7
-92
-2
-0 0
-5 0
-7
-93
-2
-0 0
-5 1
-7
-167
-2
-0 0
-5 2
-11
-91
-2
-1 3
-4 1
-11
-103
-2
-1 3
-4 0
-2
-5
-100
-2
-2 0
-3 1
-5
-101
-2
-2 0
-3 2
-10
-0
-190
-2
-1 1
-4 0
-0
-200
-2
-1 1
-4 2
-3
-189
-2
-1 4
-4 0
-3
-199
-2
-1 4
-4 2
-6
-192
-2
-1 0
-4 0
-6
-202
-2
-1 0
-4 2
-8
-191
-2
-1 2
-4 0
-8
-201
-2
-1 2
-4 2
-9
-188
-2
-1 3
-4 0
-9
-198
-2
-1 3
-4 2
 end_DTG
 begin_DTG
-5
 7
-129
-2
-2 1
-3 1
-7
-130
-2
-2 1
-3 2
-10
-127
-2
-0 2
-5 0
-10
-128
-2
-0 2
-5 1
-10
-171
-2
-0 2
-5 2
-2
-5
-161
-2
-1 4
-4 1
-5
-162
-2
-1 4
-4 0
-5
-5
-143
-2
-1 1
-4 1
-5
-144
-2
-1 1
-4 0
-10
-141
-2
-0 4
-5 0
-10
-142
-2
-0 4
-5 1
-10
-174
-2
-0 4
-5 2
-2
-7
-252
-2
-2 2
-3 1
-7
-253
-2
-2 2
-3 2
-7
-5
-135
-2
-1 3
-4 1
-5
-136
-2
-1 3
-4 0
-7
-139
-2
-2 4
-3 1
-7
-140
-2
-2 4
-3 2
-10
+1
 137
 2
-0 0
+0 3
 5 0
-10
+1
 138
 2
-0 0
+0 3
 5 1
-10
+1
 173
 2
-0 0
+0 3
 5 2
 10
-1
-105
-2
-1 4
-4 0
-1
-194
-2
-1 4
-4 2
-2
-106
-2
-1 1
-4 0
-2
-195
-2
-1 1
-4 2
-4
-104
-2
-1 3
-4 0
-4
-193
-2
-1 3
-4 2
-6
-108
-2
-1 0
-4 0
-6
-197
-2
-1 0
-4 2
-11
-107
-2
-1 2
-4 0
-11
-196
-2
-1 2
-4 2
-5
-5
-64
+135
 2
 1 0
 4 1
-5
-102
+10
+136
 2
 1 0
 4 0
-10
-62
+11
+139
 2
-0 3
-5 0
-10
-73
-2
-0 3
-5 1
-10
-166
-2
-0 3
-5 2
-10
-0
-206
-2
-2 1
-3 2
-0
-211
-2
-2 1
-3 0
-3
-204
+2 2
+3 1
+11
+140
 2
 2 2
 3 2
-3
-209
-2
-2 2
-3 0
-4
-205
-2
-2 4
-3 2
-4
-210
-2
-2 4
-3 0
-8
-207
-2
-2 0
-3 2
-8
-212
-2
-2 0
-3 0
-9
-203
-2
-2 3
-3 2
-9
-208
-2
-2 3
-3 0
-2
-7
-254
-2
-2 0
-3 1
-7
-255
-2
-2 0
-3 2
-5
-7
-131
-2
-2 3
-3 1
-7
-132
-2
-2 3
-3 2
-10
-133
-2
-0 1
-5 0
-10
-134
-2
-0 1
-5 1
-10
-172
-2
-0 1
-5 2
 15
 0
-79
-2
-0 2
-5 1
-0
-183
-2
-0 2
-5 2
-0
-242
-2
-0 2
-5 3
-2
-82
-2
-0 4
-5 1
-2
-186
-2
-0 4
-5 2
-2
-245
-2
-0 4
-5 3
-4
 81
 2
-0 0
+0 3
 5 1
-4
+0
 185
 2
-0 0
+0 3
 5 2
-4
+0
 244
 2
+0 3
+5 3
+2
+79
+2
+0 0
+5 1
+2
+183
+2
+0 0
+5 2
+2
+242
+2
 0 0
 5 3
-6
-83
+3
+82
 2
-0 3
+0 1
 5 1
-6
-187
+3
+186
 2
-0 3
+0 1
 5 2
-6
-246
+3
+245
 2
-0 3
+0 1
 5 3
-9
+7
 80
 2
-0 1
+0 4
+5 1
+7
+184
+2
+0 4
+5 2
+7
+243
+2
+0 4
+5 3
+9
+83
+2
+0 2
 5 1
 9
-184
+187
+2
+0 2
+5 2
+9
+246
+2
+0 2
+5 3
+5
+1
+127
+2
+0 0
+5 0
+1
+128
+2
+0 0
+5 1
+1
+171
+2
+0 0
+5 2
+11
+129
+2
+2 4
+3 1
+11
+130
+2
+2 4
+3 2
+5
+1
+141
+2
+0 1
+5 0
+1
+142
+2
+0 1
+5 1
+1
+174
 2
 0 1
 5 2
-9
-243
+10
+143
 2
-0 1
-5 3
+1 3
+4 1
+10
+144
 2
+1 3
+4 0
+2
+11
+254
+2
+2 3
+3 1
+11
+255
+2
+2 3
+3 2
+2
+11
+252
+2
+2 0
+3 1
+11
+253
+2
+2 0
+3 2
+2
+10
+161
+2
+1 1
+4 1
+10
+162
+2
+1 1
+4 0
 5
+1
+133
+2
+0 4
+5 0
+1
+134
+2
+0 4
+5 1
+1
+172
+2
+0 4
+5 2
+11
+131
+2
+2 1
+3 1
+11
+132
+2
+2 1
+3 2
+2
+10
 163
+2
+1 4
+4 1
+10
+164
+2
+1 4
+4 0
+5
+1
+62
+2
+0 2
+5 0
+1
+73
+2
+0 2
+5 1
+1
+166
+2
+0 2
+5 2
+10
+64
 2
 1 2
 4 1
-5
-164
+10
+102
 2
 1 2
 4 0
+10
+0
+104
+2
+1 0
+4 0
+0
+193
+2
+1 0
+4 2
+3
+106
+2
+1 3
+4 0
+3
+195
+2
+1 3
+4 2
+6
+105
+2
+1 1
+4 0
+6
+194
+2
+1 1
+4 2
+8
+107
+2
+1 4
+4 0
+8
+196
+2
+1 4
+4 2
+9
+108
+2
+1 2
+4 0
+9
+197
+2
+1 2
+4 2
+10
+0
+205
+2
+2 2
+3 2
+0
+210
+2
+2 2
+3 0
+2
+206
+2
+2 4
+3 2
+2
+211
+2
+2 4
+3 0
+4
+207
+2
+2 3
+3 2
+4
+212
+2
+2 3
+3 0
+5
+204
+2
+2 0
+3 2
+5
+209
+2
+2 0
+3 0
+7
+203
+2
+2 1
+3 2
+7
+208
+2
+2 1
+3 0
 end_DTG
 begin_CG
 4
