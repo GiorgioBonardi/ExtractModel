@@ -55,7 +55,7 @@ def execute_problem(problem):
                     plannerList.append(p)
         except:
             pass
-
+ciuccia
     res = []
     for p in plannerList:
         with OneshotPlanner(name=p) as planner:
