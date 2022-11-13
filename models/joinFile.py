@@ -138,12 +138,18 @@ if __name__ == '__main__':
     
     if (len(sys.argv) == 6):
         route = sys.argv[1]
-        res_planners = []
-        res_planners.append(sys.argv[2])
-        res_planners.append(sys.argv[3])
-        res_planners.append(sys.argv[4])
-        res_planners.append(sys.argv[5])
-        print(res_planners)
+        print(sys.argv)
+        print(len(sys.argv))
+        res_planner = []
+        for n in range(2,len(sys.argv)):
+            res_planner.append(sys.argv[n])
+
+        # res_planners = []
+        # res_planners.append(sys.argv[2])
+        # res_planners.append(sys.argv[3])
+        # res_planners.append(sys.argv[4])
+        # res_planners.append(sys.argv[5])
+        print(res_planner)
     else:
         print "ERROR:::: Need one argument to create the features file" 
         sys.exit(-1)

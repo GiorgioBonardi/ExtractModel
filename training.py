@@ -44,24 +44,24 @@ def execute_problem(problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
-    # tempList = list(engines.keys())
-    plannerList = ['tamer','fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
+    # # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
+    # # tempList = list(engines.keys())
+    # plannerList = ['tamer','fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
     
-    # for p in tempList:
-    #     try:
-    #         with OneshotPlanner(name=p) as planner:
-    #             if hasattr(planner, 'solve'):
-    #                 plannerList.append(p)
-    #     except:
-    #         pass
-    res = []
-    for p in plannerList:
-        with OneshotPlanner(name=p) as planner:
-            result = planner.solve(problem)
-            toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
-            res.append(toBeAppended)
-
+    # # for p in tempList:
+    # #     try:
+    # #         with OneshotPlanner(name=p) as planner:
+    # #             if hasattr(planner, 'solve'):
+    # #                 plannerList.append(p)
+    # #     except:
+    # #         pass
+    # res = []
+    # for p in plannerList:
+    #     with OneshotPlanner(name=p) as planner:
+    #         result = planner.solve(problem)
+    #         toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
+    #         res.append(toBeAppended)
+    res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
 pathname = os.getcwd()
@@ -85,10 +85,12 @@ for dir in os.listdir(pathDomain):
             #extract_features(original_domain, original_problem, currentpath)
 
             ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
-            res_planners = execute_problem(original_problem)
+            res_planner = execute_problem(original_problem)
             #join file
             actual_rootpath = rootpath + "/models"
-            command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + str(res_planners[0]) + " " + str(res_planners[1]) + " " + str(res_planners[2]) + " " + str(res_planners[3])
+            res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
+            print(res_planner_str)
+            command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + res_planner_str
             print(command)
             os.system(command)
 
