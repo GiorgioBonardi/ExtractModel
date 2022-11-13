@@ -9,6 +9,7 @@ import string
 import os
 from head import Head
 
+
 Ntranlate=26
 Npreprocess=49
 Nheuristic=8
@@ -124,7 +125,7 @@ def join(translate, preprocess, fflearner, heuristics, landmarks, redblack, unio
 # main
 # -----------------------------------------------------------------------------
 if __name__ == '__main__':
-
+	
     translate = []
     preprocess =[]
     fflearner = []
@@ -133,8 +134,16 @@ if __name__ == '__main__':
     redblack = []
     union_final = ""
     route = ""
-    if (len(sys.argv) == 2):
+    
+    
+    if (len(sys.argv) == 6):
         route = sys.argv[1]
+        res_planners = []
+        res_planners.append(sys.argv[2])
+        res_planners.append(sys.argv[3])
+        res_planners.append(sys.argv[4])
+        res_planners.append(sys.argv[5])
+        print(res_planners)
     else:
         print "ERROR:::: Need one argument to create the features file" 
         sys.exit(-1)

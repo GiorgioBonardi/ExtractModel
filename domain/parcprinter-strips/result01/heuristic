@@ -6,73 +6,80 @@ begin_metric
 end_metric
 21
 begin_variable
-var10
+var18
 -1
 2
 Atom uninitialized()
 <none of those>
 end_variable
 begin_variable
-var20
--1
-2
-Atom available(colorfeeder-rsrc)
-<none of those>
-end_variable
-begin_variable
-var19
--1
-2
-Atom available(blackcontainer-rsrc)
-<none of those>
-end_variable
-begin_variable
-var18
--1
-2
-Atom available(htmovercolor-rsrc)
-<none of those>
-end_variable
-begin_variable
-var15
--1
-2
-Atom available(up-rsrc)
-<none of those>
-end_variable
-begin_variable
-var11
+var22
 -1
 2
 Atom available(colorcontainer-rsrc)
 <none of those>
 end_variable
 begin_variable
-var9
+var21
 -1
 2
-Atom available(down-rsrc)
+Atom available(colorfeeder-rsrc)
 <none of those>
 end_variable
 begin_variable
-var8
+var20
+-1
+2
+Atom available(blackcontainer-rsrc)
+<none of those>
+end_variable
+begin_variable
+var17
+-1
+2
+Atom available(htmoverblack-rsrc)
+<none of those>
+end_variable
+begin_variable
+var16
+-1
+2
+Atom available(blackprinter-rsrc)
+<none of those>
+end_variable
+begin_variable
+var14
+-1
+2
+Atom available(up-rsrc)
+<none of those>
+end_variable
+begin_variable
+var13
 -1
 2
 Atom available(colorprinter-rsrc)
 <none of those>
 end_variable
 begin_variable
-var7
--1
-2
-Atom available(finisher1-rsrc)
-<none of those>
-end_variable
-begin_variable
-var6
+var12
 -1
 2
 Atom available(blackfeeder-rsrc)
+<none of those>
+end_variable
+begin_variable
+var10
+-1
+2
+Atom available(down-rsrc)
+<none of those>
+end_variable
+begin_variable
+var9
+-1
+2
+Atom available(endcap-rsrc)
 <none of those>
 end_variable
 begin_variable
@@ -83,35 +90,28 @@ Atom available(finisher2-rsrc)
 <none of those>
 end_variable
 begin_variable
-var4
--1
-2
-Atom available(blackprinter-rsrc)
-<none of those>
-end_variable
-begin_variable
 var2
 -1
 2
-Atom available(endcap-rsrc)
+Atom available(htmovercolor-rsrc)
 <none of those>
 end_variable
 begin_variable
 var1
 -1
 2
-Atom available(htmoverblack-rsrc)
+Atom available(finisher1-rsrc)
 <none of those>
 end_variable
 begin_variable
-var22
+var6
 -1
 2
 Atom sideup(sheet1, back)
 <none of those>
 end_variable
 begin_variable
-var13
+var19
 -1
 2
 Atom notprintedwith(sheet1, front, black)
@@ -121,48 +121,48 @@ begin_variable
 var0
 -1
 18
-Atom location(sheet1, colorcontainer_exit-up_bottomentry)
-Atom location(sheet1, colorcontainer_entry-down_bottomexit)
-Atom location(sheet1, down_topexit-htmovercolor_entry)
-Atom location(sheet1, blackcontainer_entry-blackfeeder_exit)
-Atom location(sheet1, finisher2_exit)
-Atom location(sheet1, blackcontainer_exittoime-blackprinter_entry)
 Atom location(sheet1, colorcontainer_exittoime-colorprinter_entry)
-Atom location(sheet1, blackprinter_exit-blackcontainer_entryfromime)
-Atom location(sheet1, down_bottomentry-colorfeeder_exit)
+Atom location(sheet1, colorprinter_exit-colorcontainer_entryfromime)
+Atom location(sheet1, down_topexit-htmovercolor_entry)
+Atom location(sheet1, htmoverblack_exit-down_topentry)
 Atom location(sheet1, finisher1_entry-up_topexit)
-Atom location(sheet1, finisher2_entry-finisher1_exit)
 Atom location(sheet1, some_feeder_tray)
 Atom location(sheet1, some_finisher_tray)
-Atom location(sheet1, colorprinter_exit-colorcontainer_entryfromime)
-Atom location(sheet1, htmoverblack_exit-down_topentry)
-Atom location(sheet1, endcap_entry-blackcontainer_exit)
+Atom location(sheet1, finisher2_entry-finisher1_exit)
+Atom location(sheet1, colorcontainer_exit-up_bottomentry)
+Atom location(sheet1, blackprinter_exit-blackcontainer_entryfromime)
+Atom location(sheet1, colorcontainer_entry-down_bottomexit)
 Atom location(sheet1, htmoverblack_entry-endcap_exit)
+Atom location(sheet1, blackcontainer_exittoime-blackprinter_entry)
+Atom location(sheet1, blackcontainer_entry-blackfeeder_exit)
+Atom location(sheet1, finisher2_exit)
 Atom location(sheet1, htmovercolor_exit-up_topentry)
+Atom location(sheet1, endcap_entry-blackcontainer_exit)
+Atom location(sheet1, down_bottomentry-colorfeeder_exit)
 end_variable
 begin_variable
-var16
+var8
 -1
 2
 Atom notprintedwith(sheet1, back, black)
 <none of those>
 end_variable
 begin_variable
-var14
+var7
 -1
 2
 Atom sideup(sheet1, front)
 <none of those>
 end_variable
 begin_variable
-var21
+var15
 -1
 2
 Atom hasimage(sheet1, front, image-1)
 <none of those>
 end_variable
 begin_variable
-var12
+var4
 -1
 2
 Atom stackedin(sheet1, finisher1_tray)
@@ -186,7 +186,7 @@ begin_state
 1
 1
 0
-11
+5
 0
 1
 1
@@ -221,11 +221,11 @@ initialize
 0
 6 -1 0
 0
-0 0 1
-0
 5 -1 0
 0
 4 -1 0
+0
+0 0 1
 0
 3 -1 0
 0
@@ -237,10 +237,10 @@ end_operator
 begin_operator
 colorfeeder-feed-letter sheet1
 1
-1 0
+2 0
 2
 0
-16 11 8
+16 5 17
 0
 18 -1 0
 8000
@@ -248,103 +248,103 @@ end_operator
 begin_operator
 blackfeeder-feed-letter sheet1
 1
-9 0
+8 0
 2
 0
-16 11 3
+16 5 13
 0
 18 -1 0
 8000
 end_operator
 begin_operator
-down-movebottom-letter sheet1
-1
-6 0
-1
-0
-16 8 1
-2999
-end_operator
-begin_operator
 blackcontainer-toime-letter sheet1
 1
-2 0
+3 0
 1
 0
-16 3 5
+16 13 12
 2000
 end_operator
 begin_operator
-colorcontainer-toime-letter sheet1
+down-movebottom-letter sheet1
 1
-5 0
+9 0
 1
 0
-16 1 6
-8000
+16 17 10
+2999
 end_operator
 begin_operator
 blackprinter-simplex-letter sheet1 front image-1
 2
-11 0
 18 0
+5 0
 3
 0
-16 5 7
-0
-15 0 1
+16 12 9
 0
 19 -1 0
+0
+15 0 1
 113013
+end_operator
+begin_operator
+colorcontainer-toime-letter sheet1
+1
+1 0
+1
+0
+16 10 0
+8000
 end_operator
 begin_operator
 blackprinter-simplexandinvert-letter sheet1 front back image-1
 1
-11 0
+5 0
 5
 0
-16 5 7
+16 12 9
 0
-15 0 1
+14 -1 0
 0
 18 0 1
 0
 19 -1 0
 0
-14 -1 0
-123013
-end_operator
-begin_operator
-colorprinter-simplexmono-letter sheet1 front image-1
-2
-7 0
-18 0
-3
-0
-16 6 13
-0
 15 0 1
-0
-19 -1 0
-224040
+123013
 end_operator
 begin_operator
 blackcontainer-fromime-letter sheet1
 1
-2 0
+3 0
 1
 0
-16 7 15
+16 9 16
 2000
+end_operator
+begin_operator
+colorprinter-simplexmono-letter sheet1 front image-1
+2
+18 0
+7 0
+3
+0
+16 0 1
+0
+19 -1 0
+0
+15 0 1
+224040
 end_operator
 begin_operator
 colorprinter-simplexmono-letter sheet1 back image-1
 2
-7 0
 14 0
+7 0
 2
 0
-16 6 13
+16 0 1
 0
 17 0 1
 224040
@@ -352,11 +352,11 @@ end_operator
 begin_operator
 blackprinter-simplex-letter sheet1 back image-1
 2
-11 0
 14 0
+5 0
 2
 0
-16 5 7
+16 12 9
 0
 17 0 1
 113013
@@ -364,131 +364,221 @@ end_operator
 begin_operator
 blackprinter-simplexandinvert-letter sheet1 back front image-1
 1
-11 0
+5 0
 4
 0
-16 5 7
+16 12 9
+0
+14 0 1
 0
 18 -1 0
 0
 17 0 1
-0
-14 0 1
 123013
-end_operator
-begin_operator
-colorcontainer-fromime-letter sheet1
-1
-5 0
-1
-0
-16 13 0
-8000
 end_operator
 begin_operator
 endcap-move-letter sheet1
 1
-12 0
+10 0
 1
 0
-16 15 16
+16 16 11
 2000
 end_operator
 begin_operator
-up-moveup-letter sheet1
+colorcontainer-fromime-letter sheet1
 1
-4 0
+1 0
 1
 0
-16 0 9
-9999
+16 1 8
+8000
 end_operator
 begin_operator
 htmoverblack-move-letter sheet1
 1
-13 0
+4 0
 1
 0
-16 16 14
+16 11 3
 17999
 end_operator
 begin_operator
-finisher1-passthrough-letter sheet1
-1
-8 0
-1
-0
-16 9 10
-8000
-end_operator
-begin_operator
-down-movetop-letter sheet1
+up-moveup-letter sheet1
 1
 6 0
 1
 0
-16 14 2
+16 8 4
+9999
+end_operator
+begin_operator
+down-movetop-letter sheet1
+1
+9 0
+1
+0
+16 3 2
 2999
 end_operator
 begin_operator
 down-movedown-letter sheet1
 1
-6 0
+9 0
 1
 0
-16 14 1
+16 3 10
 9999
+end_operator
+begin_operator
+finisher1-passthrough-letter sheet1
+1
+13 0
+1
+0
+16 4 7
+8000
 end_operator
 begin_operator
 finisher1-stack-letter sheet1 dummy-sheet
 1
-8 0
+13 0
 2
 0
-16 9 12
+16 4 6
 0
 20 -1 0
 8000
 end_operator
 begin_operator
-finisher2-passthrough-letter sheet1
-1
-10 0
-1
-0
-16 10 4
-8000
-end_operator
-begin_operator
 htmovercolor-move-letter sheet1
 1
-3 0
+12 0
 1
 0
-16 2 17
+16 2 15
 9999
+end_operator
+begin_operator
+finisher2-passthrough-letter sheet1
+1
+11 0
+1
+0
+16 7 14
+8000
 end_operator
 begin_operator
 finisher2-stack-letter sheet1 dummy-sheet
 1
-10 0
+11 0
 1
 0
-16 10 12
+16 7 6
 8000
 end_operator
 begin_operator
 up-movetop-letter sheet1
 1
-4 0
+6 0
 1
 0
-16 17 9
+16 15 4
 2999
 end_operator
 0
 begin_SG
 switch 16
+check 0
+switch 14
+check 0
+switch 17
+check 0
+switch 7
+check 0
+check 1
+10
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 18
+check 0
+switch 7
+check 0
+switch 15
+check 0
+check 1
+9
+check 0
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 1
+14
+check 0
+check 0
+switch 12
+check 0
+check 1
+21
+check 0
+check 0
+switch 9
+check 0
+check 2
+17
+18
+check 0
+check 0
+switch 13
+check 0
+check 2
+19
+20
+check 0
+check 0
+switch 8
+check 0
+check 1
+2
+check 0
+switch 2
+check 0
+check 1
+1
+check 0
+check 0
+check 0
+switch 11
+check 0
+check 2
+22
+23
+check 0
+check 0
+switch 6
+check 0
+check 1
+16
+check 0
+check 0
+switch 3
+check 0
+check 1
+8
+check 0
+check 0
+switch 1
+check 0
+check 1
+6
+check 0
 check 0
 switch 4
 check 0
@@ -496,40 +586,11 @@ check 1
 15
 check 0
 check 0
-switch 5
-check 0
-check 1
-5
-check 0
-check 0
-switch 3
-check 0
-check 1
-22
-check 0
-check 0
-switch 2
-check 0
-check 1
-4
-check 0
-check 0
-check 0
-switch 11
-check 0
-switch 15
-check 0
-switch 18
-check 0
-check 2
-6
-7
-check 0
-check 0
+switch 14
 check 0
 switch 17
 check 0
-switch 14
+switch 5
 check 0
 check 2
 11
@@ -539,97 +600,44 @@ check 0
 check 0
 check 0
 check 0
+switch 18
 check 0
-switch 7
+switch 5
 check 0
 switch 15
 check 0
-switch 18
-check 0
-check 1
-8
-check 0
-check 0
-check 0
-switch 17
-check 0
-switch 14
-check 0
-check 1
-10
+check 2
+5
+7
 check 0
 check 0
 check 0
 check 0
 check 0
 check 0
-switch 2
-check 0
-check 1
-9
-check 0
-check 0
-switch 6
+switch 3
 check 0
 check 1
 3
 check 0
 check 0
-switch 8
 check 0
-check 2
-17
-20
+switch 6
+check 0
+check 1
+24
 check 0
 check 0
 switch 10
-check 0
-check 2
-21
-23
-check 0
-check 0
-switch 9
-check 0
-check 1
-2
-check 0
-switch 1
-check 0
-check 1
-1
-check 0
-check 0
-check 0
-switch 5
 check 0
 check 1
 13
 check 0
 check 0
-switch 6
-check 0
-check 2
-18
-19
-check 0
-check 0
-switch 12
+switch 9
 check 0
 check 1
-14
-check 0
-check 0
-switch 13
-check 0
-check 1
-16
-check 0
-check 0
-switch 4
-check 0
-check 1
-24
+4
 check 0
 check 0
 switch 0
@@ -755,164 +763,164 @@ begin_DTG
 1
 12
 3
-16 5
-11 0
+16 12
 17 0
+5 0
 1
 0
 7
 4
-16 5
-11 0
-15 0
+16 12
 18 0
+5 0
+15 0
 end_DTG
 begin_DTG
 2
 1
-6
+5
 3
-16 5
-11 0
+16 12
 18 0
+5 0
 1
-8
+9
 3
-16 6
-7 0
+16 0
 18 0
+7 0
 0
 end_DTG
 begin_DTG
+2
 1
 9
+3
+18 0
+7 0
+15 0
+1
+10
+3
+14 0
+17 0
+7 0
+1
+8
+14
+1
+1 0
+1
 15
+21
 1
-4 0
-1
-6
-5
-1
-5 0
-1
+12 0
+2
+2
 17
+1
+9 0
+10
+18
+1
+9 0
+2
+6
+20
+1
+13 0
+7
+19
+1
+13 0
+2
+13
+2
+1
+8 0
+17
+1
+1
+2 0
+0
+2
+6
+23
+1
+11 0
+14
 22
+1
+11 0
+1
+4
+16
+1
+6 0
+1
+16
+8
 1
 3 0
 1
-5
-4
-1
-2 0
 0
-2
-7
 6
-3
-11 0
-15 0
-18 0
-7
-11
-3
-11 0
-17 0
-14 0
-2
-13
-8
-3
-7 0
-15 0
-18 0
-13
-10
-3
-7 0
-17 0
-14 0
-1
-15
-9
-1
-2 0
-1
-1
-3
-1
-6 0
-2
-10
-17
-1
-8 0
-12
-20
-1
-8 0
-2
-4
-21
-1
-10 0
-12
-23
-1
-10 0
-2
-3
-2
-1
-9 0
-8
-1
 1
 1 0
-0
 1
-0
-13
-1
-5 0
-2
-1
-19
-1
-6 0
-2
-18
-1
-6 0
-1
-16
-14
-1
-12 0
-1
-14
-16
-1
-13 0
-1
-9
-24
+3
+15
 1
 4 0
+2
+9
+5
+3
+18 0
+5 0
+15 0
+9
+11
+3
+14 0
+17 0
+5 0
+1
+12
+3
+1
+3 0
+0
+1
+4
+24
+1
+6 0
+1
+11
+13
+1
+10 0
+1
+10
+4
+1
+9 0
 end_DTG
 begin_DTG
 2
 1
 11
 3
-16 5
-11 0
+16 12
 14 0
+5 0
 1
 10
 3
-16 6
-7 0
+16 0
 14 0
+7 0
 0
 end_DTG
 begin_DTG
@@ -920,45 +928,45 @@ begin_DTG
 1
 7
 3
-16 5
-11 0
+16 12
+5 0
 15 0
 3
 0
 1
 2
-16 11
-1 0
+16 5
+2 0
 0
 2
 2
-16 11
-9 0
+16 5
+8 0
 0
 12
 4
-16 5
-11 0
-17 0
+16 12
 14 0
+17 0
+5 0
 end_DTG
 begin_DTG
 0
 2
 0
-6
+5
 4
-16 5
-11 0
-15 0
+16 12
 18 0
+5 0
+15 0
 0
-8
+9
 4
-16 6
+16 0
+18 0
 7 0
 15 0
-18 0
 end_DTG
 begin_DTG
 0
@@ -966,8 +974,8 @@ begin_DTG
 0
 20
 2
-16 9
-8 0
+16 4
+13 0
 end_DTG
 begin_CG
 13
@@ -984,6 +992,8 @@ begin_CG
 3 1
 2 1
 1 1
+1
+16 2
 2
 16 1
 18 1
@@ -991,61 +1001,59 @@ begin_CG
 16 2
 1
 16 1
-1
-16 2
-1
-16 2
-1
-16 3
-4
-16 2
-15 1
-17 1
-19 1
-2
-16 2
-20 1
-2
-16 1
-18 1
-1
-16 2
 6
 16 4
-15 2
+14 2
 18 2
 17 2
 19 2
-14 2
+15 2
+1
+16 2
+4
+16 2
+17 1
+19 1
+15 1
+2
+16 1
+18 1
+1
+16 3
 1
 16 1
 1
+16 2
+1
 16 1
+2
+16 2
+20 1
 3
 16 3
 18 1
 17 3
 4
 16 3
+14 1
 18 1
 19 3
-14 1
 6
 20 1
-15 3
+14 2
 18 4
 17 3
 19 3
-14 2
+15 3
 3
 16 3
-18 1
 14 1
+18 1
 4
 16 3
-15 3
-19 3
 14 1
+19 3
+15 3
 0
 0
 end_CG

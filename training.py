@@ -5,6 +5,7 @@
 
 import os               # path and process management
 import sys              # argv, exit
+import argparse
 
 def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***start extract features***\n")
@@ -30,13 +31,18 @@ def extract_features(original_domain, original_problem, rootpathOutput):
 
     print("\n***end extract features***\n")
 
+#fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
+def execute_problem():
+    res = [True,False,False,True]
+
+    return res
 
 pathname = os.getcwd()
 currentpath = os.path.abspath(pathname)
 rootpath = os.path.abspath(os.path.join(currentpath,"..")) + "/ExtractModel"
 pathDomain = pathname + "/domain"
 ##estrazione features per domain/problem
-for dir in os.listdir(pathDomain):
+for dir in os.listdir(pathDomain):  
     pathSpecificDomain = pathDomain + "/" + dir
     for i in range(1,2):
     #i = 1
@@ -49,12 +55,14 @@ for dir in os.listdir(pathDomain):
             if(not os.path.isdir(currentpath)):
                 os.mkdir(currentpath)
             os.chdir(currentpath)
-            extract_features(original_domain, original_problem, currentpath)
+            #extract_features(original_domain, original_problem, currentpath)
 
             ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
+            res_planners = execute_problem()
             #join file
             actual_rootpath = rootpath + "/models"
-            command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath
+            command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + str(res_planners[0]) + " " + str(res_planners[1]) + " " + str(res_planners[2]) + " " + str(res_planners[3])
+            print(command)
             os.system(command)
 
             #i+=1
