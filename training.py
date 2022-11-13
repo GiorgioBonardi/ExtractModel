@@ -6,6 +6,10 @@
 import os               # path and process management
 import sys              # argv, exit
 import argparse
+from unified_planning.shortcuts import *
+from unified_planning.io.pddl_writer import *
+from unified_planning.io.pddl_reader import *
+from unified_planning.engines.factory import *
 
 def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***start extract features***\n")
@@ -40,15 +44,24 @@ def execute_problem(problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    plannerList = ['tamer', 'enhsp'] # must fetch planners from UP
+    engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
+    tempList = list(engines.keys())
+    plannerList = []
+
+    for p in tempList:
+        try:
+            with OneshotPlanner(name=p) as planner:
+                if hasattr(planner, 'solve'):
+                    plannerList.append(p)
+        except:
+            pass
+
     res = []
     for p in plannerList:
         with OneshotPlanner(name=p) as planner:
             result = planner.solve(problem)
             toBeAppended = planner.name + " " + result.status in unified_planning.engines.results.POSITIVE_OUTCOMES
             res.append(toBeAppended)
-
-    res = [True,False,False,True] # deprecated once we import UP
 
     return res
 
