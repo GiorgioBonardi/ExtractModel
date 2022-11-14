@@ -1,9 +1,9 @@
-(define (problem elevators-sequencedstrips-p8_6_2)
+(define (problem elevators-sequencedstrips-p8_11_1)
 (:domain elevators-sequencedstrips)
 
 (:objects 
 n0 n1 n2 n3 n4 n5 n6 n7 n8  - count
-p0 p1 p2 p3 p4 p5  - passenger
+p0 p1 p2 p3 p4 p5 p6 p7 p8 p9 p10  - passenger
 fast0 fast1  - fast-elevator
 slow0-0 slow1-0 - slow-elevator
 )
@@ -20,32 +20,37 @@ slow0-0 slow1-0 - slow-elevator
 (above n6 n7) (above n6 n8) 
 (above n7 n8) 
 
-(lift-at fast0 n8)
+(lift-at fast0 n6)
 (passengers fast0 n0)
 (can-hold fast0 n1) (can-hold fast0 n2) (can-hold fast0 n3) 
 (reachable-floor fast0 n0)(reachable-floor fast0 n2)(reachable-floor fast0 n4)(reachable-floor fast0 n6)(reachable-floor fast0 n8)
 
-(lift-at fast1 n6)
+(lift-at fast1 n2)
 (passengers fast1 n0)
 (can-hold fast1 n1) (can-hold fast1 n2) (can-hold fast1 n3) 
 (reachable-floor fast1 n0)(reachable-floor fast1 n2)(reachable-floor fast1 n4)(reachable-floor fast1 n6)(reachable-floor fast1 n8)
 
-(lift-at slow0-0 n4)
+(lift-at slow0-0 n0)
 (passengers slow0-0 n0)
 (can-hold slow0-0 n1) (can-hold slow0-0 n2) 
 (reachable-floor slow0-0 n0)(reachable-floor slow0-0 n1)(reachable-floor slow0-0 n2)(reachable-floor slow0-0 n3)(reachable-floor slow0-0 n4)
 
-(lift-at slow1-0 n6)
+(lift-at slow1-0 n4)
 (passengers slow1-0 n0)
 (can-hold slow1-0 n1) (can-hold slow1-0 n2) 
 (reachable-floor slow1-0 n4)(reachable-floor slow1-0 n5)(reachable-floor slow1-0 n6)(reachable-floor slow1-0 n7)(reachable-floor slow1-0 n8)
 
-(passenger-at p0 n6)
-(passenger-at p1 n2)
-(passenger-at p2 n0)
+(passenger-at p0 n0)
+(passenger-at p1 n3)
+(passenger-at p2 n4)
 (passenger-at p3 n2)
-(passenger-at p4 n0)
-(passenger-at p5 n6)
+(passenger-at p4 n5)
+(passenger-at p5 n8)
+(passenger-at p6 n8)
+(passenger-at p7 n0)
+(passenger-at p8 n7)
+(passenger-at p9 n0)
+(passenger-at p10 n5)
 
 (= (travel-slow n0 n1) 6) (= (travel-slow n0 n2) 7) (= (travel-slow n0 n3) 8) (= (travel-slow n0 n4) 9) (= (travel-slow n1 n2) 6) (= (travel-slow n1 n3) 7) (= (travel-slow n1 n4) 8) (= (travel-slow n2 n3) 6) (= (travel-slow n2 n4) 7) (= (travel-slow n3 n4) 6) 
 
@@ -66,12 +71,17 @@ slow0-0 slow1-0 - slow-elevator
 
 (:goal
 (and
-(passenger-at p0 n0)
-(passenger-at p1 n8)
-(passenger-at p2 n4)
-(passenger-at p3 n4)
+(passenger-at p0 n3)
+(passenger-at p1 n5)
+(passenger-at p2 n1)
+(passenger-at p3 n6)
 (passenger-at p4 n3)
-(passenger-at p5 n0)
+(passenger-at p5 n7)
+(passenger-at p6 n5)
+(passenger-at p7 n3)
+(passenger-at p8 n5)
+(passenger-at p9 n8)
+(passenger-at p10 n6)
 ))
 
 (:metric minimize (total-cost))

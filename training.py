@@ -36,7 +36,7 @@ def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***end extract features***\n")
 
 #fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
-def execute_problem(problem):
+def execute_problem(domain, problem):
     """
     Returns a list in which each element contains `planner.name` and a `boolean` 
     which tells if that planner can solve the problem or not.
@@ -44,24 +44,27 @@ def execute_problem(problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    # # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
-    # # tempList = list(engines.keys())
-    # plannerList = ['tamer','fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
+    reader = PDDLReader()
+    parsed_problem = reader.parse_problem(domain, problem)
+
+    # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
+    # tempList = list(engines.keys())
+    plannerList = ['enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
     
-    # # for p in tempList:
-    # #     try:
-    # #         with OneshotPlanner(name=p) as planner:
-    # #             if hasattr(planner, 'solve'):
-    # #                 plannerList.append(p)
-    # #     except:
-    # #         pass
-    # res = []
-    # for p in plannerList:
-    #     with OneshotPlanner(name=p) as planner:
-    #         result = planner.solve(problem)
-    #         toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
-    #         res.append(toBeAppended)
-    res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
+    # for p in tempList:
+    #     try:
+    #         with OneshotPlanner(name=p) as planner:
+    #             if hasattr(planner, 'solve'):
+    #                 plannerList.append(p)
+    #     except:
+    #         pass
+    res = []
+    for p in plannerList:
+        with OneshotPlanner(name=p) as planner:
+            result = planner.solve(parsed_problem)
+            toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
+            res.append(toBeAppended)
+    # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
 pathname = os.getcwd()
@@ -85,7 +88,7 @@ for dir in os.listdir(pathDomain):
             extract_features(original_domain, original_problem, currentpath)
 
             ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
-            res_planner = execute_problem(original_problem)
+            res_planner = execute_problem(original_domain, original_problem)
             #join file
             actual_rootpath = rootpath + "/models"
             res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
