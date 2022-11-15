@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/parcprinter-strips/p01.pddl, 40, 25, 8, 11, 1.375000, -2, 0.375000, 0.796477, 0, 1.000000, 0.707107, 4.160000, 0.160000, 11

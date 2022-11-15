@@ -49,7 +49,7 @@ def execute_problem(domain, problem):
 
     # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
     # tempList = list(engines.keys())
-    plannerList = ['enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
+    plannerList = ['fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
     
     # for p in tempList:
     #     try:
@@ -64,13 +64,13 @@ def execute_problem(domain, problem):
             result = planner.solve(parsed_problem)
             toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
             res.append(toBeAppended)
+            print(toBeAppended)
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
 pathname = os.getcwd()
-currentpath = os.path.abspath(pathname)
-rootpath = os.path.abspath(os.path.join(currentpath,"..")) + "/ExtractModel"
-pathDomain = pathname + "/domain"
+rootpath = pathname + "/ExtractModel"
+pathDomain = rootpath + "/domain"
 ##estrazione features per domain/problem
 for dir in os.listdir(pathDomain):  
     pathSpecificDomain = pathDomain + "/" + dir

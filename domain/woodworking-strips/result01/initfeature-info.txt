@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/woodworking-strips/p01.pddl, 32, 138, 3, 6, 2.000000, -1, 0.187500, 0.768013, 1, 1.142857, 0.349927, 8.065217, 0.000000, 0

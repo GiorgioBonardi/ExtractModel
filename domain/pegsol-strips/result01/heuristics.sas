@@ -9,26 +9,26 @@ begin_variable
 var0
 -1
 20
-Atom last-visited(pos-2-2)
-Atom last-visited(pos-3-4)
-Atom last-visited(pos-2-4)
+Atom last-visited(pos-3-6)
+Atom last-visited(pos-4-4)
+Atom last-visited(pos-4-2)
+Atom last-visited(pos-0-4)
+Atom last-visited(pos-3-1)
+Atom last-visited(pos-5-4)
+Atom last-visited(pos-3-0)
 Atom last-visited(pos-6-2)
+Atom last-visited(pos-3-3)
+Atom last-visited(pos-2-2)
+Atom last-visited(pos-0-2)
 Atom move-ended()
 Atom last-visited(pos-5-2)
 Atom last-visited(pos-3-5)
 Atom last-visited(pos-3-2)
-Atom last-visited(pos-1-2)
-Atom last-visited(pos-3-6)
-Atom last-visited(pos-4-4)
-Atom last-visited(pos-1-4)
-Atom last-visited(pos-3-1)
-Atom last-visited(pos-5-4)
-Atom last-visited(pos-4-2)
-Atom last-visited(pos-0-4)
-Atom last-visited(pos-0-2)
+Atom last-visited(pos-3-4)
+Atom last-visited(pos-2-4)
 Atom last-visited(pos-6-4)
-Atom last-visited(pos-3-3)
-Atom last-visited(pos-3-0)
+Atom last-visited(pos-1-4)
+Atom last-visited(pos-1-2)
 end_variable
 begin_variable
 var1
@@ -69,8 +69,8 @@ begin_variable
 var6
 -1
 2
-Atom free(pos-5-4)
 Atom occupied(pos-5-4)
+Atom free(pos-5-4)
 end_variable
 begin_variable
 var7
@@ -83,8 +83,8 @@ begin_variable
 var8
 -1
 2
-Atom free(pos-3-6)
 Atom occupied(pos-3-6)
+Atom free(pos-3-6)
 end_variable
 begin_variable
 var9
@@ -97,22 +97,22 @@ begin_variable
 var10
 -1
 2
-Atom occupied(pos-3-2)
 Atom free(pos-3-2)
+Atom occupied(pos-3-2)
 end_variable
 begin_variable
 var11
 -1
 2
-Atom occupied(pos-1-4)
 Atom free(pos-1-4)
+Atom occupied(pos-1-4)
 end_variable
 begin_variable
 var12
 -1
 2
-Atom occupied(pos-5-2)
 Atom free(pos-5-2)
+Atom occupied(pos-5-2)
 end_variable
 begin_variable
 var13
@@ -132,8 +132,8 @@ begin_variable
 var15
 -1
 2
-Atom free(pos-3-4)
 Atom occupied(pos-3-4)
+Atom free(pos-3-4)
 end_variable
 begin_variable
 var16
@@ -153,8 +153,8 @@ begin_variable
 var18
 -1
 2
-Atom free(pos-1-2)
 Atom occupied(pos-1-2)
+Atom free(pos-1-2)
 end_variable
 begin_variable
 var19
@@ -167,14 +167,14 @@ begin_variable
 var20
 -1
 2
-Atom occupied(pos-3-0)
 Atom free(pos-3-0)
+Atom occupied(pos-3-0)
 end_variable
 21
 begin_mutex_group
 2
-20 1
 20 0
+20 1
 end_mutex_group
 begin_mutex_group
 2
@@ -183,8 +183,8 @@ begin_mutex_group
 end_mutex_group
 begin_mutex_group
 2
-18 0
 18 1
+18 0
 end_mutex_group
 begin_mutex_group
 2
@@ -198,8 +198,8 @@ begin_mutex_group
 end_mutex_group
 begin_mutex_group
 2
-15 0
 15 1
+15 0
 end_mutex_group
 begin_mutex_group
 2
@@ -213,18 +213,18 @@ begin_mutex_group
 end_mutex_group
 begin_mutex_group
 2
-12 1
 12 0
+12 1
 end_mutex_group
 begin_mutex_group
 2
-11 1
 11 0
+11 1
 end_mutex_group
 begin_mutex_group
 2
-10 1
 10 0
+10 1
 end_mutex_group
 begin_mutex_group
 2
@@ -233,8 +233,8 @@ begin_mutex_group
 end_mutex_group
 begin_mutex_group
 2
-8 0
 8 1
+8 0
 end_mutex_group
 begin_mutex_group
 2
@@ -243,31 +243,31 @@ begin_mutex_group
 end_mutex_group
 begin_mutex_group
 20
-0 4
-0 16
-0 15
-0 8
 0 11
+0 10
+0 3
+0 19
+0 18
+0 9
+0 16
+0 6
+0 4
+0 14
+0 8
+0 15
+0 13
 0 0
 0 2
-0 19
-0 12
-0 7
-0 18
 0 1
-0 6
-0 9
-0 14
-0 10
+0 12
 0 5
-0 13
-0 3
+0 7
 0 17
 end_mutex_group
 begin_mutex_group
 2
-6 0
 6 1
+6 0
 end_mutex_group
 begin_mutex_group
 2
@@ -295,18 +295,12 @@ begin_mutex_group
 1 1
 end_mutex_group
 begin_state
-4
+11
 0
 0
 1
 1
 0
-0
-0
-0
-1
-1
-1
 1
 0
 1
@@ -314,8 +308,14 @@ begin_state
 0
 0
 0
+0
+1
+0
+0
+0
 1
 1
+0
 end_state
 begin_goal
 20
@@ -324,93 +324,73 @@ begin_goal
 3 0
 4 1
 5 1
-6 0
+6 1
 7 1
-8 0
+8 1
 9 1
-10 1
-11 1
-12 1
+10 0
+11 0
+12 0
 13 1
 14 1
-15 0
+15 1
 16 0
 17 1
-18 0
+18 1
 19 1
-20 1
+20 0
 end_goal
 83
-begin_operator
-jump-new-move pos-3-4 pos-2-4 pos-1-4
-0
-4
-0 0 4 11
-0 11 1 0
-0 15 1 0
-0 17 0 1
-1
-end_operator
 begin_operator
 jump-new-move pos-2-4 pos-3-4 pos-4-4
 0
 4
-0 0 4 10
-0 15 1 0
+0 0 11 1
+0 15 0 1
 0 16 0 1
 0 17 0 1
 1
 end_operator
 begin_operator
-end-move pos-1-4
+jump-new-move pos-3-4 pos-2-4 pos-1-4
 0
+4
+0 0 11 18
+0 11 0 1
+0 15 0 1
+0 17 0 1
 1
-0 0 11 4
-0
 end_operator
 begin_operator
 end-move pos-4-4
 0
 1
-0 0 10 4
+0 0 1 11
 0
 end_operator
 begin_operator
-jump-new-move pos-1-4 pos-1-3 pos-1-2
+end-move pos-1-4
 0
-4
-0 0 4 8
-0 5 0 1
-0 11 0 1
-0 18 0 1
 1
-end_operator
-begin_operator
-jump-continue-move pos-1-4 pos-1-3 pos-1-2
-0
-4
-0 0 11 8
-0 5 0 1
-0 11 0 1
-0 18 0 1
+0 0 18 11
 0
 end_operator
 begin_operator
-jump-continue-move pos-1-4 pos-2-4 pos-3-4
+jump-new-move pos-3-4 pos-4-4 pos-5-4
 0
 4
-0 0 11 1
-0 11 0 1
+0 0 11 5
+0 6 1 0
 0 15 0 1
-0 17 0 1
-0
+0 16 1 0
+1
 end_operator
 begin_operator
 jump-continue-move pos-4-4 pos-3-4 pos-2-4
 0
 4
-0 0 10 2
-0 15 1 0
+0 0 1 16
+0 15 0 1
 0 16 1 0
 0 17 1 0
 0
@@ -419,132 +399,112 @@ begin_operator
 jump-new-move pos-2-4 pos-1-4 pos-0-4
 0
 4
-0 0 4 15
+0 0 11 3
 0 1 0 1
-0 11 0 1
+0 11 1 0
 0 17 0 1
 1
 end_operator
 begin_operator
-jump-new-move pos-3-4 pos-4-4 pos-5-4
+jump-continue-move pos-1-4 pos-1-3 pos-1-2
 0
 4
-0 0 4 13
-0 6 0 1
+0 0 18 19
+0 5 0 1
+0 11 1 0
+0 18 1 0
+0
+end_operator
+begin_operator
+jump-continue-move pos-1-4 pos-2-4 pos-3-4
+0
+4
+0 0 18 15
+0 11 1 0
 0 15 1 0
-0 16 1 0
-1
-end_operator
-begin_operator
-jump-new-move pos-1-4 pos-2-4 pos-3-4
-0
-4
-0 0 4 1
-0 11 0 1
-0 15 0 1
 0 17 0 1
-1
+0
 end_operator
 begin_operator
 jump-new-move pos-4-4 pos-3-4 pos-2-4
 0
 4
-0 0 4 2
-0 15 1 0
+0 0 11 16
+0 15 0 1
 0 16 1 0
 0 17 1 0
 1
 end_operator
 begin_operator
-end-move pos-1-2
+end-move pos-5-4
 0
 1
-0 0 8 4
-0
-end_operator
-begin_operator
-end-move pos-3-4
-0
-1
-0 0 1 4
+0 0 5 11
 0
 end_operator
 begin_operator
 end-move pos-2-4
 0
 1
-0 0 2 4
+0 0 16 11
 0
+end_operator
+begin_operator
+jump-new-move pos-1-4 pos-1-3 pos-1-2
+0
+4
+0 0 11 19
+0 5 0 1
+0 11 1 0
+0 18 1 0
+1
+end_operator
+begin_operator
+jump-new-move pos-1-4 pos-2-4 pos-3-4
+0
+4
+0 0 11 15
+0 11 1 0
+0 15 1 0
+0 17 0 1
+1
 end_operator
 begin_operator
 end-move pos-0-4
 0
 1
-0 0 15 4
+0 0 3 11
 0
 end_operator
 begin_operator
-end-move pos-5-4
+end-move pos-1-2
 0
 1
-0 0 13 4
+0 0 19 11
 0
 end_operator
 begin_operator
-jump-new-move pos-1-2 pos-1-3 pos-1-4
+end-move pos-3-4
 0
-4
-0 0 4 11
-0 5 0 1
-0 11 1 0
-0 18 1 0
 1
+0 0 15 11
+0
 end_operator
 begin_operator
-jump-new-move pos-1-2 pos-2-2 pos-3-2
+jump-new-move pos-4-4 pos-5-4 pos-6-4
 0
 4
-0 0 4 7
-0 3 1 0
-0 10 1 0
-0 18 1 0
+0 0 11 17
+0 6 0 1
+0 16 1 0
+0 19 1 0
 1
 end_operator
 begin_operator
-jump-continue-move pos-1-2 pos-1-3 pos-1-4
+jump-continue-move pos-5-4 pos-4-4 pos-3-4
 0
 4
-0 0 8 11
-0 5 0 1
-0 11 1 0
-0 18 1 0
-0
-end_operator
-begin_operator
-jump-continue-move pos-1-2 pos-2-2 pos-3-2
-0
-4
-0 0 8 7
-0 3 1 0
-0 10 1 0
-0 18 1 0
-0
-end_operator
-begin_operator
-jump-continue-move pos-3-4 pos-2-4 pos-1-4
-0
-4
-0 0 1 11
-0 11 1 0
-0 15 1 0
-0 17 0 1
-0
-end_operator
-begin_operator
-jump-continue-move pos-3-4 pos-4-4 pos-5-4
-0
-4
-0 0 1 13
+0 0 5 15
 0 6 0 1
 0 15 1 0
 0 16 1 0
@@ -554,8 +514,8 @@ begin_operator
 jump-continue-move pos-2-4 pos-3-4 pos-4-4
 0
 4
-0 0 2 10
-0 15 1 0
+0 0 16 1
+0 15 0 1
 0 16 0 1
 0 17 0 1
 0
@@ -564,29 +524,19 @@ begin_operator
 jump-continue-move pos-2-4 pos-1-4 pos-0-4
 0
 4
-0 0 2 15
+0 0 16 3
 0 1 0 1
-0 11 0 1
+0 11 1 0
 0 17 0 1
 0
-end_operator
-begin_operator
-jump-new-move pos-0-4 pos-1-4 pos-2-4
-0
-4
-0 0 4 2
-0 1 1 0
-0 11 0 1
-0 17 1 0
-1
 end_operator
 begin_operator
 jump-continue-move pos-0-4 pos-1-4 pos-2-4
 0
 4
-0 0 15 2
+0 0 3 16
 0 1 1 0
-0 11 0 1
+0 11 1 0
 0 17 1 0
 0
 end_operator
@@ -594,248 +544,308 @@ begin_operator
 jump-new-move pos-2-2 pos-1-2 pos-0-2
 0
 4
-0 0 4 16
+0 0 11 10
 0 3 1 0
 0 14 1 0
-0 18 1 0
+0 18 0 1
 1
+end_operator
+begin_operator
+jump-continue-move pos-1-2 pos-1-3 pos-1-4
+0
+4
+0 0 19 18
+0 5 0 1
+0 11 0 1
+0 18 0 1
+0
+end_operator
+begin_operator
+jump-continue-move pos-1-2 pos-2-2 pos-3-2
+0
+4
+0 0 19 14
+0 3 1 0
+0 10 0 1
+0 18 0 1
+0
+end_operator
+begin_operator
+jump-continue-move pos-3-4 pos-2-4 pos-1-4
+0
+4
+0 0 15 18
+0 11 0 1
+0 15 0 1
+0 17 0 1
+0
+end_operator
+begin_operator
+jump-continue-move pos-3-4 pos-4-4 pos-5-4
+0
+4
+0 0 15 5
+0 6 1 0
+0 15 0 1
+0 16 1 0
+0
+end_operator
+begin_operator
+jump-continue-move pos-4-4 pos-5-4 pos-6-4
+0
+4
+0 0 1 17
+0 6 0 1
+0 16 1 0
+0 19 1 0
+0
 end_operator
 begin_operator
 jump-new-move pos-5-4 pos-4-4 pos-3-4
 0
 4
-0 0 4 1
-0 6 1 0
-0 15 0 1
+0 0 11 15
+0 6 0 1
+0 15 1 0
 0 16 1 0
 1
 end_operator
 begin_operator
-jump-continue-move pos-5-4 pos-4-4 pos-3-4
+end-move pos-6-4
+0
+1
+0 0 17 11
+0
+end_operator
+begin_operator
+jump-new-move pos-0-4 pos-1-4 pos-2-4
 0
 4
-0 0 13 1
-0 6 1 0
-0 15 0 1
-0 16 1 0
+0 0 11 16
+0 1 1 0
+0 11 1 0
+0 17 1 0
+1
+end_operator
+begin_operator
+jump-new-move pos-1-2 pos-1-3 pos-1-4
+0
+4
+0 0 11 18
+0 5 0 1
+0 11 0 1
+0 18 0 1
+1
+end_operator
+begin_operator
+jump-new-move pos-1-2 pos-2-2 pos-3-2
+0
+4
+0 0 11 14
+0 3 1 0
+0 10 0 1
+0 18 0 1
+1
+end_operator
+begin_operator
+end-move pos-0-2
+0
+1
+0 0 10 11
 0
 end_operator
 begin_operator
 end-move pos-3-2
 0
 1
-0 0 7 4
+0 0 14 11
 0
 end_operator
 begin_operator
-jump-new-move pos-4-4 pos-5-4 pos-6-4
+jump-continue-move pos-6-4 pos-5-4 pos-4-4
 0
 4
-0 0 4 17
-0 6 1 0
-0 16 1 0
-0 19 1 0
-1
-end_operator
-begin_operator
-jump-continue-move pos-4-4 pos-5-4 pos-6-4
-0
-4
-0 0 10 17
-0 6 1 0
-0 16 1 0
-0 19 1 0
-0
-end_operator
-begin_operator
-end-move pos-0-2
-0
-1
-0 0 16 4
-0
-end_operator
-begin_operator
-jump-new-move pos-3-2 pos-2-2 pos-1-2
-0
-4
-0 0 4 8
-0 3 1 0
-0 10 0 1
-0 18 0 1
-1
-end_operator
-begin_operator
-jump-new-move pos-3-2 pos-3-1 pos-3-0
-0
-4
-0 0 4 19
-0 10 0 1
-0 13 0 1
-0 20 1 0
-1
-end_operator
-begin_operator
-jump-continue-move pos-3-2 pos-2-2 pos-1-2
-0
-4
-0 0 7 8
-0 3 1 0
-0 10 0 1
-0 18 0 1
-0
-end_operator
-begin_operator
-jump-continue-move pos-3-2 pos-3-1 pos-3-0
-0
-4
-0 0 7 19
-0 10 0 1
-0 13 0 1
-0 20 1 0
-0
-end_operator
-begin_operator
-end-move pos-6-4
-0
-1
-0 0 17 4
+0 0 17 1
+0 6 0 1
+0 16 0 1
+0 19 0 1
 0
 end_operator
 begin_operator
 jump-continue-move pos-0-2 pos-1-2 pos-2-2
 0
 4
-0 0 16 0
+0 0 10 9
 0 3 0 1
 0 14 0 1
-0 18 1 0
+0 18 0 1
 0
-end_operator
-begin_operator
-jump-new-move pos-3-1 pos-3-2 pos-3-3
-0
-4
-0 0 4 18
-0 7 0 1
-0 10 0 1
-0 13 0 1
-1
 end_operator
 begin_operator
 jump-new-move pos-2-2 pos-3-2 pos-4-2
 0
 4
-0 0 4 14
+0 0 11 2
 0 3 1 0
 0 9 1 0
-0 10 0 1
+0 10 1 0
 1
 end_operator
 begin_operator
-jump-new-move pos-0-2 pos-1-2 pos-2-2
+jump-new-move pos-3-1 pos-3-2 pos-3-3
 0
 4
-0 0 4 0
-0 3 0 1
-0 14 0 1
-0 18 1 0
+0 0 11 8
+0 7 0 1
+0 10 1 0
+0 13 0 1
 1
 end_operator
 begin_operator
-end-move pos-3-0
+jump-continue-move pos-3-2 pos-2-2 pos-1-2
 0
-1
-0 0 19 4
+4
+0 0 14 19
+0 3 1 0
+0 10 1 0
+0 18 1 0
+0
+end_operator
+begin_operator
+jump-continue-move pos-3-2 pos-3-1 pos-3-0
+0
+4
+0 0 14 6
+0 10 1 0
+0 13 0 1
+0 20 0 1
 0
 end_operator
 begin_operator
 jump-new-move pos-6-4 pos-5-4 pos-4-4
 0
 4
-0 0 4 10
-0 6 1 0
+0 0 11 1
+0 6 0 1
 0 16 0 1
 0 19 0 1
 1
 end_operator
 begin_operator
-jump-continue-move pos-6-4 pos-5-4 pos-4-4
+jump-new-move pos-0-2 pos-1-2 pos-2-2
 0
 4
-0 0 17 10
-0 6 1 0
-0 16 0 1
-0 19 0 1
-0
+0 0 11 9
+0 3 0 1
+0 14 0 1
+0 18 0 1
+1
 end_operator
 begin_operator
 end-move pos-2-2
 0
 1
-0 0 0 4
+0 0 9 11
+0
+end_operator
+begin_operator
+jump-new-move pos-3-2 pos-2-2 pos-1-2
+0
+4
+0 0 11 19
+0 3 1 0
+0 10 1 0
+0 18 1 0
+1
+end_operator
+begin_operator
+jump-new-move pos-3-2 pos-3-1 pos-3-0
+0
+4
+0 0 11 6
+0 10 1 0
+0 13 0 1
+0 20 0 1
+1
+end_operator
+begin_operator
+end-move pos-4-2
+0
+1
+0 0 2 11
 0
 end_operator
 begin_operator
 end-move pos-3-3
 0
 1
-0 0 18 4
+0 0 8 11
 0
 end_operator
 begin_operator
-end-move pos-4-2
+end-move pos-3-0
 0
 1
-0 0 14 4
-0
-end_operator
-begin_operator
-jump-new-move pos-3-0 pos-3-1 pos-3-2
-0
-4
-0 0 4 7
-0 10 1 0
-0 13 0 1
-0 20 0 1
-1
-end_operator
-begin_operator
-jump-continue-move pos-3-0 pos-3-1 pos-3-2
-0
-4
-0 0 19 7
-0 10 1 0
-0 13 0 1
-0 20 0 1
+0 0 6 11
 0
 end_operator
 begin_operator
 jump-continue-move pos-2-2 pos-1-2 pos-0-2
 0
 4
-0 0 0 16
+0 0 9 10
 0 3 1 0
 0 14 1 0
-0 18 1 0
+0 18 0 1
 0
 end_operator
 begin_operator
 jump-continue-move pos-2-2 pos-3-2 pos-4-2
 0
 4
-0 0 0 14
+0 0 9 2
 0 3 1 0
 0 9 1 0
-0 10 0 1
+0 10 1 0
 0
 end_operator
 begin_operator
-jump-new-move pos-3-3 pos-3-4 pos-3-5
+jump-new-move pos-3-2 pos-4-2 pos-5-2
 0
 4
-0 0 4 6
-0 4 1 0
+0 0 11 12
+0 9 0 1
+0 10 1 0
+0 12 0 1
+1
+end_operator
+begin_operator
+jump-continue-move pos-4-2 pos-3-2 pos-2-2
+0
+4
+0 0 2 9
+0 3 0 1
+0 9 0 1
+0 10 1 0
+0
+end_operator
+begin_operator
+jump-new-move pos-3-4 pos-3-3 pos-3-2
+0
+4
+0 0 11 14
 0 7 1 0
+0 10 0 1
+0 15 0 1
+1
+end_operator
+begin_operator
+jump-new-move pos-3-2 pos-3-3 pos-3-4
+0
+4
+0 0 11 15
+0 7 1 0
+0 10 1 0
 0 15 1 0
 1
 end_operator
@@ -843,275 +853,265 @@ begin_operator
 jump-continue-move pos-3-3 pos-3-4 pos-3-5
 0
 4
-0 0 18 6
+0 0 8 13
 0 4 1 0
 0 7 1 0
-0 15 1 0
+0 15 0 1
 0
 end_operator
 begin_operator
 jump-continue-move pos-3-3 pos-3-2 pos-3-1
 0
 4
-0 0 18 12
+0 0 8 4
 0 7 1 0
-0 10 0 1
+0 10 1 0
 0 13 1 0
 0
 end_operator
 begin_operator
-jump-new-move pos-4-2 pos-3-2 pos-2-2
+jump-continue-move pos-3-0 pos-3-1 pos-3-2
 0
 4
-0 0 4 0
-0 3 0 1
-0 9 0 1
+0 0 6 14
 0 10 0 1
-1
-end_operator
-begin_operator
-jump-continue-move pos-4-2 pos-3-2 pos-2-2
-0
-4
-0 0 14 0
-0 3 0 1
-0 9 0 1
-0 10 0 1
+0 13 0 1
+0 20 1 0
 0
 end_operator
 begin_operator
-jump-new-move pos-3-4 pos-3-3 pos-3-2
+jump-continue-move pos-3-2 pos-4-2 pos-5-2
 0
 4
-0 0 4 7
-0 7 1 0
+0 0 14 12
+0 9 0 1
 0 10 1 0
-0 15 1 0
-1
-end_operator
-begin_operator
-jump-new-move pos-3-2 pos-3-3 pos-3-4
+0 12 0 1
 0
-4
-0 0 4 1
-0 7 1 0
-0 10 0 1
-0 15 0 1
-1
 end_operator
 begin_operator
 jump-continue-move pos-3-2 pos-3-3 pos-3-4
 0
 4
-0 0 7 1
+0 0 14 15
 0 7 1 0
-0 10 0 1
-0 15 0 1
+0 10 1 0
+0 15 1 0
 0
 end_operator
 begin_operator
 jump-continue-move pos-3-4 pos-3-3 pos-3-2
 0
 4
-0 0 1 7
+0 0 15 14
 0 7 1 0
-0 10 1 0
-0 15 1 0
+0 10 0 1
+0 15 0 1
 0
 end_operator
 begin_operator
-jump-new-move pos-3-2 pos-4-2 pos-5-2
+jump-new-move pos-4-2 pos-3-2 pos-2-2
 0
 4
-0 0 4 5
+0 0 11 9
+0 3 0 1
 0 9 0 1
-0 10 0 1
-0 12 1 0
+0 10 1 0
 1
 end_operator
 begin_operator
-jump-continue-move pos-3-2 pos-4-2 pos-5-2
+end-move pos-5-2
 0
-4
-0 0 7 5
-0 9 0 1
-0 10 0 1
-0 12 1 0
+1
+0 0 12 11
 0
 end_operator
 begin_operator
 jump-new-move pos-3-3 pos-3-2 pos-3-1
 0
 4
-0 0 4 12
+0 0 11 4
 0 7 1 0
-0 10 0 1
+0 10 1 0
 0 13 1 0
+1
+end_operator
+begin_operator
+jump-new-move pos-3-3 pos-3-4 pos-3-5
+0
+4
+0 0 11 13
+0 4 1 0
+0 7 1 0
+0 15 0 1
 1
 end_operator
 begin_operator
 end-move pos-3-5
 0
 1
-0 0 6 4
+0 0 13 11
 0
 end_operator
 begin_operator
 end-move pos-3-1
 0
 1
-0 0 12 4
+0 0 4 11
 0
 end_operator
 begin_operator
-end-move pos-5-2
-0
-1
-0 0 5 4
-0
-end_operator
-begin_operator
-jump-new-move pos-3-5 pos-3-4 pos-3-3
+jump-new-move pos-3-0 pos-3-1 pos-3-2
 0
 4
-0 0 4 18
-0 4 0 1
-0 7 0 1
-0 15 1 0
-1
-end_operator
-begin_operator
-jump-continue-move pos-3-5 pos-3-4 pos-3-3
-0
-4
-0 0 6 18
-0 4 0 1
-0 7 0 1
-0 15 1 0
-0
-end_operator
-begin_operator
-jump-continue-move pos-3-1 pos-3-2 pos-3-3
-0
-4
-0 0 12 18
-0 7 0 1
+0 0 11 14
 0 10 0 1
 0 13 0 1
-0
-end_operator
-begin_operator
-jump-new-move pos-3-4 pos-3-5 pos-3-6
-0
-4
-0 0 4 9
-0 4 0 1
-0 8 0 1
-0 15 1 0
+0 20 1 0
 1
 end_operator
 begin_operator
-jump-continue-move pos-3-4 pos-3-5 pos-3-6
+jump-new-move pos-4-2 pos-5-2 pos-6-2
 0
 4
-0 0 1 9
-0 4 0 1
-0 8 0 1
-0 15 1 0
-0
-end_operator
-begin_operator
-jump-new-move pos-5-2 pos-4-2 pos-3-2
-0
-4
-0 0 4 7
+0 0 11 7
+0 2 0 1
 0 9 0 1
-0 10 1 0
-0 12 0 1
+0 12 1 0
 1
 end_operator
 begin_operator
 jump-continue-move pos-5-2 pos-4-2 pos-3-2
 0
 4
-0 0 5 7
+0 0 12 14
 0 9 0 1
-0 10 1 0
-0 12 0 1
+0 10 0 1
+0 12 1 0
 0
 end_operator
 begin_operator
-jump-new-move pos-4-2 pos-5-2 pos-6-2
+jump-new-move pos-3-4 pos-3-5 pos-3-6
 0
 4
-0 0 4 3
-0 2 0 1
-0 9 0 1
-0 12 0 1
+0 0 11 0
+0 4 0 1
+0 8 1 0
+0 15 0 1
 1
+end_operator
+begin_operator
+jump-continue-move pos-3-5 pos-3-4 pos-3-3
+0
+4
+0 0 13 8
+0 4 0 1
+0 7 0 1
+0 15 0 1
+0
+end_operator
+begin_operator
+jump-continue-move pos-3-1 pos-3-2 pos-3-3
+0
+4
+0 0 4 8
+0 7 0 1
+0 10 1 0
+0 13 0 1
+0
 end_operator
 begin_operator
 jump-continue-move pos-4-2 pos-5-2 pos-6-2
 0
 4
-0 0 14 3
+0 0 2 7
 0 2 0 1
 0 9 0 1
-0 12 0 1
+0 12 1 0
 0
 end_operator
 begin_operator
-end-move pos-3-6
+jump-continue-move pos-3-4 pos-3-5 pos-3-6
 0
+4
+0 0 15 0
+0 4 0 1
+0 8 1 0
+0 15 0 1
+0
+end_operator
+begin_operator
+jump-new-move pos-5-2 pos-4-2 pos-3-2
+0
+4
+0 0 11 14
+0 9 0 1
+0 10 0 1
+0 12 1 0
 1
-0 0 9 4
-0
 end_operator
 begin_operator
 end-move pos-6-2
 0
 1
-0 0 3 4
+0 0 7 11
 0
 end_operator
 begin_operator
-jump-new-move pos-3-6 pos-3-5 pos-3-4
+jump-new-move pos-3-5 pos-3-4 pos-3-3
 0
 4
-0 0 4 1
+0 0 11 8
 0 4 0 1
-0 8 1 0
+0 7 0 1
 0 15 0 1
 1
+end_operator
+begin_operator
+end-move pos-3-6
+0
+1
+0 0 0 11
+0
+end_operator
+begin_operator
+jump-continue-move pos-6-2 pos-5-2 pos-4-2
+0
+4
+0 0 7 2
+0 2 1 0
+0 9 1 0
+0 12 1 0
+0
 end_operator
 begin_operator
 jump-continue-move pos-3-6 pos-3-5 pos-3-4
 0
 4
-0 0 9 1
+0 0 0 15
 0 4 0 1
-0 8 1 0
-0 15 0 1
+0 8 0 1
+0 15 1 0
 0
 end_operator
 begin_operator
 jump-new-move pos-6-2 pos-5-2 pos-4-2
 0
 4
-0 0 4 14
+0 0 11 2
 0 2 1 0
 0 9 1 0
-0 12 0 1
+0 12 1 0
 1
 end_operator
 begin_operator
-jump-continue-move pos-6-2 pos-5-2 pos-4-2
+jump-new-move pos-3-6 pos-3-5 pos-3-4
 0
 4
-0 0 3 14
-0 2 1 0
-0 9 1 0
-0 12 0 1
-0
+0 0 11 15
+0 4 0 1
+0 8 0 1
+0 15 1 0
+1
 end_operator
 0
