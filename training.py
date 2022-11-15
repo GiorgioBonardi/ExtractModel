@@ -81,7 +81,7 @@ for dir in os.listdir(pathDomain):
     for i in range(1,10):
     #i = 1
     #for file in os.listdir(pathSpecificDomain):
-        original_domain = pathSpecificDomain + "/p01-domain.pddl"
+        original_domain = pathSpecificDomain + "/p"+str(i).zfill(2)+"-domain.pddl"
         original_problem = pathSpecificDomain + "/p"+str(i).zfill(2)+".pddl"
         currentpath = pathSpecificDomain + "/result"+str(i).zfill(2)
 

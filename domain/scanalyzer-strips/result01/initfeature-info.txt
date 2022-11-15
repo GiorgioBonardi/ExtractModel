@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/scanalyzer-strips/p01.pddl, 42, 648, 2, 8, 4.000000, -4, 0.142857, 1.124858, -4, -0.583333, 1.753964, 5.416667, 4.166667, 28

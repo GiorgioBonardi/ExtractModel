@@ -1,0 +1,136 @@
+
+All the base classifiers: 
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+J48 pruned tree
+------------------
+: True (72.0/36.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+
+
+Time taken to build model: 0.63 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          36               50      %
+Incorrectly Classified Instances        36               50      %
+Kappa statistic                          0     
+Mean absolute error                      0.5   
+Root mean squared error                  0.5   
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances               72     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 36  0 |  a = True
+ 36  0 |  b = False
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          72              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.3733
+Root mean squared error                  0.3775
+Relative absolute error                 74.5374 %
+Root relative squared error             75.3761 %
+Total Number of Instances               72     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 36  0 |  a = True
+  0 36 |  b = False
+
