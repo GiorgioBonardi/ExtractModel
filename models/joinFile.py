@@ -139,14 +139,14 @@ if __name__ == '__main__':
     route = ""
     
     
-    if (len(sys.argv) == 6):
+    if (len(sys.argv) >= 3):
         route = sys.argv[1]
         res_planner = []
         for n in range(2,len(sys.argv)):
             res_planner.append(sys.argv[n])
 
     else:
-        print "ERROR:::: Need one argument to create the features file" 
+        print "ERROR:::: Need two argument to create the features file" 
         sys.exit(-1)
     try:
 	    translate = readFile(route+"/translateFile", translate) ## translateFile

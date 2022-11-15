@@ -44,9 +44,13 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
+
+    print("PROBLEM: " + problem)
+    print("DOMAIN" + domain)
     reader = PDDLReader()
     parsed_problem = reader.parse_problem(domain, problem)
 
+    #TODO: aggiungere i try except
     # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
     # tempList = list(engines.keys())
     plannerList = ['fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
@@ -74,7 +78,7 @@ pathDomain = rootpath + "/domain"
 ##estrazione features per domain/problem
 for dir in os.listdir(pathDomain):  
     pathSpecificDomain = pathDomain + "/" + dir
-    for i in range(1,2):
+    for i in range(1,10):
     #i = 1
     #for file in os.listdir(pathSpecificDomain):
         original_domain = pathSpecificDomain + "/p01-domain.pddl"
@@ -101,22 +105,22 @@ for dir in os.listdir(pathDomain):
 
 
 #creazione file "joined_global_features" unico
-command = "python2.7 "+ pathname + "/join_globals.py " + pathname
+command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
 print(command)
 os.system(command)
 
 #rimozione attributi 
 ##TODO: la dobbiamo fare o no?
-command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ pathname + "/joined_global_features.arff -o "+ pathname +"/joined_global_features_simply.arff"
+command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
 os.system(command)
 
 #check result      
-command = "java -Xmx1024M -cp " + pathname + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + pathname +"/joined_global_features_simply.arff > " + pathname + "/output"
+command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
 print(command)
 os.system(command)
 
 #saving model
-command = "java -Xmx1024M -cp " + pathname + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + pathname + "/joined_global_features_simply.arff -d " + pathname + "/RotationForest.model"
+command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
 print(command)
 os.system(command)
 
