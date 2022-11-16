@@ -53,7 +53,7 @@ def execute_problem(domain, problem):
     #TODO: aggiungere i try except
     # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
     # tempList = list(engines.keys())
-    plannerList = ['fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
+    plannerList = ['tamer','fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
     
     # for p in tempList:
     #     try:
@@ -72,13 +72,12 @@ def execute_problem(domain, problem):
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
-pathname = os.getcwd()
-rootpath = pathname + "/ExtractModel"
+rootpath = os.path.dirname(__file__)
 pathDomain = rootpath + "/domain"
 ##estrazione features per domain/problem
 for dir in os.listdir(pathDomain):  
     pathSpecificDomain = pathDomain + "/" + dir
-    for i in range(1,10):
+    for i in range(1,2):
     #i = 1
     #for file in os.listdir(pathSpecificDomain):
         original_domain = pathSpecificDomain + "/p"+str(i).zfill(2)+"-domain.pddl"
