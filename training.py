@@ -53,7 +53,7 @@ def execute_problem(domain, problem):
     #TODO: aggiungere i try except
     # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
     # tempList = list(engines.keys())
-    plannerList = ['tamer','fast-downward','enhsp'] # to be added: lpg !!! NOT FUNCTIONING !!!
+    plannerList = ['tamer'] # to be added: lpg !!! NOT FUNCTIONING !!!
     
     # for p in tempList:
     #     try:
@@ -62,13 +62,26 @@ def execute_problem(domain, problem):
     #                 plannerList.append(p)
     #     except:
     #         pass
+
     res = []
     for p in plannerList:
         with OneshotPlanner(name=p) as planner:
-            result = planner.solve(parsed_problem)
-            toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
-            res.append(toBeAppended)
-            print(toBeAppended)
+            try:
+
+                #validare la soluzione
+                #timer 5m tramite script
+                #tamer
+                result = planner.solve(parsed_problem)
+                print(result.plan)
+                val = planner.validate(parsed_problem, result.plan)
+                print(val.status)
+                toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
+                res.append(toBeAppended)
+                print(toBeAppended)
+            except:
+                toBeAppended = ","+ p + ", False"
+                res.append(toBeAppended)
+
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 

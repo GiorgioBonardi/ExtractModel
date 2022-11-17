@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/openstacks-strips/p04.pddl, 61, 220, 4, 31, 7.750000, -1, 0.000000, 0.829774, 1, 1.000000, 0.000000, 6.740909, 0.859091, 18
