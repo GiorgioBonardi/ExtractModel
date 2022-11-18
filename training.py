@@ -58,23 +58,23 @@ def execute_problem(domain, problem):
         for p in plannerList:
             #solve problem for tamer/enhsp/fast-downward
             with OneshotPlanner(name=p) as planner:
-                # try:
-                #validare la soluzione
-                #timer 5m tramite script
-                #tamer
-                result = planner.solve(parsed_problem)
-                print(result.plan)
-                val = planner.validate(parsed_problem, result.plan)
-                print(val.status)
-                if(val.status == ValidationResultStatus.VALID):
-                    #TODO: da togliere la , all'inizio?
-                    toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
-                    print(toBeAppended)
-                else:
-                    # toBeAppended = ","+ p + ", False"
-                    pass
-                # except:
+                try:
+                    #validare la soluzione
+                    #timer 5m tramite script
+                    #tamer
+                    result = planner.solve(parsed_problem)
+                    print(result.plan)
+                    val = planner.validate(parsed_problem, result.plan)
+                    print(val.status)
+                    if(val.status == ValidationResultStatus.VALID):
+                        #TODO: da togliere la , all'inizio?
+                        toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
+                        print(toBeAppended)
+                    else:
+                        toBeAppended = ","+ p + ", False"
+                except:
                 #     toBeAppended = ","+ p + ", False"
+                    pass
             res.append(toBeAppended)
         #solve problem for lpg
         try:
