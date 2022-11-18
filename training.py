@@ -6,9 +6,10 @@
 import os               # path and process management
 import sys              # argv, exit
 import argparse
-from unified_planning.shortcuts import *
-from unified_planning.io.pddl_writer import *
-from unified_planning.io.pddl_reader import *
+from unified_planning.engines import ValidationResultStatus, results
+from unified_planning.shortcuts import OneshotPlanner
+from unified_planning.io import PDDLReader
+from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
 #from unified_planning.engines.factory import *
 
 def extract_features(original_domain, original_problem, rootpathOutput):
@@ -50,10 +51,9 @@ def execute_problem(domain, problem):
     reader = PDDLReader()
     parsed_problem = reader.parse_problem(domain, problem)
 
-    #TODO: aggiungere i try except
     # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
     # tempList = list(engines.keys())
-    plannerList = ['tamer'] # to be added: lpg !!! NOT FUNCTIONING !!!
+    plannerList = ['enhsp', 'tamer', 'fast-downward'] # to be added: lpg !!! NOT FUNCTIONING !!!
     
     # for p in tempList:
     #     try:
@@ -65,9 +65,9 @@ def execute_problem(domain, problem):
 
     res = []
     for p in plannerList:
+        #solve problem for tamer/enhsp/fast-downward
         with OneshotPlanner(name=p) as planner:
             try:
-
                 #validare la soluzione
                 #timer 5m tramite script
                 #tamer
@@ -75,38 +75,51 @@ def execute_problem(domain, problem):
                 print(result.plan)
                 val = planner.validate(parsed_problem, result.plan)
                 print(val.status)
-                toBeAppended = ","+ p + ", " + str(result.status in unified_planning.engines.results.POSITIVE_OUTCOMES)
-                res.append(toBeAppended)
-                print(toBeAppended)
+                if(val.status == ValidationResultStatus.VALID):
+                    #TODO: da togliere la , all'inizio?
+                    toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
+                    print(toBeAppended)
+                else:
+                    toBeAppended = ","+ p + ", False"
             except:
                 toBeAppended = ","+ p + ", False"
-                res.append(toBeAppended)
-
+        res.append(toBeAppended)
+    #solve problem for lpg
+    try:
+        lpg_engine = LPGEngine()
+        print("Inizio risoluzione LPG")
+        result = lpg_engine._solve(parsed_problem)
+        print(result.plan)
+        toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
+        print(toBeAppended)
+    except:
+        toBeAppended = ",lpg, False"
+    res.append(toBeAppended)
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
 rootpath = os.path.dirname(__file__)
-pathDomain = rootpath + "/domain"
+pathDomain = os.path.join(rootpath, "domain")
 ##estrazione features per domain/problem
 for dir in os.listdir(pathDomain):  
-    pathSpecificDomain = pathDomain + "/" + dir
+    pathSpecificDomain = os.path.join(pathDomain, dir)
     for i in range(1,2):
     #i = 1
     #for file in os.listdir(pathSpecificDomain):
-        original_domain = pathSpecificDomain + "/p"+str(i).zfill(2)+"-domain.pddl"
-        original_problem = pathSpecificDomain + "/p"+str(i).zfill(2)+".pddl"
-        currentpath = pathSpecificDomain + "/result"+str(i).zfill(2)
+        original_domain = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+"-domain.pddl")
+        original_problem = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+".pddl")
+        currentpath = os.path.join(pathSpecificDomain, "result"+str(i).zfill(2))
 
         if(os.path.isfile(original_problem)):
             if(not os.path.isdir(currentpath)):
                 os.mkdir(currentpath)
             os.chdir(currentpath)
-            extract_features(original_domain, original_problem, currentpath)
+            # extract_features(original_domain, original_problem, currentpath)
 
             ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
             res_planner = execute_problem(original_domain, original_problem)
             #join file
-            actual_rootpath = rootpath + "/models"
+            actual_rootpath = os.path.join(rootpath, "models")
             res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
             print(res_planner_str)
             command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + res_planner_str
