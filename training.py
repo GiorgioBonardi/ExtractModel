@@ -9,7 +9,9 @@ import argparse
 from unified_planning.engines import ValidationResultStatus, results
 from unified_planning.shortcuts import OneshotPlanner
 from unified_planning.io import PDDLReader
-from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
+#from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
+import func_timeout
+
 
 #from unified_planning.engines.factory import *
 
@@ -62,7 +64,16 @@ def execute_problem(domain, problem):
                     #validare la soluzione
                     #timer 5m tramite script
                     #tamer
-                    result = planner.solve(parsed_problem)
+                    result = None
+
+                    try:
+                        result = func_timeout.func_timeout(999, lambda: planner.solve(parsed_problem))
+                    except func_timeout.FunctionTimedOut:
+                        print("TIMEOUT")
+                        toBeAppended = ","+ p + ", False"
+                        break
+
+                    #result = planner.solve(parsed_problem)
                     print(result.plan)
                     val = planner.validate(parsed_problem, result.plan)
                     print(val.status)

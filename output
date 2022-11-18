@@ -1,0 +1,174 @@
+
+All the base classifiers: 
+
+J48 pruned tree
+------------------
+
+0.581inputEdgeCGStd_0-0.493planner_1=tamer+0.493planner_1=enhsp-0.42edVaratioLand_2_25 <= -0.633996: True (5.0)
+0.581inputEdgeCGStd_0-0.493planner_1=tamer+0.493planner_1=enhsp-0.42edVaratioLand_2_25 > -0.633996: False (8.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+0.707Landmark_count_0+0.707Additive_1_1 <= -0.183726: False (5.0)
+0.707Landmark_count_0+0.707Additive_1_1 > -0.183726: True (8.0/2.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+-0.812numberFatherNodes_2-0.435avginput_0+0.39 Hred-black_1_22 <= 0
+|   0.5  planner_1=enhsp+0.5  inputEdgeHVAvg_0-0.5planner_1=lpg+0.5  total_queue_pushes_2_27 <= -1.443376: True (4.0)
+|   0.5  planner_1=enhsp+0.5  inputEdgeHVAvg_0-0.5planner_1=lpg+0.5  total_queue_pushes_2_27 > -1.443376
+|   |   0.5  total_queue_pushes_2-0.5planner_1=enhsp+0.5  inputEdgeHVAvg_0+0.5  planner_1=lpg_27 <= 0: False (2.0)
+|   |   0.5  total_queue_pushes_2-0.5planner_1=enhsp+0.5  inputEdgeHVAvg_0+0.5  planner_1=lpg_27 > 0: True (2.0)
+-0.812numberFatherNodes_2-0.435avginput_0+0.39 Hred-black_1_22 > 0: False (5.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+-0.678edVaratioLand_1+0.62 outputEdgeDTGStd_2-0.395rp_fact_balance_var_0_4 <= 0.164445
+|   -0.707planner_1=enhsp+0.707planner_1=fast-downward0    planner_1=lpg+0    stdinput_0_27 <= -1.224745: False (2.0)
+|   -0.707planner_1=enhsp+0.707planner_1=fast-downward0    planner_1=lpg+0    stdinput_0_27 > -1.224745: True (6.0)
+-0.678edVaratioLand_1+0.62 outputEdgeDTGStd_2-0.395rp_fact_balance_var_0_4 > 0.164445: False (5.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+J48 pruned tree
+------------------
+
+0.588totalWeightCG_2+0.588num_relevant_facts_1-0.556FF_0_1 <= -0.65514
+|   -0.5stdoutput_2+0.5  planner_0=tamer-0.5planner_0=fast-downward-0.5avgoutput_1_12 <= -0.544308: True (4.0)
+|   -0.5stdoutput_2+0.5  planner_0=tamer-0.5planner_0=fast-downward-0.5avgoutput_1_12 > -0.544308
+|   |   0.5  stdoutput_2+0.5  planner_0=tamer+0.5  avgoutput_1-0.5planner_0=fast-downward_12 <= -0.530794: False (2.0)
+|   |   0.5  stdoutput_2+0.5  planner_0=tamer+0.5  avgoutput_1-0.5planner_0=fast-downward_12 > -0.530794: True (2.0)
+0.588totalWeightCG_2+0.588num_relevant_facts_1-0.556FF_0_1 > -0.65514: False (5.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+0.763Landmark_count_1-0.633numberVariablesDTG_0-0.131totalEdgesCG_2_10 <= -1.322196: False (5.0)
+0.763Landmark_count_1-0.633numberVariablesDTG_0-0.131totalEdgesCG_2_10 > -1.322196
+|   -0.543maxoutput_1-0.537planner_0=tamer+0.537planner_0=fast-downward+0.359translator_mutex_groups_2_21 <= -0.400639: True (4.0)
+|   -0.543maxoutput_1-0.537planner_0=tamer+0.537planner_0=fast-downward+0.359translator_mutex_groups_2_21 > -0.400639
+|   |   -0.543maxoutput_1-0.537planner_0=tamer+0.537planner_0=fast-downward+0.359translator_mutex_groups_2_21 <= 0.529395: False (2.0)
+|   |   -0.543maxoutput_1-0.537planner_0=tamer+0.537planner_0=fast-downward+0.359translator_mutex_groups_2_21 > 0.529395: True (2.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+0.707Additive_1+0.707nodosbetween_2_2 <= -1.918767: False (5.0)
+0.707Additive_1+0.707nodosbetween_2_2 > -1.918767: True (8.0/2.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+-0.798Landmark_count_0-0.452blackVariables_2+0.399maxinput_1_4 <= 0
+|   -0.707planner_0=fast-downward+0.707planner_0=tamer+0    inputWeightHVAvg_10    planner_0=enhsp0    maxoutput_2_0 <= 0
+|   |   -0.707planner_0=fast-downward+0.707planner_0=tamer+0    inputWeightHVAvg_10    planner_0=enhsp0    maxoutput_2_0 <= -1.224745: True (2.0)
+|   |   -0.707planner_0=fast-downward+0.707planner_0=tamer+0    inputWeightHVAvg_10    planner_0=enhsp0    maxoutput_2_0 > -1.224745: False (2.0)
+|   -0.707planner_0=fast-downward+0.707planner_0=tamer+0    inputWeightHVAvg_10    planner_0=enhsp0    maxoutput_2_0 > 0: True (4.0)
+-0.798Landmark_count_0-0.452blackVariables_2+0.399maxinput_1_4 > 0: False (5.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+J48 pruned tree
+------------------
+
+-0.579planner_2=tamer+0.499weRatio_0-0.413Max_1+0.385planner_2=lpg+0.31 planner_2=enhsp_25 <= 0.745738: True (7.0/1.0)
+-0.579planner_2=tamer+0.499weRatio_0-0.413Max_1+0.385planner_2=lpg+0.31 planner_2=enhsp_25 > 0.745738: False (6.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+J48 pruned tree
+------------------
+
+-0.888maxoutput_0+0.325planner_2=enhsp-0.325planner_2=tamer_4 <= -1.007053: True (5.0)
+-0.888maxoutput_0+0.325planner_2=enhsp-0.325planner_2=tamer_4 > -1.007053: False (8.0/1.0)
+
+Number of Leaves  : 	2
+
+Size of the tree : 	3
+
+
+
+
+Time taken to build model: 0.24 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          13              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0863
+Root mean squared error                  0.1088
+Relative absolute error                 17.3417 %
+Root relative squared error             21.8265 %
+Total Number of Instances               13     
+
+
+=== Confusion Matrix ===
+
+ a b   <-- classified as
+ 6 0 | a = True
+ 0 7 | b = False
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          10               76.9231 %
+Incorrectly Classified Instances         3               23.0769 %
+Kappa statistic                          0.5412
+Mean absolute error                      0.2348
+Root mean squared error                  0.3667
+Relative absolute error                 45.4521 %
+Root relative squared error             70.7833 %
+Total Number of Instances               13     
+
+
+=== Confusion Matrix ===
+
+ a b   <-- classified as
+ 5 1 | a = True
+ 2 5 | b = False
+
