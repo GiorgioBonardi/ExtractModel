@@ -10,6 +10,7 @@ from unified_planning.engines import ValidationResultStatus, results
 from unified_planning.shortcuts import OneshotPlanner
 from unified_planning.io import PDDLReader
 from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
+
 #from unified_planning.engines.factory import *
 
 def extract_features(original_domain, original_problem, rootpathOutput):
@@ -49,25 +50,15 @@ def execute_problem(domain, problem):
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
-    parsed_problem = reader.parse_problem(domain, problem)
+    try:
+        parsed_problem = reader.parse_problem(domain, problem)
+        plannerList = ['tamer']
 
-    # engines: Dict[str, Tuple[str, str]] = DEFAULT_ENGINES
-    # tempList = list(engines.keys())
-    plannerList = ['enhsp', 'tamer', 'fast-downward'] # to be added: lpg !!! NOT FUNCTIONING !!!
-    
-    # for p in tempList:
-    #     try:
-    #         with OneshotPlanner(name=p) as planner:
-    #             if hasattr(planner, 'solve'):
-    #                 plannerList.append(p)
-    #     except:
-    #         pass
-
-    res = []
-    for p in plannerList:
-        #solve problem for tamer/enhsp/fast-downward
-        with OneshotPlanner(name=p) as planner:
-            try:
+        res = []
+        for p in plannerList:
+            #solve problem for tamer/enhsp/fast-downward
+            with OneshotPlanner(name=p) as planner:
+                # try:
                 #validare la soluzione
                 #timer 5m tramite script
                 #tamer
@@ -80,21 +71,27 @@ def execute_problem(domain, problem):
                     toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
                     print(toBeAppended)
                 else:
-                    toBeAppended = ","+ p + ", False"
-            except:
-                toBeAppended = ","+ p + ", False"
+                    # toBeAppended = ","+ p + ", False"
+                    pass
+                # except:
+                #     toBeAppended = ","+ p + ", False"
+            res.append(toBeAppended)
+        #solve problem for lpg
+        try:
+            lpg_engine = LPGEngine()
+            print("LPG solving...")
+            result = lpg_engine._solve(parsed_problem)
+            print(result.plan)
+            toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
+            print(toBeAppended)
+        except:
+            # toBeAppended = ",lpg, False"
+            pass
         res.append(toBeAppended)
-    #solve problem for lpg
-    try:
-        lpg_engine = LPGEngine()
-        print("Inizio risoluzione LPG")
-        result = lpg_engine._solve(parsed_problem)
-        print(result.plan)
-        toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
-        print(toBeAppended)
     except:
-        toBeAppended = ",lpg, False"
-    res.append(toBeAppended)
+        print("Error with the parsing of the problem")
+        return []
+    
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
