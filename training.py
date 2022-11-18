@@ -9,11 +9,8 @@ import argparse
 from unified_planning.engines import ValidationResultStatus, results
 from unified_planning.shortcuts import OneshotPlanner
 from unified_planning.io import PDDLReader
-#from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
+from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
 import func_timeout
-
-
-#from unified_planning.engines.factory import *
 
 def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***start extract features***\n")
@@ -67,7 +64,7 @@ def execute_problem(domain, problem):
                     result = None
 
                     try:
-                        result = func_timeout.func_timeout(999, lambda: planner.solve(parsed_problem))
+                        result = func_timeout.func_timeout(350, lambda: planner.solve(parsed_problem))
                     except func_timeout.FunctionTimedOut:
                         print("TIMEOUT")
                         toBeAppended = ","+ p + ", False"
@@ -75,6 +72,8 @@ def execute_problem(domain, problem):
 
                     #result = planner.solve(parsed_problem)
                     print(result.plan)
+                    #da togliere validate(?) fast-downward non lo ha
+                    #magari fare un "if ha validate then fai validate" se ha fatto un warning
                     val = planner.validate(parsed_problem, result.plan)
                     print(val.status)
                     if(val.status == ValidationResultStatus.VALID):
@@ -83,10 +82,11 @@ def execute_problem(domain, problem):
                         print(toBeAppended)
                     else:
                         toBeAppended = ","+ p + ", False"
+                    res.append(toBeAppended)
                 except:
                 #     toBeAppended = ","+ p + ", False"
                     pass
-            res.append(toBeAppended)
+            
         #solve problem for lpg
         try:
             lpg_engine = LPGEngine()
