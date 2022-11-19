@@ -9,7 +9,7 @@ import argparse
 from unified_planning.engines import ValidationResultStatus, results
 from unified_planning.shortcuts import OneshotPlanner
 from unified_planning.io import PDDLReader
-from up_lpg.lpg_planner import LPGEngine, LPGAnytimeEngine
+from up_lpg.lpg_planner import LPGEngine
 from multiprocessing import Process, Queue
 
 def extract_features(original_domain, original_problem, rootpathOutput):
@@ -45,68 +45,81 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-
+    timeAllocated = 10
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['fast-downward']
+        plannerList = ['fast-downward','tamer','enhsp','lpg']
         q = Queue()
         res = []
         for p in plannerList:
+            
+            if(p != 'lpg'):
             #solve problem for tamer/enhsp/fast-downward
-            with OneshotPlanner(name=p) as planner:
-                try:
-                    #validare la soluzione
-                    #timer 5m tramite script
-                    #tamer
-                    result = None
-
-                    p = Process(target = lambda: q.put(planner.solve(parsed_problem)))
-                    p.start()
-                    #result = planner.solve(parsed_problem)
+                with OneshotPlanner(name=p) as planner:
                     try:
-                        result = q.get(block = True, timeout = 0.1)
+                        #validare la soluzione
+                        #timer 5m tramite script
+                        #tamer
+                        result = None
+
+                        p = Process(target = lambda: q.put(planner.solve(parsed_problem)))
+                        p.start()
+                        #result = planner.solve(parsed_problem)
+                        try:
+                            result = q.get(block = True, timeout = timeAllocated)
+                        except:
+                            print(f"{planner.name} TIMED OUT")
+                            toBeAppended = ","+ p + ", False"
+                            p.terminate()
+                            p.join()
+                            break
+                        
+                        p.terminate()
+                        p.join()
+
+                        #result = planner.solve(parsed_problem)
+                        print(result.plan)
+                        #da togliere validate(?) fast-downward non lo ha
+                        #magari fare un "if ha validate then fai validate" se ha fatto un warning
+                        val = planner.validate(parsed_problem, result.plan)
+                        print(val.status)
+                        if(val.status == ValidationResultStatus.VALID):
+                            #TODO: da togliere la , all'inizio?
+                            toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
+                            print(toBeAppended)
+                        else:
+                            toBeAppended = ","+ p + ", False"
+                        res.append(toBeAppended)
                     except:
-                        print(f"{planner.name} TIMED OUT")
+                    #     toBeAppended = ","+ p + ", False"
+                        pass
+            else:
+            #solve problem for lpg
+            
+                try:
+                    lpg_engine = LPGEngine()
+                    print("LPG solving...")
+                    try:
+                        p = Process(target = lambda: q.put(lpg_engine._solve(parsed_problem)))
+                        p.start()
+                        result = q.get(block = True, timeout = timeAllocated)
+                        print(result.plan)
+                        toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
+                        print(toBeAppended)
+                    except:
+                        print(f"LPG TIMED OUT")
                         toBeAppended = ","+ p + ", False"
                         p.terminate()
                         p.join()
                         break
-                    
-                    p.terminate()
-                    p.join()
-
-                    #result = planner.solve(parsed_problem)
-                    print(result.plan)
-                    #da togliere validate(?) fast-downward non lo ha
-                    #magari fare un "if ha validate then fai validate" se ha fatto un warning
-                    val = planner.validate(parsed_problem, result.plan)
-                    print(val.status)
-                    if(val.status == ValidationResultStatus.VALID):
-                        #TODO: da togliere la , all'inizio?
-                        toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
-                        print(toBeAppended)
-                    else:
-                        toBeAppended = ","+ p + ", False"
-                    res.append(toBeAppended)
                 except:
-                #     toBeAppended = ","+ p + ", False"
+                    toBeAppended = ",lpg, False"
+                    res.append(toBeAppended)
                     pass
-            
-        #solve problem for lpg
-        try:
-            lpg_engine = LPGEngine()
-            print("LPG solving...")
-            result = lpg_engine._solve(parsed_problem)
-            print(result.plan)
-            toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
-            print(toBeAppended)
-        except:
-            # toBeAppended = ",lpg, False"
-            pass
-        res.append(toBeAppended)
+        
     except:
         print("Error with the parsing of the problem")
         return []
