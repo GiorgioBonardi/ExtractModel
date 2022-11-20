@@ -45,7 +45,7 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 10
+    timeAllocated = 20
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
@@ -105,7 +105,6 @@ def execute_problem(domain, problem):
                     try:
                         p = Process(target = lambda: q.put(lpg_engine._solve(parsed_problem)))
                         p.start()
-                        result = q.get(block = True, timeout = timeAllocated)
                         print(result.plan)
                         toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
                         print(toBeAppended)
@@ -136,6 +135,8 @@ for dir in os.listdir(pathDomain):
     #i = 1
     #for file in os.listdir(pathSpecificDomain):
         original_domain = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+"-domain.pddl")
+        if(not os.path.isfile(original_domain)):
+            original_domain = os.path.join(pathSpecificDomain, "p01-domain.pddl")
         original_problem = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+".pddl")
         currentpath = os.path.join(pathSpecificDomain, "result"+str(i).zfill(2))
 
