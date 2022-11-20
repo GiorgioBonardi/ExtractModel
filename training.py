@@ -11,6 +11,7 @@ from unified_planning.shortcuts import OneshotPlanner
 from unified_planning.io import PDDLReader
 from up_lpg.lpg_planner import LPGEngine
 from multiprocessing import Process, Queue
+from queue import Empty
 
 def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***start extract features***\n")
@@ -45,13 +46,13 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 20
+    timeAllocated = 1
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['fast-downward','tamer','enhsp','lpg']
+        plannerList = ['enhsp','fast-downward','tamer','lpg']
         q = Queue()
         res = []
         for p in plannerList:
@@ -65,25 +66,62 @@ def execute_problem(domain, problem):
                         #tamer
                         result = None
 
-                        p = Process(target = lambda: q.put(planner.solve(parsed_problem)))
-                        p.start()
+                        proc = Process(target = lambda: q.put(planner.solve(parsed_problem)))
+                        proc.start()
                         #result = planner.solve(parsed_problem)
                         try:
                             result = q.get(block = True, timeout = timeAllocated)
-                        except:
-                            print(f"{planner.name} TIMED OUT")
+                            proc.terminate()
+                            proc.join()
+                        except Empty:
+                            print(f"{p} TIMED OUT")
                             toBeAppended = ","+ p + ", False"
-                            p.terminate()
-                            p.join()
-                            break
-                        
-                        p.terminate()
-                        p.join()
-
-                        #result = planner.solve(parsed_problem)
+                            res.append(toBeAppended)
+                            proc.terminate()
+                            proc.join()
+                            continue
+                    except:
+                        # planner couldn't solve (exception while solving)
+                        print(f"{p} has encountered an exception while solving")
+                        pass
+            else:
+            #solve problem for lpg
+                try:
+                    lpg_engine = LPGEngine()
+                    proc = Process(target = lambda: q.put(lpg_engine._solve(parsed_problem)))
+                    proc.start()
+                    print("LPG solving...")
+                    try:
+                        result = q.get(block = True, timeout = timeAllocated)
                         print(result.plan)
-                        #da togliere validate(?) fast-downward non lo ha
-                        #magari fare un "if ha validate then fai validate" se ha fatto un warning
+                        toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
+                        res.append(toBeAppended)
+                        proc.terminate()
+                        proc.join()
+                        print(toBeAppended)
+                    except Empty:
+                        print(f"LPG TIMED OUT")
+                        toBeAppended = ","+ p + ", False"
+                        res.append(toBeAppended)
+                        proc.terminate()
+                        proc.join()
+                        continue
+                except:
+                    toBeAppended = "," + p +", False"
+                    res.append(toBeAppended)
+                    pass
+
+            if result.plan is None:
+                print(f"{p} couldn't solve the problem")
+                toBeAppended = ","+ p + ", False"
+                res.append(toBeAppended)
+            else:
+                #result = planner.solve(parsed_problem)
+                print(result.plan)
+                #da togliere validate(?) fast-downward non lo ha
+                #magari fare un "if ha validate then fai validate" se ha fatto un warning
+                try:
+                    if hasattr(planner, 'validate'):
                         val = planner.validate(parsed_problem, result.plan)
                         print(val.status)
                         if(val.status == ValidationResultStatus.VALID):
@@ -92,33 +130,14 @@ def execute_problem(domain, problem):
                             print(toBeAppended)
                         else:
                             toBeAppended = ","+ p + ", False"
-                        res.append(toBeAppended)
-                    except:
-                    #     toBeAppended = ","+ p + ", False"
-                        pass
-            else:
-            #solve problem for lpg
-            
-                try:
-                    lpg_engine = LPGEngine()
-                    print("LPG solving...")
-                    try:
-                        p = Process(target = lambda: q.put(lpg_engine._solve(parsed_problem)))
-                        p.start()
-                        print(result.plan)
-                        toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
-                        print(toBeAppended)
-                    except:
-                        print(f"LPG TIMED OUT")
-                        toBeAppended = ","+ p + ", False"
-                        p.terminate()
-                        p.join()
-                        break
+                    else:
+                        print(f"{p} isn't able to validate the plan")
+                        #da chiedere
+                        toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
+                        print(toBeAppended) 
+                    res.append(toBeAppended)        
                 except:
-                    toBeAppended = ",lpg, False"
-                    res.append(toBeAppended)
-                    pass
-        
+                    print(f"{p} couldn't validate the plan" )   
     except:
         print("Error with the parsing of the problem")
         return []
@@ -153,44 +172,44 @@ for dir in os.listdir(pathDomain):
             res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
             print(res_planner_str)
             command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + res_planner_str
-            print(command)
-            os.system(command)
+            #print(command)
+            #os.system(command)
 
             #i+=1
 
 
-#creazione file "joined_global_features" unico
-command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
-print(command)
-os.system(command)
-
-#rimozione attributi 
-##TODO: la dobbiamo fare o no?
-command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
-os.system(command)
-
-#check result      
-command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
-print(command)
-os.system(command)
-
-#saving model
-command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
-print(command)
-os.system(command)
-
-# #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
-# command = "java -Xms256m -Xmx1024m -cp "+ pathname +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+pathname+"/RotationForest.model -T "+pathname+"/global_features_simply.arff -p 113 > "+pathname+"/outputModel"
+# #creazione file "joined_global_features" unico
+# command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
+# print(command)
 # os.system(command)
 
-# command = "python2.7 "+ pathname +"/models/parseWekaOutputFile.py "+pathname+"/outputModel "+pathname+"/listPlanner"
+# #rimozione attributi 
+# ##TODO: la dobbiamo fare o no?
+# command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
 # os.system(command)
 
+# #check result      
+# command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
+# print(command)
+# os.system(command)
 
-##far provare a risolvere il problema per gli N planner
+# #saving model
+# command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
+# print(command)
+# os.system(command)
 
-# planners = ["tamer", "enhsp", "pyperplan", "lgp"]
+# # #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
+# # command = "java -Xms256m -Xmx1024m -cp "+ pathname +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+pathname+"/RotationForest.model -T "+pathname+"/global_features_simply.arff -p 113 > "+pathname+"/outputModel"
+# # os.system(command)
 
-# for i in xrange(0, len(planners)):
-#     planner = rootpath + "/" + planners[i] + "/plan"
-#     run (planner, original_domain, original_problem, result, timeout)
+# # command = "python2.7 "+ pathname +"/models/parseWekaOutputFile.py "+pathname+"/outputModel "+pathname+"/listPlanner"
+# # os.system(command)
+
+
+# ##far provare a risolvere il problema per gli N planner
+
+# # planners = ["tamer", "enhsp", "pyperplan", "lgp"]
+
+# # for i in xrange(0, len(planners)):
+# #     planner = rootpath + "/" + planners[i] + "/plan"
+# #     run (planner, original_domain, original_problem, result, timeout)
