@@ -46,13 +46,13 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 1
+    timeAllocated = 10
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['enhsp','fast-downward','tamer','lpg']
+        plannerList = ['lpg', 'tamer', 'fast-downward', 'enhsp']
         q = Queue()
         res = []
         for p in plannerList:
@@ -138,65 +138,71 @@ def execute_problem(domain, problem):
                     res.append(toBeAppended)        
                 except:
                     print(f"{p} couldn't validate the plan" )   
-    except:
+    except Exception as inst: 
         print("Error with the parsing of the problem")
+        print(type(inst))    # the exception instance
+        print(inst.args)     # arguments stored in .args
+        print(inst)
         return []
     
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
 rootpath = os.path.dirname(__file__)
-pathDomain = os.path.join(rootpath, "domain")
+pathAllDomain = os.path.join(rootpath, "domain")
 ##estrazione features per domain/problem
-for dir in os.listdir(pathDomain):  
-    pathSpecificDomain = os.path.join(pathDomain, dir)
-    for i in range(1,2):
-    #i = 1
-    #for file in os.listdir(pathSpecificDomain):
-        original_domain = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+"-domain.pddl")
-        if(not os.path.isfile(original_domain)):
-            original_domain = os.path.join(pathSpecificDomain, "p01-domain.pddl")
-        original_problem = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+".pddl")
-        currentpath = os.path.join(pathSpecificDomain, "result"+str(i).zfill(2))
+for dir in os.listdir(pathAllDomain):  
+    pathDomain = os.path.join(pathAllDomain, dir)
+    for domain_dir in os.listdir(pathDomain):
+        pathSpecificDomain = os.path.join(pathDomain, domain_dir)
+        for i in range(1,2):
+        #i = 1
+        #for file in os.listdir(pathSpecificDomain):
+            original_domain = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+"-domain.pddl")
+            if(not os.path.isfile(original_domain)):
+                original_domain = os.path.join(pathSpecificDomain, "domain.pddl")
+            original_problem = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+".pddl")
+            currentpath = os.path.join(pathSpecificDomain, "result"+str(i).zfill(2))
 
-        if(os.path.isfile(original_problem)):
-            if(not os.path.isdir(currentpath)):
-                os.mkdir(currentpath)
-            os.chdir(currentpath)
-            # extract_features(original_domain, original_problem, currentpath)
+            if(os.path.isfile(original_problem)):
+                if(not os.path.isdir(currentpath)):
+                    os.mkdir(currentpath)
+                os.chdir(currentpath)
+                # extract_features(original_domain, original_problem, currentpath)
 
-            ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
-            res_planner = execute_problem(original_domain, original_problem)
-            #join file
-            actual_rootpath = os.path.join(rootpath, "models")
-            res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
-            print(res_planner_str)
-            command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + res_planner_str
-            #print(command)
-            #os.system(command)
+                ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
+                # res_planner = execute_problem(original_domain, original_problem)
+                res_planner = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
+                #join file
+                actual_rootpath = os.path.join(rootpath, "models")
+                res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
+                print(res_planner_str)
+                command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + res_planner_str
+                print(command)
+                os.system(command)
 
-            #i+=1
+                #i+=1
 
 
-# #creazione file "joined_global_features" unico
-# command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
-# print(command)
-# os.system(command)
+#creazione file "joined_global_features" unico
+command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
+print(command)
+os.system(command)
 
-# #rimozione attributi 
-# ##TODO: la dobbiamo fare o no?
-# command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
-# os.system(command)
+#rimozione attributi 
+##TODO: la dobbiamo fare o no?
+command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
+os.system(command)
 
-# #check result      
-# command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
-# print(command)
-# os.system(command)
+#check result      
+command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
+print(command)
+os.system(command)
 
-# #saving model
-# command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
-# print(command)
-# os.system(command)
+#saving model
+command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
+print(command)
+os.system(command)
 
 # # #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
 # # command = "java -Xms256m -Xmx1024m -cp "+ pathname +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+pathname+"/RotationForest.model -T "+pathname+"/global_features_simply.arff -p 113 > "+pathname+"/outputModel"

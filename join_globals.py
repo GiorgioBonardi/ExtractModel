@@ -80,13 +80,16 @@ if __name__ == '__main__':
 
     domainsList = getSubdirectories(pathDomains)
 
-    for domain in domainsList:
-        currentDomain = pathDomains + "/" + domain
-        problemsList = getSubdirectories(currentDomain)
-        for problem in problemsList:
-            # joined_global_features = open(route + joined_path, 'a')
-            currentProblem = currentDomain + "/" + problem
-            addGlobalFeatures(isFileEmpty(route + joined_path), currentProblem)
+    for domainDir in domainsList:
+        currentDomainDir = pathDomains + "/" + domainDir
+        specificDomainList = getSubdirectories(currentDomainDir)
+        for specificDomain in specificDomainList:
+            currentDomain = currentDomainDir + "/" + specificDomain
+            specificCurrentDomain = getSubdirectories(currentDomain)
+            for problem in specificCurrentDomain:
+                # joined_global_features = open(route + joined_path, 'a')
+                currentProblem = currentDomain + "/" + problem
+                addGlobalFeatures(isFileEmpty(route + joined_path), currentProblem)
     joined_global_features.close()    
 
     # da fare ciclo esterno per scorrere tutte le cartelle "domain"
