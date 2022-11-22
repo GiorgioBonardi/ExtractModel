@@ -13,6 +13,10 @@ from up_lpg.lpg_planner import LPGEngine
 from multiprocessing import Process, Queue
 from queue import Empty
 
+def getSubdirectories(parentDirectory):
+    return [name for name in os.listdir(parentDirectory)
+            if os.path.isdir(os.path.join(parentDirectory, name))]
+
 def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***start extract features***\n")
     #features
@@ -52,28 +56,31 @@ def execute_problem(domain, problem):
     reader = PDDLReader()
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['lpg', 'tamer', 'fast-downward', 'enhsp']
+        plannerList = ['lpg','tamer','fast-downward', 'enhsp']
         q = Queue()
         res = []
+
+        # Initialise result
+        result = None
+        
         for p in plannerList:
             
             if(p != 'lpg'):
-            #solve problem for tamer/enhsp/fast-downward
+                # Solve the given `problem` with tamer/enhsp/fast-downward planner
                 with OneshotPlanner(name=p) as planner:
                     try:
-                        #validare la soluzione
-                        #timer 5m tramite script
-                        #tamer
-                        result = None
-
+                        # Creating and starting solving sub-process
                         proc = Process(target = lambda: q.put(planner.solve(parsed_problem)))
                         proc.start()
-                        #result = planner.solve(parsed_problem)
+
                         try:
+                            # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
                             result = q.get(block = True, timeout = timeAllocated)
                             proc.terminate()
                             proc.join()
                         except Empty:
+                            # Queue resulted empty after waiting for `timeAllocated` seconds
+
                             print(f"{p} TIMED OUT")
                             toBeAppended = ","+ p + ", False"
                             res.append(toBeAppended)
@@ -81,63 +88,81 @@ def execute_problem(domain, problem):
                             proc.join()
                             continue
                     except:
-                        # planner couldn't solve (exception while solving)
+                        # Planner couldn't solve the problem (Throws exception while solving)
                         print(f"{p} has encountered an exception while solving")
                         pass
             else:
-            #solve problem for lpg
+                # Solve problem with LPG planner
                 try:
+                    # Creating and starting solving sub-process
                     lpg_engine = LPGEngine()
                     proc = Process(target = lambda: q.put(lpg_engine._solve(parsed_problem)))
                     proc.start()
                     print("LPG solving...")
                     try:
+                        # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
                         result = q.get(block = True, timeout = timeAllocated)
                         print(result.plan)
+                        #TODO: LPG has no validate?
                         toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
                         res.append(toBeAppended)
                         proc.terminate()
                         proc.join()
                         print(toBeAppended)
                     except Empty:
-                        print(f"LPG TIMED OUT")
+                        # Queue resulted empty after waiting for `timeAllocated` seconds
+                        print(f"{p} TIMED OUT")
                         toBeAppended = ","+ p + ", False"
                         res.append(toBeAppended)
                         proc.terminate()
                         proc.join()
                         continue
                 except:
+                    # Planner couldn't solve the problem (Throws exception while solving)
+                    #TODO: SHOULDN'T APPEND FALSE, IT THREW ERROR !!!!!!!
+                    print(f"{p} has encountered an exception while attempting to solve")
                     toBeAppended = "," + p +", False"
                     res.append(toBeAppended)
                     pass
 
             if result.plan is None:
+                # Planner tried solving, successfully concluded that it cannot find a plan
                 print(f"{p} couldn't solve the problem")
                 toBeAppended = ","+ p + ", False"
                 res.append(toBeAppended)
             else:
-                #result = planner.solve(parsed_problem)
+                # Plan is not None
                 print(result.plan)
                 #da togliere validate(?) fast-downward non lo ha
                 #magari fare un "if ha validate then fai validate" se ha fatto un warning
+
+                # Validation of the plan found
                 try:
+                    # Check if the given planner implements `validate`
                     if hasattr(planner, 'validate'):
+                        # Planner validates the plan
                         val = planner.validate(parsed_problem, result.plan)
                         print(val.status)
                         if(val.status == ValidationResultStatus.VALID):
                             #TODO: da togliere la , all'inizio?
+                            # To be appended a positive result if validation concludes positively
                             toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
                             print(toBeAppended)
                         else:
+                            # To be appended a negative result if validation concludes negatively
                             toBeAppended = ","+ p + ", False"
                     else:
-                        print(f"{p} isn't able to validate the plan")
-                        #da chiedere
+                        # Planner can't validate the plan because it doesn't implement this functionality
+                        print(f"{p} doesn't support a validation process")
+                        #TODO:If planner doesn't implement validation, should it still be treated as POSITIVE OUTOCME?
                         toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
                         print(toBeAppended) 
+                    # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
-                    print(f"{p} couldn't validate the plan" )   
+                    # Exceptions while trying to validate/check for validation implementation
+                    print(f"{p} has encountered an exception while attempting to validate the plan" )   
+    
     except Exception as inst: 
         print("Error with the parsing of the problem")
         print(type(inst))    # the exception instance
@@ -149,57 +174,69 @@ def execute_problem(domain, problem):
     return res
 
 rootpath = os.path.dirname(__file__)
-pathAllDomain = os.path.join(rootpath, "domain")
-##estrazione features per domain/problem
-for dir in os.listdir(pathAllDomain):  
-    pathDomain = os.path.join(pathAllDomain, dir)
-    for domain_dir in os.listdir(pathDomain):
-        pathSpecificDomain = os.path.join(pathDomain, domain_dir)
+pathIPCs = os.path.join(rootpath, "domain")
+
+# Fetch list of IPC competition directories
+IpcList = getSubdirectories(pathIPCs)
+
+# Enter specific IPC competition folder
+for specificIPC in IpcList:  
+    pathCurrentIPC = os.path.join(pathIPCs, specificIPC)
+    domainList = getSubdirectories(pathCurrentIPC)
+    # Enter specific Domain from IPC competition
+    for specificDomain in domainList:
+        pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
+        # Get domain/problem `i`
         for i in range(1,2):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
-            original_domain = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+"-domain.pddl")
+            original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")
+            
+            # Only proceed if Domain exists
             if(not os.path.isfile(original_domain)):
                 original_domain = os.path.join(pathSpecificDomain, "domain.pddl")
-            original_problem = os.path.join(pathSpecificDomain, "p"+str(i).zfill(2)+".pddl")
-            currentpath = os.path.join(pathSpecificDomain, "result"+str(i).zfill(2))
+    
+            original_problem = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+".pddl")
+            pathCurrentResult = os.path.join(pathCurrentDomain, "result"+str(i).zfill(2))
 
+            # Only proceed if Problem `i` exists
             if(os.path.isfile(original_problem)):
-                if(not os.path.isdir(currentpath)):
-                    os.mkdir(currentpath)
-                os.chdir(currentpath)
-                # extract_features(original_domain, original_problem, currentpath)
+                if(not os.path.isdir(pathCurrentResult)):
+                    os.mkdir(pathCurrentResult)
+                os.chdir(pathCurrentResult)
+                # extract_features(original_domain, original_problem, pathCurrentResult)
 
                 ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
-                # res_planner = execute_problem(original_domain, original_problem)
-                res_planner = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
+                # Solve Problem `i` with all planners and obtain a list containing the results (solved or not solved) 
+                res_planner = execute_problem(original_domain, original_problem)
+                #res_planner = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
+                
                 #join file
-                actual_rootpath = os.path.join(rootpath, "models")
+                pathModels = os.path.join(rootpath, "models")
                 res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
                 print(res_planner_str)
-                command = "python2.7 "+ actual_rootpath + "/joinFile.py " + currentpath + " " + res_planner_str
+                command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
                 print(command)
                 os.system(command)
 
                 #i+=1
 
-
-#creazione file "joined_global_features" unico
+# Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
 command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
 print(command)
 os.system(command)
 
-#rimozione attributi 
+# Remove unused attributes
 ##TODO: la dobbiamo fare o no?
 command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
 os.system(command)
 
-#check result      
+# Check the result      
 command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
 print(command)
 os.system(command)
 
-#saving model
+# Save the model created
 command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
 print(command)
 os.system(command)
