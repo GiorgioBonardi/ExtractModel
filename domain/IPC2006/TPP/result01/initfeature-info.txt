@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2006/TPP/p01.pddl, 10, 5, 4, 4, 1.000000, -1, 0.000000, 0.774597, 1, 1.000000, 0.000000, 2.400000, 0.000000, 0

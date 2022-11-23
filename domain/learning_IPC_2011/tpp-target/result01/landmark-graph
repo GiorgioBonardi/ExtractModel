@@ -1,0 +1,266 @@
+digraph G {
+v36  [label="Atom stored(goods1, level4)"]
+v64  [label="Atom stored(goods1, level3)"]
+v86  [label="Atom stored(goods1, level2)"]
+v82  [label="Atom stored(goods1, level1)"]
+v15  [label="Atom stored(goods1, level0)"]
+v76  [label="Atom stored(goods10, level2)"]
+v67  [label="Atom stored(goods10, level1)"]
+v69  [label="Atom stored(goods10, level0)"]
+v80  [label="Atom stored(goods11, level2)"]
+v1  [label="Atom stored(goods11, level1)"]
+v0  [label="Atom stored(goods11, level0)"]
+v61  [label="Atom stored(goods12, level2)"]
+v2  [label="Atom stored(goods12, level1)"]
+v88  [label="Atom stored(goods12, level0)"]
+v26  [label="Atom stored(goods13, level1)"]
+v87  [label="Atom stored(goods13, level0)"]
+v37  [label="Atom stored(goods14, level4)"]
+v83  [label="Atom stored(goods14, level3)"]
+v75  [label="Atom stored(goods14, level2)"]
+v3  [label="Atom stored(goods14, level1)"]
+v77  [label="Atom stored(goods14, level0)"]
+v41  [label="Atom stored(goods15, level4)"]
+v21  [label="Atom stored(goods15, level3)"]
+v16  [label="Atom stored(goods15, level2)"]
+v71  [label="Atom stored(goods15, level1)"]
+v51  [label="Atom stored(goods15, level0)"]
+v35  [label="Atom stored(goods16, level3)"]
+v81  [label="Atom stored(goods16, level2)"]
+v40  [label="Atom stored(goods16, level1)"]
+v72  [label="Atom stored(goods16, level0)"]
+v38  [label="Atom stored(goods17, level5)"]
+v53  [label="Atom stored(goods17, level4)"]
+v84  [label="Atom stored(goods17, level3)"]
+v17  [label="Atom stored(goods17, level2)"]
+v39  [label="Atom stored(goods17, level1)"]
+v43  [label="Atom stored(goods17, level0)"]
+v60  [label="Atom stored(goods18, level2)"]
+v49  [label="Atom stored(goods18, level1)"]
+v50  [label="Atom stored(goods18, level0)"]
+v55  [label="Atom stored(goods19, level4)"]
+v74  [label="Atom stored(goods19, level3)"]
+v19  [label="Atom stored(goods19, level2)"]
+v63  [label="Atom stored(goods19, level1)"]
+v79  [label="Atom stored(goods19, level0)"]
+v33  [label="Atom stored(goods2, level5)"]
+v8  [label="Atom stored(goods2, level4)"]
+v5  [label="Atom stored(goods2, level3)"]
+v70  [label="Atom stored(goods2, level2)"]
+v6  [label="Atom stored(goods2, level1)"]
+v9  [label="Atom stored(goods2, level0)"]
+v20  [label="Atom stored(goods20, level3)"]
+v73  [label="Atom stored(goods20, level2)"]
+v12  [label="Atom stored(goods20, level1)"]
+v14  [label="Atom stored(goods20, level0)"]
+v52  [label="Atom stored(goods21, level6)"]
+v62  [label="Atom stored(goods21, level5)"]
+v42  [label="Atom stored(goods21, level4)"]
+v34  [label="Atom stored(goods21, level3)"]
+v57  [label="Atom stored(goods21, level2)"]
+v30  [label="Atom stored(goods21, level1)"]
+v31  [label="Atom stored(goods21, level0)"]
+v56  [label="Atom stored(goods22, level2)"]
+v47  [label="Atom stored(goods22, level1)"]
+v46  [label="Atom stored(goods22, level0)"]
+v90  [label="Atom stored(goods3, level2)"]
+v32  [label="Atom stored(goods3, level1)"]
+v28  [label="Atom stored(goods3, level0)"]
+v68  [label="Atom stored(goods4, level6)"]
+v45  [label="Atom stored(goods4, level5)"]
+v22  [label="Atom stored(goods4, level4)"]
+v27  [label="Atom stored(goods4, level3)"]
+v48  [label="Atom stored(goods4, level2)"]
+v10  [label="Atom stored(goods4, level1)"]
+v7  [label="Atom stored(goods4, level0)"]
+v66  [label="Atom stored(goods5, level1)"]
+v4  [label="Atom stored(goods5, level0)"]
+v11  [label="Atom stored(goods6, level3)"]
+v13  [label="Atom stored(goods6, level2)"]
+v59  [label="Atom stored(goods6, level1)"]
+v58  [label="Atom stored(goods6, level0)"]
+v18  [label="Atom stored(goods7, level1)"]
+v54  [label="Atom stored(goods7, level0)"]
+v89  [label="Atom stored(goods8, level6)"]
+v25  [label="Atom stored(goods8, level5)"]
+v29  [label="Atom stored(goods8, level4)"]
+v44  [label="Atom stored(goods8, level3)"]
+v85  [label="Atom stored(goods8, level2)"]
+v78  [label="Atom stored(goods8, level1)"]
+v23  [label="Atom stored(goods8, level0)"]
+v65  [label="Atom stored(goods9, level1)"]
+v24  [label="Atom stored(goods9, level0)"]
+v64 -> v36
+v86 -> v64
+v86 -> v36
+v82 -> v64
+v82 -> v86
+v82 -> v36
+v15 -> v64
+v15 -> v86
+v15 -> v36
+v15 -> v82
+v67 -> v76
+v69 -> v67
+v69 -> v76
+v1 -> v80
+v0 -> v80
+v0 -> v1
+v2 -> v61
+v88 -> v61
+v88 -> v2
+v87 -> v26
+v83 -> v37
+v75 -> v37
+v75 -> v83
+v3 -> v75
+v3 -> v37
+v3 -> v83
+v77 -> v3
+v77 -> v75
+v77 -> v37
+v77 -> v83
+v21 -> v41
+v16 -> v21
+v16 -> v41
+v71 -> v16
+v71 -> v21
+v71 -> v41
+v51 -> v16
+v51 -> v71
+v51 -> v21
+v51 -> v41
+v81 -> v35
+v40 -> v35
+v40 -> v81
+v72 -> v35
+v72 -> v40
+v72 -> v81
+v53 -> v38
+v84 -> v38
+v84 -> v53
+v17 -> v38
+v17 -> v84
+v17 -> v53
+v39 -> v38
+v39 -> v84
+v39 -> v17
+v39 -> v53
+v43 -> v38
+v43 -> v39
+v43 -> v84
+v43 -> v17
+v43 -> v53
+v49 -> v60
+v50 -> v60
+v50 -> v49
+v74 -> v55
+v19 -> v74
+v19 -> v55
+v63 -> v74
+v63 -> v55
+v63 -> v19
+v79 -> v74
+v79 -> v63
+v79 -> v55
+v79 -> v19
+v8 -> v33
+v5 -> v8
+v5 -> v33
+v70 -> v8
+v70 -> v5
+v70 -> v33
+v6 -> v8
+v6 -> v5
+v6 -> v33
+v6 -> v70
+v9 -> v8
+v9 -> v6
+v9 -> v5
+v9 -> v33
+v9 -> v70
+v73 -> v20
+v12 -> v73
+v12 -> v20
+v14 -> v73
+v14 -> v12
+v14 -> v20
+v62 -> v52
+v42 -> v52
+v42 -> v62
+v34 -> v42
+v34 -> v52
+v34 -> v62
+v57 -> v42
+v57 -> v34
+v57 -> v52
+v57 -> v62
+v30 -> v42
+v30 -> v34
+v30 -> v52
+v30 -> v57
+v30 -> v62
+v31 -> v42
+v31 -> v34
+v31 -> v30
+v31 -> v52
+v31 -> v57
+v31 -> v62
+v47 -> v56
+v46 -> v47
+v46 -> v56
+v32 -> v90
+v28 -> v32
+v28 -> v90
+v45 -> v68
+v22 -> v45
+v22 -> v68
+v27 -> v22
+v27 -> v45
+v27 -> v68
+v48 -> v22
+v48 -> v27
+v48 -> v45
+v48 -> v68
+v10 -> v22
+v10 -> v27
+v10 -> v48
+v10 -> v45
+v10 -> v68
+v7 -> v22
+v7 -> v27
+v7 -> v48
+v7 -> v10
+v7 -> v45
+v7 -> v68
+v4 -> v66
+v13 -> v11
+v59 -> v13
+v59 -> v11
+v58 -> v13
+v58 -> v59
+v58 -> v11
+v54 -> v18
+v25 -> v89
+v29 -> v89
+v29 -> v25
+v44 -> v89
+v44 -> v29
+v44 -> v25
+v85 -> v89
+v85 -> v44
+v85 -> v29
+v85 -> v25
+v78 -> v89
+v78 -> v85
+v78 -> v44
+v78 -> v29
+v78 -> v25
+v23 -> v78
+v23 -> v89
+v23 -> v85
+v23 -> v44
+v23 -> v29
+v23 -> v25
+v24 -> v65
+}

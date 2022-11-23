@@ -1,0 +1,336 @@
+digraph G {
+v3  [label="Atom behind-car(car_17, car_07)"]
+v49  [label="Atom at-curb-num(car_17, curb_1)"]
+v12  [label="Atom behind-car(car_16, car_06)"]
+v50  [label="Atom behind-car(car_16, car_01)"]
+v9  [label="Atom behind-car(car_15, car_05)"]
+v51  [label="Atom at-curb-num(car_15, curb_2)"]
+v8  [label="Atom behind-car(car_14, car_04)"]
+v52  [label="Atom behind-car(car_14, car_03)"]
+v53  [label="Atom behind-car(car_13, car_09)"]
+v7  [label="Atom behind-car(car_13, car_03)"]
+v11  [label="Atom behind-car(car_12, car_02)"]
+v54  [label="Atom at-curb-num(car_12, curb_4)"]
+v10  [label="Atom behind-car(car_11, car_01)"]
+v55  [label="Atom at-curb-num(car_11, curb_3)"]
+v56  [label="Atom behind-car(car_10, car_05)"]
+v69  [label="Atom behind-car(car_10, car_00)"]
+v68  [label="Atom at-curb-num(car_09, curb_9)"]
+v57  [label="Atom at-curb-num(car_09, curb_5)"]
+v58  [label="Atom behind-car(car_08, car_15)"]
+v6  [label="Atom at-curb-num(car_08, curb_8)"]
+v59  [label="Atom behind-car(car_07, car_11)"]
+v5  [label="Atom at-curb-num(car_07, curb_7)"]
+v60  [label="Atom at-curb-num(car_06, curb_8)"]
+v71  [label="Atom at-curb-num(car_06, curb_6)"]
+v61  [label="Atom at-curb-num(car_05, curb_7)"]
+v70  [label="Atom at-curb-num(car_05, curb_5)"]
+v62  [label="Atom behind-car(car_04, car_17)"]
+v14  [label="Atom at-curb-num(car_04, curb_4)"]
+v0  [label="Atom at-curb-num(car_03, curb_3)"]
+v63  [label="Atom at-curb-num(car_03, curb_0)"]
+v64  [label="Atom behind-car(car_02, car_12)"]
+v13  [label="Atom at-curb-num(car_02, curb_2)"]
+v65  [label="Atom at-curb-num(car_01, curb_6)"]
+v1  [label="Atom at-curb-num(car_01, curb_1)"]
+v66  [label="Atom behind-car(car_00, car_06)"]
+v2  [label="Atom at-curb-num(car_00, curb_0)"]
+v67  [label="Atom curb-clear(curb_9)"]
+v89  [label="NegatedAtom curb-clear(curb_8)"]
+v44  [label="Atom curb-clear(curb_8)"]
+v88  [label="NegatedAtom curb-clear(curb_7)"]
+v45  [label="Atom curb-clear(curb_7)"]
+v87  [label="NegatedAtom curb-clear(curb_6)"]
+v46  [label="Atom curb-clear(curb_6)"]
+v85  [label="NegatedAtom curb-clear(curb_5)"]
+v47  [label="Atom curb-clear(curb_5)"]
+v83  [label="NegatedAtom curb-clear(curb_4)"]
+v48  [label="Atom curb-clear(curb_4)"]
+v82  [label="NegatedAtom curb-clear(curb_3)"]
+v18  [label="Atom curb-clear(curb_3)"]
+v80  [label="NegatedAtom curb-clear(curb_2)"]
+v31  [label="Atom curb-clear(curb_2)"]
+v78  [label="NegatedAtom curb-clear(curb_1)"]
+v32  [label="Atom curb-clear(curb_1)"]
+v76  [label="NegatedAtom curb-clear(curb_0)"]
+v33  [label="Atom curb-clear(curb_0)"]
+v91  [label="NegatedAtom car-clear(car_17)"]
+v34  [label="Atom car-clear(car_17)"]
+v35  [label="Atom car-clear(car_16)"]
+v92  [label="NegatedAtom car-clear(car_15)"]
+v36  [label="Atom car-clear(car_15)"]
+v37  [label="Atom car-clear(car_14)"]
+v38  [label="Atom car-clear(car_13)"]
+v72  [label="NegatedAtom car-clear(car_12)"]
+v39  [label="Atom car-clear(car_12)"]
+v79  [label="NegatedAtom car-clear(car_11)"]
+v40  [label="Atom car-clear(car_11)"]
+v41  [label="Atom car-clear(car_10)"]
+v90  [label="NegatedAtom car-clear(car_09)"]
+v15  [label="Atom car-clear(car_09)"]
+v16  [label="Atom car-clear(car_08)"]
+v17  [label="Atom car-clear(car_07)"]
+v86  [label="NegatedAtom car-clear(car_06)"]
+v19  [label="Atom car-clear(car_06)"]
+v84  [label="NegatedAtom car-clear(car_05)"]
+v20  [label="Atom car-clear(car_05)"]
+v21  [label="Atom car-clear(car_04)"]
+v81  [label="NegatedAtom car-clear(car_03)"]
+v22  [label="Atom car-clear(car_03)"]
+v23  [label="Atom car-clear(car_02)"]
+v77  [label="NegatedAtom car-clear(car_01)"]
+v42  [label="Atom car-clear(car_01)"]
+v43  [label="Atom car-clear(car_00)"]
+v93  [label="NegatedAtom at-curb(car_07)"]
+v27  [label="Atom at-curb(car_07)"]
+v28  [label="Atom at-curb(car_06)"]
+v26  [label="Atom at-curb(car_05)"]
+v74  [label="NegatedAtom at-curb(car_04)"]
+v29  [label="Atom at-curb(car_04)"]
+v30  [label="Atom at-curb(car_03)"]
+v73  [label="NegatedAtom at-curb(car_02)"]
+v24  [label="Atom at-curb(car_02)"]
+v25  [label="Atom at-curb(car_01)"]
+v75  [label="NegatedAtom at-curb(car_00)"]
+v4  [label="Atom at-curb(car_00)"]
+v49 -> v3
+v49 -> v32
+v49 -> v1
+v50 -> v46
+v50 -> v1
+v50 -> v42
+v50 -> v12
+v50 -> v71
+v50 -> v10
+v51 -> v31
+v51 -> v13
+v51 -> v9
+v52 -> v33
+v52 -> v2
+v52 -> v8
+v52 -> v22
+v52 -> v7
+v52 -> v0
+v53 -> v47
+v53 -> v15
+v53 -> v70
+v53 -> v68
+v53 -> v7
+v54 -> v48
+v54 -> v14
+v54 -> v11
+v55 -> v18
+v55 -> v10
+v55 -> v0
+v56 -> v20
+v56 -> v5
+v56 -> v45
+v56 -> v70
+v56 -> v69
+v56 -> v9
+v57 -> v47
+v57 -> v70
+v57 -> v68
+v58 -> v31
+v58 -> v13
+v58 -> v9
+v58 -> v36
+v58 -> v6
+v59 -> v5
+v59 -> v18
+v59 -> v3
+v59 -> v27
+v59 -> v40
+v59 -> v10
+v59 -> v0
+v60 -> v44
+v60 -> v71
+v60 -> v6
+v61 -> v5
+v61 -> v45
+v61 -> v70
+v62 -> v34
+v62 -> v3
+v62 -> v32
+v62 -> v1
+v62 -> v29
+v62 -> v14
+v62 -> v8
+v63 -> v33
+v63 -> v2
+v63 -> v0
+v64 -> v48
+v64 -> v14
+v64 -> v13
+v64 -> v11
+v64 -> v39
+v64 -> v24
+v65 -> v46
+v65 -> v1
+v65 -> v71
+v66 -> v19
+v66 -> v4
+v66 -> v2
+v66 -> v44
+v66 -> v12
+v66 -> v71
+v66 -> v69
+v66 -> v6
+v67 -> v20
+v67 -> v5
+v67 -> v34
+v67 -> v19
+v67 -> v4
+v67 -> v3
+v67 -> v2
+v67 -> v1
+v67 -> v15
+v67 -> v29
+v67 -> v14
+v67 -> v13
+v67 -> v42
+v67 -> v27
+v67 -> v12
+v67 -> v71
+v67 -> v11
+v67 -> v70
+v67 -> v40
+v67 -> v10
+v67 -> v69
+v67 -> v39
+v67 -> v24
+v67 -> v9
+v67 -> v68
+v67 -> v8
+v67 -> v22
+v67 -> v7
+v67 -> v36
+v67 -> v6
+v67 -> v0
+v89 -> v44
+v44 -> v6
+v88 -> v45
+v45 -> v5
+v87 -> v46
+v46 -> v71
+v85 -> v47
+v47 -> v70
+v83 -> v48
+v48 -> v14
+v82 -> v18
+v18 -> v0
+v80 -> v31
+v31 -> v13
+v78 -> v32
+v32 -> v1
+v76 -> v33
+v33 -> v2
+v91 -> v34
+v34 -> v3
+v34 -> v32
+v34 -> v1
+v35 -> v46
+v35 -> v1
+v35 -> v42
+v35 -> v12
+v35 -> v71
+v35 -> v10
+v92 -> v36
+v36 -> v31
+v36 -> v13
+v36 -> v9
+v37 -> v33
+v37 -> v2
+v37 -> v8
+v37 -> v22
+v37 -> v7
+v37 -> v0
+v38 -> v47
+v38 -> v15
+v38 -> v70
+v38 -> v68
+v38 -> v7
+v72 -> v39
+v39 -> v48
+v39 -> v14
+v39 -> v11
+v79 -> v40
+v40 -> v18
+v40 -> v10
+v40 -> v0
+v41 -> v20
+v41 -> v5
+v41 -> v45
+v41 -> v70
+v41 -> v69
+v41 -> v9
+v90 -> v15
+v15 -> v47
+v15 -> v70
+v15 -> v68
+v16 -> v31
+v16 -> v13
+v16 -> v9
+v16 -> v36
+v16 -> v6
+v17 -> v5
+v17 -> v18
+v17 -> v3
+v17 -> v27
+v17 -> v40
+v17 -> v10
+v17 -> v0
+v86 -> v19
+v19 -> v44
+v19 -> v12
+v19 -> v71
+v19 -> v6
+v84 -> v20
+v20 -> v5
+v20 -> v45
+v20 -> v70
+v20 -> v9
+v21 -> v34
+v21 -> v3
+v21 -> v32
+v21 -> v1
+v21 -> v29
+v21 -> v14
+v21 -> v8
+v81 -> v22
+v22 -> v33
+v22 -> v2
+v22 -> v7
+v22 -> v0
+v23 -> v48
+v23 -> v14
+v23 -> v13
+v23 -> v11
+v23 -> v39
+v23 -> v24
+v77 -> v42
+v42 -> v46
+v42 -> v1
+v42 -> v71
+v42 -> v10
+v43 -> v19
+v43 -> v4
+v43 -> v2
+v43 -> v44
+v43 -> v12
+v43 -> v71
+v43 -> v69
+v43 -> v6
+v93 -> v27
+v27 -> v3
+v28 -> v12
+v26 -> v9
+v74 -> v29
+v29 -> v8
+v30 -> v7
+v73 -> v24
+v24 -> v11
+v25 -> v10
+v75 -> v4
+v4 -> v69
+}

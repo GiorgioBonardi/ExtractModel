@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/gold-miner-bootstrap-typed/p01.pddl, 35, 82, 7, 7, 1.000000, -2, -0.057143, 0.714857, 1, 1.000000, 0.000000, 1.597561, 0.280488, 5

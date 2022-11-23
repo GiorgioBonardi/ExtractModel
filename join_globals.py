@@ -74,10 +74,10 @@ if __name__ == '__main__':
 
     pathIPCs = os.path.join(route, "domain")
 
-    IpcList = getSubdirectories(pathIPCs)
+    ipcList = getSubdirectories(pathIPCs)
 
     # Enter specific IPC competition folder
-    for specificIPC in IpcList:
+    for specificIPC in ipcList:
         pathCurrentIPC = os.path.join(pathIPCs, specificIPC)
         domainList = getSubdirectories(pathCurrentIPC)
         # Enter specific Domain from IPC competition

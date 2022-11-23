@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/sokoban-sequential-satisficing/p01.pddl, 283, 442, 11, 31, 2.818182, -6, -0.031802, 0.625472, -6, -1.500000, 2.140872, 5.769231, 3.472851, 263

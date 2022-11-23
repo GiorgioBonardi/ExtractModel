@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/barman-sequential-satisficing/p01.pddl, 234, 1648, 5, 28, 5.600000, -5, -0.081197, 1.052992, 1, 1.000000, 0.000000, 8.871359, 8.584951, 85

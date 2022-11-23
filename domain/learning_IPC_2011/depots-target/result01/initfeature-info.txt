@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/depots-target/p01.pddl, 987, 5716, 10, 78, 7.800000, -3, -0.006079, 0.333784, 1, 1.000000, 0.000000, 29.353220, 2.531490, 110

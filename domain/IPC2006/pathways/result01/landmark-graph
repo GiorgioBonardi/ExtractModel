@@ -1,0 +1,7 @@
+digraph G {
+v2  [label="NegatedAtom goal1_()"]
+v1  [label="Atom goal1_()"]
+v0  [label="Atom num-subs_l0()"]
+v2 -> v1
+v0 -> v1
+}

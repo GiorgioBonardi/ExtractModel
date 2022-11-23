@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/peg-solitaire-sequential-satisficing/p01.pddl, 100, 185, 2, 12, 6.000000, -12, 0.000000, 1.649242, -1, 0.606061, 1.099294, 12.627027, 7.102703, 53

@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/satellite-target/p01.pddl, 3206, 178242, 3, 644, 214.666672, -69, 0.100437, 2.149849, 1, 1.000000, 0.000000, 305.521515, 292.736572, 888

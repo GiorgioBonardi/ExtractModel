@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/sokoban-target-typed/p01.pddl, 350, 716, 15, 43, 2.866667, -1, 0.000000, 0.261861, 1, 1.000000, 0.000000, 7.456704, 0.867318, 55

@@ -1,0 +1,218 @@
+digraph G {
+v14  [label="Atom at(stone-05, pos-03-06), Atom at(stone-05, pos-04-07), Atom at(player-01, pos-02-06)"]
+v2  [label="Atom at(stone-03, pos-06-03), Atom at(stone-03, pos-08-06), Atom at(player-01, pos-05-03)"]
+v41  [label="Atom at-goal(stone-01)"]
+v22  [label="Atom at-goal(stone-02)"]
+v11  [label="NegatedAtom at-goal(stone-03)"]
+v38  [label="Atom at-goal(stone-03)"]
+v1  [label="NegatedAtom at-goal(stone-04)"]
+v39  [label="Atom at-goal(stone-04)"]
+v12  [label="NegatedAtom at-goal(stone-05)"]
+v24  [label="Atom at-goal(stone-05)"]
+v7  [label="NegatedAtom at-goal(stone-06)"]
+v18  [label="Atom at-goal(stone-06)"]
+v6  [label="Atom at(player-01, pos-08-07)"]
+v5  [label="Atom at(player-01, pos-08-06)"]
+v4  [label="Atom at(player-01, pos-07-06)"]
+v3  [label="Atom at(player-01, pos-06-06)"]
+v29  [label="Atom at(player-01, pos-05-08)"]
+v28  [label="Atom at(player-01, pos-05-06)"]
+v10  [label="Atom at(player-01, pos-05-05)"]
+v9  [label="Atom at(player-01, pos-05-04)"]
+v8  [label="Atom at(player-01, pos-04-08)"]
+v34  [label="Atom at(player-01, pos-04-06)"]
+v33  [label="Atom at(player-01, pos-03-06)"]
+v32  [label="Atom at(stone-05, pos-08-06)"]
+v27  [label="Atom at(stone-05, pos-07-06)"]
+v26  [label="Atom at(stone-05, pos-06-06)"]
+v37  [label="Atom at(stone-05, pos-05-06)"]
+v25  [label="Atom at(stone-05, pos-04-06)"]
+v42  [label="Atom at(stone-05, pos-03-07)"]
+v20  [label="Atom at(stone-06, pos-08-07)"]
+v19  [label="Atom at(stone-06, pos-08-06)"]
+v0  [label="Atom clear(pos-07-06)"]
+v36  [label="Atom clear(pos-05-06)"]
+v13  [label="NegatedAtom clear(pos-08-06)"]
+v35  [label="Atom clear(pos-08-06)"]
+v31  [label="Atom at(stone-04, pos-08-06)"]
+v30  [label="Atom at(stone-03, pos-05-05)"]
+v17  [label="Atom clear(pos-06-06)"]
+v16  [label="Atom clear(pos-04-06)"]
+v23  [label="Atom clear(pos-05-04)"]
+v15  [label="Atom clear(pos-08-05)"]
+v21  [label="Atom clear(pos-03-06)"]
+v40  [label="Atom clear(pos-04-08)"]
+v14 -> v37
+v14 -> v32
+v14 -> v27
+v14 -> v25
+v14 -> v26
+v14 -> v24
+v2 -> v38
+v11 -> v38
+v1 -> v39
+v12 -> v24
+v7 -> v18
+v6 -> v39
+v6 -> v18
+v6 -> v24
+v5 -> v18
+v5 -> v19
+v5 -> v35
+v5 -> v32
+v5 -> v24
+v4 -> v39
+v4 -> v18
+v4 -> v6
+v4 -> v5
+v4 -> v24
+v3 -> v4
+v3 -> v39
+v3 -> v18
+v3 -> v19
+v3 -> v35
+v3 -> v32
+v3 -> v6
+v3 -> v5
+v3 -> v24
+v29 -> v3
+v29 -> v38
+v29 -> v39
+v29 -> v18
+v29 -> v33
+v29 -> v34
+v29 -> v8
+v29 -> v6
+v29 -> v28
+v29 -> v5
+v29 -> v24
+v28 -> v3
+v28 -> v4
+v28 -> v38
+v28 -> v39
+v28 -> v18
+v28 -> v19
+v28 -> v35
+v28 -> v32
+v28 -> v10
+v28 -> v27
+v28 -> v6
+v28 -> v5
+v28 -> v24
+v10 -> v38
+v10 -> v9
+v9 -> v38
+v8 -> v3
+v8 -> v38
+v8 -> v39
+v8 -> v18
+v8 -> v19
+v8 -> v37
+v8 -> v35
+v8 -> v33
+v8 -> v34
+v8 -> v32
+v8 -> v27
+v8 -> v25
+v8 -> v26
+v8 -> v6
+v8 -> v28
+v8 -> v5
+v8 -> v24
+v34 -> v3
+v34 -> v38
+v34 -> v39
+v34 -> v18
+v34 -> v19
+v34 -> v35
+v34 -> v32
+v34 -> v27
+v34 -> v26
+v34 -> v6
+v34 -> v28
+v34 -> v5
+v34 -> v24
+v33 -> v37
+v33 -> v32
+v33 -> v27
+v33 -> v26
+v33 -> v24
+v32 -> v24
+v27 -> v32
+v27 -> v24
+v26 -> v32
+v26 -> v27
+v26 -> v24
+v37 -> v32
+v37 -> v27
+v37 -> v26
+v37 -> v24
+v25 -> v37
+v25 -> v32
+v25 -> v27
+v25 -> v26
+v25 -> v24
+v42 -> v37
+v42 -> v32
+v42 -> v27
+v42 -> v25
+v42 -> v26
+v42 -> v24
+v20 -> v39
+v20 -> v18
+v20 -> v19
+v20 -> v6
+v20 -> v24
+v19 -> v18
+v0 -> v4
+v0 -> v39
+v0 -> v18
+v0 -> v27
+v0 -> v6
+v0 -> v5
+v0 -> v24
+v36 -> v38
+v36 -> v39
+v36 -> v18
+v36 -> v37
+v36 -> v26
+v36 -> v28
+v36 -> v24
+v13 -> v35
+v35 -> v18
+v35 -> v19
+v35 -> v32
+v35 -> v24
+v31 -> v39
+v31 -> v18
+v31 -> v5
+v31 -> v24
+v30 -> v38
+v30 -> v10
+v17 -> v3
+v17 -> v39
+v17 -> v18
+v17 -> v27
+v17 -> v26
+v17 -> v24
+v16 -> v38
+v16 -> v39
+v16 -> v18
+v16 -> v37
+v16 -> v34
+v16 -> v25
+v16 -> v24
+v23 -> v38
+v23 -> v10
+v15 -> v39
+v15 -> v18
+v15 -> v24
+v21 -> v33
+v21 -> v24
+v40 -> v38
+v40 -> v39
+v40 -> v18
+v40 -> v8
+v40 -> v28
+v40 -> v24
+}

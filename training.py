@@ -95,8 +95,8 @@ def execute_problem(domain, problem):
                 # Solve problem with LPG planner
                 try:
                     # Creating and starting solving sub-process
-                    lpg_engine = LPGEngine()
-                    proc = Process(target = lambda: q.put(lpg_engine._solve(parsed_problem)))
+                    planner = LPGEngine()
+                    proc = Process(target = lambda: q.put(planner._solve(parsed_problem)))
                     proc.start()
                     print("LPG solving...")
                     try:
@@ -160,14 +160,18 @@ def execute_problem(domain, problem):
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
+                    #per debug modificare excpet con except Exception as inst:
+                    # print(type(inst))    # the exception instance
+                    # print(inst.args)     # arguments stored in .args
+                    # print(inst)
                     # Exceptions while trying to validate/check for validation implementation
                     print(f"{p} has encountered an exception while attempting to validate the plan" )   
     
-    except Exception as inst: 
+    except: 
         print("Error with the parsing of the problem")
-        print(type(inst))    # the exception instance
-        print(inst.args)     # arguments stored in .args
-        print(inst)
+        # print(type(inst))    # the exception instance
+        # print(inst.args)     # arguments stored in .args
+        # print(inst)
         return []
     
     # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
@@ -177,10 +181,10 @@ rootpath = os.path.dirname(__file__)
 pathIPCs = os.path.join(rootpath, "domain")
 
 # Fetch list of IPC competition directories
-IpcList = getSubdirectories(pathIPCs)
+ipcList = getSubdirectories(pathIPCs)
 
 # Enter specific IPC competition folder
-for specificIPC in IpcList:  
+for specificIPC in ipcList:  
     pathCurrentIPC = os.path.join(pathIPCs, specificIPC)
     domainList = getSubdirectories(pathCurrentIPC)
     # Enter specific Domain from IPC competition
@@ -194,7 +198,7 @@ for specificIPC in IpcList:
             
             # Only proceed if Domain exists
             if(not os.path.isfile(original_domain)):
-                original_domain = os.path.join(pathSpecificDomain, "domain.pddl")
+                original_domain = os.path.join(pathCurrentDomain, "domain.pddl")
     
             original_problem = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+".pddl")
             pathCurrentResult = os.path.join(pathCurrentDomain, "result"+str(i).zfill(2))

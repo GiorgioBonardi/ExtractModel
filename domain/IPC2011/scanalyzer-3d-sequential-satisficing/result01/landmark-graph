@@ -1,0 +1,86 @@
+digraph G {
+v26  [label="NegatedAtom analyzed(car-in-1a)"]
+v10  [label="Atom analyzed(car-in-1a)"]
+v29  [label="NegatedAtom analyzed(car-in-1b)"]
+v24  [label="Atom analyzed(car-in-1b)"]
+v28  [label="NegatedAtom analyzed(car-in-2a)"]
+v19  [label="Atom analyzed(car-in-2a)"]
+v27  [label="NegatedAtom analyzed(car-in-2b)"]
+v23  [label="Atom analyzed(car-in-2b)"]
+v3  [label="NegatedAtom analyzed(car-out-1a)"]
+v7  [label="Atom analyzed(car-out-1a)"]
+v1  [label="NegatedAtom analyzed(car-out-1b)"]
+v17  [label="Atom analyzed(car-out-1b)"]
+v30  [label="NegatedAtom analyzed(car-out-2a)"]
+v31  [label="Atom analyzed(car-out-2a)"]
+v2  [label="NegatedAtom analyzed(car-out-2b)"]
+v22  [label="Atom analyzed(car-out-2b)"]
+v8  [label="Atom on(car-out-2a, seg-in-2b)"]
+v0  [label="Atom on(car-in-2b, seg-in-2b)"]
+v11  [label="Atom on(car-in-2b, seg-in-2a)"]
+v16  [label="Atom on(car-in-2a, seg-in-2a)"]
+v15  [label="Atom on(car-out-2b, seg-out-2b)"]
+v5  [label="Atom on(car-in-2a, seg-out-2b)"]
+v6  [label="Atom on(car-out-2b, seg-out-2a)"]
+v14  [label="Atom on(car-out-2a, seg-out-2a)"]
+v13  [label="Atom on(car-out-1b, seg-out-1b)"]
+v18  [label="Atom on(car-in-1a, seg-out-1b)"]
+v4  [label="Atom on(car-out-1b, seg-out-1a)"]
+v20  [label="Atom on(car-out-1a, seg-out-1a)"]
+v12  [label="Atom on(car-out-1a, seg-in-1b)"]
+v25  [label="Atom on(car-in-1b, seg-in-1b)"]
+v21  [label="Atom on(car-in-1b, seg-in-1a)"]
+v9  [label="Atom on(car-in-1a, seg-in-1a)"]
+v26 -> v10
+v29 -> v24
+v28 -> v19
+v27 -> v23
+v3 -> v7
+v1 -> v17
+v30 -> v31
+v2 -> v22
+v0 -> v11
+v0 -> v23
+v0 -> v5
+v0 -> v8
+v0 -> v19
+v11 -> v23
+v16 -> v11
+v16 -> v23
+v16 -> v5
+v16 -> v8
+v16 -> v19
+v15 -> v22
+v15 -> v6
+v15 -> v5
+v15 -> v8
+v15 -> v31
+v6 -> v22
+v14 -> v22
+v14 -> v6
+v14 -> v5
+v14 -> v8
+v14 -> v31
+v13 -> v18
+v13 -> v17
+v13 -> v4
+v13 -> v7
+v13 -> v12
+v4 -> v17
+v20 -> v18
+v20 -> v17
+v20 -> v4
+v20 -> v7
+v20 -> v12
+v25 -> v18
+v25 -> v21
+v25 -> v10
+v25 -> v12
+v25 -> v24
+v21 -> v24
+v9 -> v18
+v9 -> v21
+v9 -> v10
+v9 -> v12
+v9 -> v24
+}

@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/spanner-target/p01.pddl, 552, 10151, 52, 152, 2.923077, -100, -0.181159, 4.295660, 1, 1.000000, 0.000000, 2.000788, 0.000000, 99

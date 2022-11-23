@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/n-puzzle-target-typed/p01.pddl, 256, 720, 8, 50, 6.250000, -2, 0.000000, 0.522913, 1, 1.000000, 0.000000, 19.984722, 5.455555, 117

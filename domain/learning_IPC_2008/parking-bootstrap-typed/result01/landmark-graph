@@ -1,0 +1,52 @@
+digraph G {
+v0  [label="Atom behind-car(car_3, car_2)"]
+v1  [label="Atom behind-car(car_3, car_0)"]
+v2  [label="Atom at-curb-num(car_2, curb_2)"]
+v13  [label="Atom at-curb-num(car_2, curb_1)"]
+v4  [label="Atom behind-car(car_1, car_0)"]
+v3  [label="Atom at-curb-num(car_1, curb_1)"]
+v12  [label="Atom at-curb-num(car_0, curb_0)"]
+v5  [label="Atom curb-clear(curb_2)"]
+v14  [label="NegatedAtom curb-clear(curb_1)"]
+v6  [label="Atom curb-clear(curb_1)"]
+v7  [label="Atom car-clear(car_3)"]
+v15  [label="NegatedAtom car-clear(car_2)"]
+v8  [label="Atom car-clear(car_2)"]
+v9  [label="Atom car-clear(car_1)"]
+v16  [label="NegatedAtom car-clear(car_0)"]
+v10  [label="Atom car-clear(car_0)"]
+v11  [label="Atom at-curb(car_0)"]
+v0 -> v1
+v0 -> v8
+v0 -> v6
+v0 -> v3
+v0 -> v2
+v13 -> v6
+v13 -> v3
+v13 -> v2
+v4 -> v1
+v4 -> v10
+v4 -> v3
+v5 -> v1
+v5 -> v10
+v5 -> v8
+v5 -> v3
+v5 -> v2
+v14 -> v6
+v6 -> v3
+v7 -> v1
+v7 -> v8
+v7 -> v6
+v7 -> v3
+v7 -> v2
+v15 -> v8
+v8 -> v6
+v8 -> v3
+v8 -> v2
+v9 -> v1
+v9 -> v10
+v9 -> v3
+v16 -> v10
+v10 -> v1
+v11 -> v1
+}

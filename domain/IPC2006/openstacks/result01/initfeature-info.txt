@@ -1,0 +1,1 @@
+  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2006/openstacks/p01.pddl, 37, 115, 4, 21, 5.250000, -1, 0.000000, 0.771100, 1, 1.000000, 0.000000, 8.165217, 1.286957, 16

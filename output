@@ -119,8 +119,8 @@ Size of the tree : 	3
 
 
 
-Time taken to build model: 0.56 seconds
-Time taken to test model on training data: 0.06 seconds
+Time taken to build model: 0.36 seconds
+Time taken to test model on training data: 0.04 seconds
 
 === Error on training data ===
 
