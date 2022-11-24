@@ -1,0 +1,17 @@
+IPC 2008
+gold miner typed		SI
+matching bw typed		SI
+n-puzzle typed			SI
+parking 			SI
+sokoban				SI
+
+IPC 2011
+barman target			children
+blocksworld target		Timeout		
+depots target			children
+parking target			Timeout
+satellite target		Timeout		
+spanner target			children
+tpp target			children
+
+IPC 2014
