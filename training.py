@@ -7,7 +7,7 @@ import os               # path and process management
 import sys              # argv, exit
 import argparse
 from unified_planning.engines import ValidationResultStatus, results
-from unified_planning.shortcuts import OneshotPlanner
+from unified_planning.shortcuts import OneshotPlanner, PlanValidator
 from unified_planning.io import PDDLReader
 from up_lpg.lpg_planner import LPGEngine
 from multiprocessing import Process, Queue
@@ -41,6 +41,13 @@ def extract_features(original_domain, original_problem, rootpathOutput):
 
     print("\n***end extract features***\n")
 
+def validate_plan(problem, plan):
+    try:
+        with PlanValidator(problem_kind=problem.kind) as validator:
+            return validator.validate(problem, plan)
+    except:
+        return RuntimeError
+
 #fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
 def execute_problem(domain, problem):
     """
@@ -50,13 +57,13 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 10
+    timeAllocated = 40
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['lpg','tamer','fast-downward', 'enhsp']
+        plannerList = ['tamer', 'enhsp', 'fast-downward', 'lpg']
         q = Queue()
         res = []
 
@@ -76,6 +83,7 @@ def execute_problem(domain, problem):
                         try:
                             # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
                             result = q.get(block = True, timeout = timeAllocated)
+                            plan = result.plan
                             proc.terminate()
                             proc.join()
                         except Empty:
@@ -102,7 +110,7 @@ def execute_problem(domain, problem):
                     try:
                         # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
                         result = q.get(block = True, timeout = timeAllocated)
-                        print(result.plan)
+                        plan = result.plan
                         #TODO: LPG has no validate?
                         toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
                         res.append(toBeAppended)
@@ -125,38 +133,27 @@ def execute_problem(domain, problem):
                     res.append(toBeAppended)
                     pass
 
-            if result.plan is None:
+            if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
                 print(f"{p} couldn't solve the problem")
                 toBeAppended = ","+ p + ", False"
                 res.append(toBeAppended)
             else:
                 # Plan is not None
-                print(result.plan)
-                #da togliere validate(?) fast-downward non lo ha
-                #magari fare un "if ha validate then fai validate" se ha fatto un warning
-
+                print(plan)
                 # Validation of the plan found
                 try:
-                    # Check if the given planner implements `validate`
-                    if hasattr(planner, 'validate'):
-                        # Planner validates the plan
-                        val = planner.validate(parsed_problem, result.plan)
-                        print(val.status)
-                        if(val.status == ValidationResultStatus.VALID):
-                            #TODO: da togliere la , all'inizio?
-                            # To be appended a positive result if validation concludes positively
-                            toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
-                            print(toBeAppended)
-                        else:
-                            # To be appended a negative result if validation concludes negatively
-                            toBeAppended = ","+ p + ", False"
-                    else:
-                        # Planner can't validate the plan because it doesn't implement this functionality
-                        print(f"{p} doesn't support a validation process")
-                        #TODO:If planner doesn't implement validation, should it still be treated as POSITIVE OUTOCME?
+                    # val = planner.validate(parsed_problem, result.plan) #vecchia riga
+                    val = validate_plan(parsed_problem, plan)
+                    print(val.status)
+                    if(val.status == ValidationResultStatus.VALID):
+                        #TODO: da togliere la , all'inizio?
+                        # To be appended a positive result if validation concludes positively
                         toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
-                        print(toBeAppended) 
+                        print(toBeAppended)
+                    else:
+                        # To be appended a negative result if validation concludes negatively
+                        toBeAppended = ","+ p + ", False"
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
@@ -166,7 +163,7 @@ def execute_problem(domain, problem):
                     # print(inst)
                     # Exceptions while trying to validate/check for validation implementation
                     print(f"{p} has encountered an exception while attempting to validate the plan" )   
-    
+        
     except: 
         print("Error with the parsing of the problem")
         # print(type(inst))    # the exception instance
@@ -235,13 +232,18 @@ os.system(command)
 command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
 os.system(command)
 
+#TODO: da lasciare -Xmx1024M?
+#the flag Xmx specifies the maximum memory allocation pool for a Java Virtual Machine (JVM)
+# For example, starting a JVM like below will start it with 256 MB of memory and will allow the process to use up to 2048 MB of memory:
+# java -Xms256m -Xmx2048m
+
 # Check the result      
-command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
+command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
 print(command)
 os.system(command)
 
 # Save the model created
-command = "java -Xmx1024M -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
+command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
 print(command)
 os.system(command)
 
