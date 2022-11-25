@@ -83,6 +83,7 @@ if __name__ == '__main__':
             pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
             resultList = getSubdirectories(pathCurrentDomain)
             # Enter specific problem Result folder
+            #TODO: se resultList è [] da errore o semplicemente salta il for?
             for specificResult in resultList:
                 pathCurrentResult = os.path.join(pathCurrentDomain, specificResult)
                 addGlobalFeatures(isFileEmpty(joined_path), pathCurrentResult)

@@ -48,6 +48,22 @@ def validate_plan(problem, plan):
     except:
         return RuntimeError
 
+def solve_plan(planner, problem, queue, timeAllocated):
+    # Creating and starting solving sub-process
+    proc = Process(target = lambda: queue.put(planner.solve(problem)))
+    proc.start()
+
+    try:
+        # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
+        result = queue.get(block = True, timeout = timeAllocated)
+        proc.terminate()
+        proc.join()
+        return result
+    except Empty:
+        proc.terminate()
+        proc.join()
+        raise Empty()
+
 #fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
 def execute_problem(domain, problem):
     """
@@ -60,78 +76,50 @@ def execute_problem(domain, problem):
     timeAllocated = 35
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
-    reader = PDDLReader()
+    reader = PDDLReader() #TODO: è da chiudere (?)
+    #TODO: ha senso un try dentro un try?
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['tamer', 'enhsp', 'fast-downward', 'lpg']
-        q = Queue()
+        plannerList = ['lpg']
+        queue = Queue()
         res = []
 
         # Initialise result
         result = None
         
         for p in plannerList:
-            
             if(p != 'lpg'):
                 # Solve the given `problem` with tamer/enhsp/fast-downward planner
                 with OneshotPlanner(name=p) as planner:
+                    
                     try:
-                        # Creating and starting solving sub-process
-                        proc = Process(target = lambda: q.put(planner.solve(parsed_problem)))
-                        proc.start()
-
-                        try:
-                            # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
-                            result = q.get(block = True, timeout = timeAllocated)
-                            plan = result.plan
-                            proc.terminate()
-                            proc.join()
-                        except Empty:
-                            # Queue resulted empty after waiting for `timeAllocated` seconds
-
-                            print(f"{p} TIMED OUT")
-                            toBeAppended = ","+ p + ", False"
-                            res.append(toBeAppended)
-                            proc.terminate()
-                            proc.join()
-                            continue
-                    except:
-                        # Planner couldn't solve the problem (Throws exception while solving)
-                        print(f"{p} has encountered an exception while solving")
-                        pass
-            else:
-                # Solve problem with LPG planner
-                try:
-                    # Creating and starting solving sub-process
-                    planner = LPGEngine()
-                    proc = Process(target = lambda: q.put(planner._solve(parsed_problem)))
-                    proc.start()
-                    print("LPG solving...")
-                    try:
-                        # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
-                        result = q.get(block = True, timeout = timeAllocated)
+                        result = solve_plan(planner, parsed_problem, queue, timeAllocated)
                         plan = result.plan
-                        #TODO: LPG has no validate?
-                        toBeAppended = ",lpg, " + str(result.status in results.POSITIVE_OUTCOMES)
-                        res.append(toBeAppended)
-                        proc.terminate()
-                        proc.join()
-                        print(toBeAppended)
                     except Empty:
-                        # Queue resulted empty after waiting for `timeAllocated` seconds
                         print(f"{p} TIMED OUT")
                         toBeAppended = ","+ p + ", False"
                         res.append(toBeAppended)
-                        proc.terminate()
-                        proc.join()
                         continue
-                except:
-                    # Planner couldn't solve the problem (Throws exception while solving)
-                    #TODO: SHOULDN'T APPEND FALSE, IT THREW ERROR !!!!!!!
-                    print(f"{p} has encountered an exception while attempting to solve")
-                    toBeAppended = "," + p +", False"
-                    res.append(toBeAppended)
-                    pass
+                    except:
+                        # Planner couldn't solve the problem (Throws exception while solving)
+                        print(f"{p} has encountered an exception while attempting to solve")
+                        continue 
+            else:
+                # Solve problem with LPG planner
+                with LPGEngine() as planner:
+                    try:
+                        # Creating and starting solving sub-process
+                            result = solve_plan(planner, parsed_problem, queue, timeAllocated)
+                            plan = result.plan
+                    except Empty:
+                            print(f"{p} TIMED OUT")
+                            toBeAppended = ","+ p + ", False"
+                            res.append(toBeAppended)
+                            continue
+                    except:
+                        # Planner couldn't solve the problem (Throws exception while solving)
+                        print(f"{p} has encountered an exception while attempting to solve")
+                        continue
 
             if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
@@ -205,20 +193,20 @@ for specificIPC in ipcList:
                 if(not os.path.isdir(pathCurrentResult)):
                     os.mkdir(pathCurrentResult)
                 os.chdir(pathCurrentResult)
-                extract_features(original_domain, original_problem, pathCurrentResult)
+                # extract_features(original_domain, original_problem, pathCurrentResult)
 
                 ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
                 # Solve Problem `i` with all planners and obtain a list containing the results (solved or not solved) 
                 res_planner = execute_problem(original_domain, original_problem)
                 #res_planner = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
-                
-                #join file
-                pathModels = os.path.join(rootpath, "models")
-                res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
-                print(res_planner_str)
-                command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
-                print(command)
-                os.system(command)
+                if(res_planner is not []):
+                    #join file
+                    pathModels = os.path.join(rootpath, "models")
+                    res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
+                    print(res_planner_str)
+                    command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
+                    print(command)
+                    os.system(command)
 
                 #i+=1
 
