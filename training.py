@@ -57,7 +57,7 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 40
+    timeAllocated = 35
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
@@ -188,7 +188,7 @@ for specificIPC in ipcList:
     for specificDomain in domainList:
         pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
         # Get domain/problem `i`
-        for i in range(1,2):
+        for i in range(1,4):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
             original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")
@@ -205,7 +205,7 @@ for specificIPC in ipcList:
                 if(not os.path.isdir(pathCurrentResult)):
                     os.mkdir(pathCurrentResult)
                 os.chdir(pathCurrentResult)
-                # extract_features(original_domain, original_problem, pathCurrentResult)
+                extract_features(original_domain, original_problem, pathCurrentResult)
 
                 ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
                 # Solve Problem `i` with all planners and obtain a list containing the results (solved or not solved) 
@@ -223,7 +223,7 @@ for specificIPC in ipcList:
                 #i+=1
 
 # Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
-command = "python2.7 "+ rootpath + "/join_globals.py " + rootpath
+command = "python2.7 "+ rootpath + "/join_globals.py"
 print(command)
 os.system(command)
 

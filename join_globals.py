@@ -22,7 +22,7 @@ def addGlobalFeatures(joinedEmpty, currentProblem):
     """
     try:
 	    # Read global_features file relative to the `currentProblem`
-        current_global_features = open(os.path.join(currentProblem, "/global_features.arff"), 'r')
+        current_global_features = open(os.path.join(currentProblem, "global_features.arff"), 'r')
         # check se il file joined_global_features e' vuoto
         if(not joinedEmpty):
             # `joined_global_features` isn't empty
@@ -60,17 +60,15 @@ def addGlobalFeatures(joinedEmpty, currentProblem):
 # main
 # -----------------------------------------------------------------------------
 if __name__ == '__main__':
-    route = ""
-    joined_path = "/joined_global_features.arff"
-
     route = os.path.dirname(__file__)
+    joined_path = os.path.join(route, "joined_global_features.arff") 
 
     # If joined file already exists, it gets removed (may exists as remnant of past executions)    
-    if os.path.exists(os.path.join(route, joined_path)):
-        os.remove(os.path.join(route, joined_path))
+    if os.path.exists(joined_path):
+        os.remove(joined_path)
 
     # Create and open file joined_global, in `append` mode
-    joined_global_features = open(os.path.join(route, joined_path), 'a')
+    joined_global_features = open(joined_path, 'a')
 
     pathIPCs = os.path.join(route, "domain")
 
@@ -87,5 +85,5 @@ if __name__ == '__main__':
             # Enter specific problem Result folder
             for specificResult in resultList:
                 pathCurrentResult = os.path.join(pathCurrentDomain, specificResult)
-                addGlobalFeatures(isFileEmpty(os.path.join(route, joined_path)), pathCurrentResult)
+                addGlobalFeatures(isFileEmpty(joined_path), pathCurrentResult)
     joined_global_features.close()    
