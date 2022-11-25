@@ -34,33 +34,38 @@ def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***end extract features***\n")
 
 rootpath = os.path.dirname(__file__)
-original_domain = os.path.join(rootpath, "domain/learning_IPC_2008/gold-miner-bootstrap-typed/domain.pddl")
+
+pathTestDomain = os.path.join(rootpath, "test-model")
+pathModels = os.path.join(rootpath, "models")
+
+original_domain = os.path.join(pathTestDomain, "domain.pddl")
 print(original_domain)
 
-original_problem = os.path.join(rootpath, "domain/learning_IPC_2008/gold-miner-bootstrap-typed/p30.pddl")
+original_problem = os.path.join(pathTestDomain, "p30.pddl")
 print(original_problem)
 
-pathResult = os.path.join(rootpath, "domain/learning_IPC_2008/gold-miner-bootstrap-typed/result30")
+pathResult = os.path.join(pathTestDomain, "result30")
 print(pathResult)
 
 if(not os.path.isdir(pathResult)):
     os.mkdir(pathResult)
+os.chdir(pathResult)
+extract_features(original_domain, original_problem, pathResult)
 
-#extract_features(original_domain, original_problem, pathResult)
+res_planner = ['enhsp, True','tamer, True','fast-downward, True','lpg, True']
+res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
+command = "python2.7 "+ pathModels + "/joinFile.py " + pathResult + " " + res_planner_str
+print(command)
+os.system(command)
 
-# command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
-# print(command)
-# os.system(command
-
-# # Remove unused attributes
-# ##TODO: la dobbiamo fare o no?
-# command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
-# os.system(command)
+#creazione del simply
+command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ pathResult + "/global_features.arff -o "+ pathTestDomain +"/global_features_simply.arff"
+os.system(command)
 
 
 #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
-command = "java -Xms256m -Xmx1024m -cp "+ rootpath +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+rootpath+"/RotationForest.model -T "+rootpath+"/joined_global_features_simply.arff -p 113 > "+rootpath+"/outputModel"
+command = "java -Xms256m -Xmx1024m -cp "+ rootpath +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+rootpath+"/RotationForest.model -T "+pathTestDomain+"/global_features_simply.arff -p 113 > "+pathResult+"/outputModel"
 os.system(command)
 
-command = "python2.7 "+ rootpath +"/models/parseWekaOutputFile.py "+rootpath+"/outputModel "+rootpath+"/listPlanner"
+command = "python2.7 "+ rootpath +"/models/parseWekaOutputFile.py "+pathResult+"/outputModel "+pathResult+"/listPlanner"
 os.system(command)

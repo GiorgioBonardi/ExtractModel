@@ -1,0 +1,52 @@
+digraph G {
+v12  [label="Atom robot-at(f0-0f), Atom robot-at(f1-1f), Atom robot-at(f2-2f), Atom robot-at(f3-3f)"]
+v10  [label="Atom robot-at(f0-1f), Atom robot-at(f1-2f), Atom robot-at(f2-3f)"]
+v11  [label="Atom clear(f2-3f), Atom clear(f0-1f), Atom clear(f1-2f)"]
+v13  [label="Atom robot-at(f0-2f), Atom robot-at(f1-3f)"]
+v9  [label="Atom clear(f0-2f), Atom clear(f1-3f)"]
+v2  [label="Atom holds-gold()"]
+v4  [label="Atom arm-empty()"]
+v0  [label="Atom robot-at(f3-0f)"]
+v5  [label="Atom robot-at(f2-0f)"]
+v6  [label="Atom robot-at(f1-0f)"]
+v7  [label="Atom robot-at(f0-3f)"]
+v8  [label="NegatedAtom clear(f0-3f)"]
+v3  [label="Atom clear(f0-3f)"]
+v1  [label="Atom gold-at(f0-3f)"]
+v12 -> v2
+v12 -> v3
+v12 -> v10
+v12 -> v7
+v12 -> v11
+v10 -> v2
+v10 -> v3
+v10 -> v7
+v10 -> v9
+v10 -> v13
+v11 -> v2
+v11 -> v3
+v11 -> v10
+v11 -> v7
+v13 -> v2
+v13 -> v3
+v13 -> v7
+v9 -> v2
+v9 -> v3
+v9 -> v7
+v9 -> v13
+v4 -> v2
+v4 -> v3
+v0 -> v2
+v0 -> v3
+v5 -> v2
+v5 -> v0
+v6 -> v2
+v6 -> v7
+v6 -> v5
+v6 -> v0
+v7 -> v2
+v8 -> v3
+v3 -> v2
+v3 -> v7
+v1 -> v2
+}

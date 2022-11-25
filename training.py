@@ -80,7 +80,7 @@ def execute_problem(domain, problem):
     #TODO: ha senso un try dentro un try?
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['lpg']
+        plannerList = ['lpg','tamer', 'fast-downward', 'enhsp']
         queue = Queue()
         res = []
 
@@ -176,7 +176,7 @@ for specificIPC in ipcList:
     for specificDomain in domainList:
         pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
         # Get domain/problem `i`
-        for i in range(1,4):
+        for i in range(1,31):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
             original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")

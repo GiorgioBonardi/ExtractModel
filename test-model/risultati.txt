@@ -1,0 +1,18 @@
+PREDIZIONE:
+(NB: actual ho hardcodato io tutti i "True" il valore da guardare è predicted)
+	=== Predictions on test data ===
+
+	 inst#     actual  predicted error prediction (planner)
+	     1     1:True    2:False   +   0.748 (enhsp)
+	     2     1:True     1:True       0.691 (tamer)
+	     3     1:True     1:True       0.774 (fast-downward)
+	     4     1:True     1:True       0.674 (lpg)
+
+ESECUZIONE EFFETTIVA:	
+	'enhsp, False' TIMEOUT
+	'tamer, False' TIMEOUT
+	'fast-downward, True' 
+	'lpg, True'
+	
+	
+tempo lasciato sia nel training che nell'esecuzione effettiva -> timeAllocated = 35
