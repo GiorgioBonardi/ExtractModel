@@ -73,20 +73,19 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 35
+    timeAllocated = 3
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader() #TODO: è da chiudere (?)
-    #TODO: ha senso un try dentro un try?
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['lpg','tamer', 'fast-downward', 'enhsp']
+        plannerList = ['tamer','lpg','enhsp','fast-downward']
         queue = Queue()
         res = []
 
         # Initialise result
         result = None
-        
+
         for p in plannerList:
             if(p != 'lpg'):
                 # Solve the given `problem` with tamer/enhsp/fast-downward planner
@@ -97,7 +96,7 @@ def execute_problem(domain, problem):
                         plan = result.plan
                     except Empty:
                         print(f"{p} TIMED OUT")
-                        toBeAppended = ","+ p + ", False"
+                        toBeAppended = p + ", False"
                         res.append(toBeAppended)
                         continue
                     except:
@@ -113,7 +112,7 @@ def execute_problem(domain, problem):
                             plan = result.plan
                     except Empty:
                             print(f"{p} TIMED OUT")
-                            toBeAppended = ","+ p + ", False"
+                            toBeAppended = p + ", False"
                             res.append(toBeAppended)
                             continue
                     except:
@@ -124,7 +123,7 @@ def execute_problem(domain, problem):
             if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
                 print(f"{p} couldn't solve the problem")
-                toBeAppended = ","+ p + ", False"
+                toBeAppended = p + ", False"
                 res.append(toBeAppended)
             else:
                 # Plan is not None
@@ -135,13 +134,12 @@ def execute_problem(domain, problem):
                     val = validate_plan(parsed_problem, plan)
                     print(val.status)
                     if(val.status == ValidationResultStatus.VALID):
-                        #TODO: da togliere la , all'inizio?
                         # To be appended a positive result if validation concludes positively
-                        toBeAppended = ","+ p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
+                        toBeAppended = p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
                         print(toBeAppended)
                     else:
                         # To be appended a negative result if validation concludes negatively
-                        toBeAppended = ","+ p + ", False"
+                        toBeAppended = p + ", False"
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
@@ -176,7 +174,7 @@ for specificIPC in ipcList:
     for specificDomain in domainList:
         pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
         # Get domain/problem `i`
-        for i in range(1,31):
+        for i in range(1,3):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
             original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")
