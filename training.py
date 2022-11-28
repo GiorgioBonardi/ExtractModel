@@ -1,11 +1,4 @@
-##estrazione features per domain/problem
-##far provare a risolvere il problema per gli N planner
-##unire features + nomePlanner + true/false 
-    ##si potrebbe modificare joinFile.py passandogli la lista dei planner e lista di true/false
-
-import os               # path and process management
-import sys              # argv, exit
-import argparse
+import os
 from unified_planning.engines import ValidationResultStatus, results
 from unified_planning.shortcuts import OneshotPlanner, PlanValidator
 from unified_planning.io import PDDLReader
@@ -82,28 +75,28 @@ def solve_plan(planner, problem, connMain, connSolver, timeAllocated):
 
         return result
 
-    # Catch any exceptions that are not related to time constraints
+    # Catch any exceptions
     except BaseException as e:
         proc.terminate()
         proc.join()
         raise e
 
-#fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
-def execute_problem(domain, problem):
+def execute_problem(domain, problem, trainingPlanners):
     """
     Returns a list in which each element contains `planner.name` and a `boolean` 
     which tells if that planner can solve the problem or not.
 
+    :param domain: Domain relative to the problem
     :param problem: Problem to be solved
+    :param trainingPlanners: List containing the planners to be used
     :return res: The list created
     """
     timeAllocated = 60
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
-    reader = PDDLReader() #TODO: è da chiudere (?)
+    reader = PDDLReader()
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['tamer']
 
         # Initialize Pipe connection between Main process and Solver process
         connMain, connSolver = Pipe()
@@ -112,7 +105,7 @@ def execute_problem(domain, problem):
         # Initialise result
         result = None
 
-        for p in plannerList:
+        for p in trainingPlanners:
             if(p != 'lpg'):
                 # Solve the given `problem` with tamer/enhsp/fast-downward planner
                 with OneshotPlanner(name=p) as planner:
@@ -120,6 +113,7 @@ def execute_problem(domain, problem):
                         result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
                         plan = result.plan
                     except TimeoutError:
+                        # Planner couldn't solve the problem with the `timeAllocated`
                         print(f"{p} TIMED OUT")
                         toBeAppended = p + ", False"
                         res.append(toBeAppended)
@@ -133,13 +127,14 @@ def execute_problem(domain, problem):
                 with LPGEngine() as planner:
                     try:
                         # Creating and starting solving sub-process
-                            result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
-                            plan = result.plan
+                        result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
+                        plan = result.plan
                     except TimeoutError:
-                            print(f"{p} TIMED OUT")
-                            toBeAppended = p + ", False"
-                            res.append(toBeAppended)
-                            continue
+                        # Planner couldn't solve the problem with the `timeAllocated`
+                        print(f"{p} TIMED OUT")
+                        toBeAppended = p + ", False"
+                        res.append(toBeAppended)
+                        continue
                     except:
                         # Planner couldn't solve the problem (Throws exception while solving)
                         print(f"{p} has encountered an exception while attempting to solve")
@@ -152,7 +147,6 @@ def execute_problem(domain, problem):
                 res.append(toBeAppended)
             else:
                 # Plan is not None
-                print(plan)
                 # Validation of the plan found
                 try:
                     # val = planner.validate(parsed_problem, result.plan) #vecchia riga
@@ -168,25 +162,15 @@ def execute_problem(domain, problem):
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
-                    #per debug modificare excpet con except Exception as inst:
-                    # print(type(inst))    # the exception instance
-                    # print(inst.args)     # arguments stored in .args
-                    # print(inst)
-                    # Exceptions while trying to validate/check for validation implementation
                     print(f"{p} has encountered an exception while attempting to validate the plan")   
     except Exception: 
         print("Error with the parsing of the problem")
-        # print(e.__class__.__name__)
-        # print(type(inst))    # the exception instance
-        # print(inst.args)     # arguments stored in .args
-        # print(inst)
         return []
-    
-    # res = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
     return res
 
 rootpath = os.path.dirname(__file__)
 pathIPCs = os.path.join(rootpath, "domain")
+trainingPlanners = ['tamer','fast-downward','enhsp','lpg']
 
 # Fetch list of IPC competition directories
 ipcList = getSubdirectories(pathIPCs)
@@ -218,10 +202,8 @@ for specificIPC in ipcList:
                 os.chdir(pathCurrentResult)
                 # extract_features(original_domain, original_problem, pathCurrentResult)
 
-                ##far eseguire il problem ai 4 pianificatori e raccogliere un array di bool es: [true, false, true, true] per poi passarlo a joinFile
                 # Solve Problem `i` with all planners and obtain a list containing the results (solved or not solved) 
-                res_planner = execute_problem(original_domain, original_problem)
-                #res_planner = ['enhsp, True','tamer, False','fast-downward, True','lpg, False']
+                res_planner = execute_problem(original_domain, original_problem, trainingPlanners)
                 if(res_planner is not []):
                     #join file
                     pathModels = os.path.join(rootpath, "models")
