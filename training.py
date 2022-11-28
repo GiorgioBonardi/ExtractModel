@@ -42,17 +42,14 @@ def extract_features(original_domain, original_problem, rootpathOutput):
     print("\n***end extract features***\n")
 
 def validate_plan(problem, plan):
-    try:
-        with PlanValidator(problem_kind=problem.kind) as validator:
+    with PlanValidator(problem_kind=problem.kind) as validator:
             return validator.validate(problem, plan)
-    except:
-        return RuntimeError
 
 def solve_plan(planner, problem, queue, timeAllocated):
+    
     # Creating and starting solving sub-process
     proc = Process(target = lambda: queue.put(planner.solve(problem)))
     proc.start()
-
     try:
         # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
         result = queue.get(block = True, timeout = timeAllocated)
@@ -73,13 +70,13 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 3
+    timeAllocated = 10
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader() #TODO: è da chiudere (?)
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['tamer','lpg','enhsp','fast-downward']
+        plannerList = ['fast-downward']
         queue = Queue()
         res = []
 
@@ -90,7 +87,6 @@ def execute_problem(domain, problem):
             if(p != 'lpg'):
                 # Solve the given `problem` with tamer/enhsp/fast-downward planner
                 with OneshotPlanner(name=p) as planner:
-                    
                     try:
                         result = solve_plan(planner, parsed_problem, queue, timeAllocated)
                         plan = result.plan
@@ -148,10 +144,10 @@ def execute_problem(domain, problem):
                     # print(inst.args)     # arguments stored in .args
                     # print(inst)
                     # Exceptions while trying to validate/check for validation implementation
-                    print(f"{p} has encountered an exception while attempting to validate the plan" )   
-        
-    except: 
+                    print(f"{p} has encountered an exception while attempting to validate the plan")   
+    except Exception: 
         print("Error with the parsing of the problem")
+        # print(e.__class__.__name__)
         # print(type(inst))    # the exception instance
         # print(inst.args)     # arguments stored in .args
         # print(inst)
@@ -174,7 +170,7 @@ for specificIPC in ipcList:
     for specificDomain in domainList:
         pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
         # Get domain/problem `i`
-        for i in range(1,3):
+        for i in range(1,2):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
             original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")
@@ -209,6 +205,7 @@ for specificIPC in ipcList:
                 #i+=1
 
 # Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
+#potremmo richiamarlo con python3 no?
 command = "python2.7 "+ rootpath + "/join_globals.py"
 print(command)
 os.system(command)
