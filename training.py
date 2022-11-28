@@ -10,8 +10,24 @@ from unified_planning.engines import ValidationResultStatus, results
 from unified_planning.shortcuts import OneshotPlanner, PlanValidator
 from unified_planning.io import PDDLReader
 from up_lpg.lpg_planner import LPGEngine
-from multiprocessing import Process, Queue
-from queue import Empty
+from multiprocessing import Process, Pipe
+
+# Custom Process class that supports solving of a `problem` with the given `planner` and sends the result through a Pipe estabilished connection
+class SolverProcess(Process):
+    def __init__(self, conn, planner, problem,  **kwargs):
+        Process.__init__(self, **kwargs)
+        self._conn = conn
+        self._planner = planner
+        self._problem = problem
+
+    # override the run function
+    def run(self):
+        try:
+            result = self._planner.solve(self._problem)
+            self._conn.send(result)
+        except BaseException as e:
+            # If the `solve` function of the planner raises an Exception, it is sent through the pipe to be handled elsewhere
+            self._conn.send(e)
 
 def getSubdirectories(parentDirectory):
     return [name for name in os.listdir(parentDirectory)
@@ -45,21 +61,32 @@ def validate_plan(problem, plan):
     with PlanValidator(problem_kind=problem.kind) as validator:
             return validator.validate(problem, plan)
 
-def solve_plan(planner, problem, queue, timeAllocated):
-    
-    # Creating and starting solving sub-process
-    proc = Process(target = lambda: queue.put(planner.solve(problem)))
-    proc.start()
+def solve_plan(planner, problem, connMain, connSolver, timeAllocated):
     try:
-        # Wait for the sub-process to put its result in the queue, Time limit = `timeAllocated`
-        result = queue.get(block = True, timeout = timeAllocated)
-        proc.terminate()
-        proc.join()
+        # Creating and starting solving sub-process
+        proc = SolverProcess(connSolver, planner, problem)
+        proc.start()
+
+        # Wait for the sub-process to put its result into the Pipe, Time limit = `timeAllocated`
+        if connMain.poll(timeAllocated):
+            # If the result is ready before Timeout, retrieve it from the pipe
+            result = connMain.recv()
+            # Check if the result is an exception, if True then raise it
+            if isinstance(result, BaseException):
+                raise result
+            proc.terminate()
+            proc.join()
+        else:
+            # The sub-process couldn't finish excecution in time
+            raise TimeoutError
+
         return result
-    except Empty:
+
+    # Catch any exceptions that are not related to time constraints
+    except BaseException as e:
         proc.terminate()
         proc.join()
-        raise Empty()
+        raise e
 
 #fa eseguire il problem a tutti i planner supportarti e crea la lista con true/false 
 def execute_problem(domain, problem):
@@ -70,14 +97,16 @@ def execute_problem(domain, problem):
     :param problem: Problem to be solved
     :return res: The list created
     """
-    timeAllocated = 10
+    timeAllocated = 60
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader() #TODO: è da chiudere (?)
     try:
         parsed_problem = reader.parse_problem(domain, problem)
-        plannerList = ['fast-downward']
-        queue = Queue()
+        plannerList = ['tamer']
+
+        # Initialize Pipe connection between Main process and Solver process
+        connMain, connSolver = Pipe()
         res = []
 
         # Initialise result
@@ -88,9 +117,9 @@ def execute_problem(domain, problem):
                 # Solve the given `problem` with tamer/enhsp/fast-downward planner
                 with OneshotPlanner(name=p) as planner:
                     try:
-                        result = solve_plan(planner, parsed_problem, queue, timeAllocated)
+                        result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
                         plan = result.plan
-                    except Empty:
+                    except TimeoutError:
                         print(f"{p} TIMED OUT")
                         toBeAppended = p + ", False"
                         res.append(toBeAppended)
@@ -104,9 +133,9 @@ def execute_problem(domain, problem):
                 with LPGEngine() as planner:
                     try:
                         # Creating and starting solving sub-process
-                            result = solve_plan(planner, parsed_problem, queue, timeAllocated)
+                            result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
                             plan = result.plan
-                    except Empty:
+                    except TimeoutError:
                             print(f"{p} TIMED OUT")
                             toBeAppended = p + ", False"
                             res.append(toBeAppended)
@@ -198,50 +227,50 @@ for specificIPC in ipcList:
                     pathModels = os.path.join(rootpath, "models")
                     res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
                     print(res_planner_str)
-                    command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
-                    print(command)
-                    os.system(command)
+#                     command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
+#                     print(command)
+#                     os.system(command)
 
-                #i+=1
+#                 #i+=1
 
-# Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
-#potremmo richiamarlo con python3 no?
-command = "python2.7 "+ rootpath + "/join_globals.py"
-print(command)
-os.system(command)
+# # Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
+# #potremmo richiamarlo con python3 no?
+# command = "python2.7 "+ rootpath + "/join_globals.py"
+# print(command)
+# os.system(command)
 
-# Remove unused attributes
-##TODO: la dobbiamo fare o no?
-command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
-os.system(command)
+# # Remove unused attributes
+# ##TODO: la dobbiamo fare o no?
+# command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
+# os.system(command)
 
-#TODO: da lasciare -Xmx1024M?
-#the flag Xmx specifies the maximum memory allocation pool for a Java Virtual Machine (JVM)
-# For example, starting a JVM like below will start it with 256 MB of memory and will allow the process to use up to 2048 MB of memory:
-# java -Xms256m -Xmx2048m
+# #TODO: da lasciare -Xmx1024M?
+# #the flag Xmx specifies the maximum memory allocation pool for a Java Virtual Machine (JVM)
+# # For example, starting a JVM like below will start it with 256 MB of memory and will allow the process to use up to 2048 MB of memory:
+# # java -Xms256m -Xmx2048m
 
-# Check the result      
-command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
-print(command)
-os.system(command)
+# # Check the result      
+# command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
+# print(command)
+# os.system(command)
 
-# Save the model created
-command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
-print(command)
-os.system(command)
+# # Save the model created
+# command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
+# print(command)
+# os.system(command)
 
-# # #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
-# # command = "java -Xms256m -Xmx1024m -cp "+ pathname +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+pathname+"/RotationForest.model -T "+pathname+"/global_features_simply.arff -p 113 > "+pathname+"/outputModel"
-# # os.system(command)
+# # # #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
+# # # command = "java -Xms256m -Xmx1024m -cp "+ pathname +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+pathname+"/RotationForest.model -T "+pathname+"/global_features_simply.arff -p 113 > "+pathname+"/outputModel"
+# # # os.system(command)
 
-# # command = "python2.7 "+ pathname +"/models/parseWekaOutputFile.py "+pathname+"/outputModel "+pathname+"/listPlanner"
-# # os.system(command)
+# # # command = "python2.7 "+ pathname +"/models/parseWekaOutputFile.py "+pathname+"/outputModel "+pathname+"/listPlanner"
+# # # os.system(command)
 
 
-# ##far provare a risolvere il problema per gli N planner
+# # ##far provare a risolvere il problema per gli N planner
 
-# # planners = ["tamer", "enhsp", "pyperplan", "lgp"]
+# # # planners = ["tamer", "enhsp", "pyperplan", "lgp"]
 
-# # for i in xrange(0, len(planners)):
-# #     planner = rootpath + "/" + planners[i] + "/plan"
-# #     run (planner, original_domain, original_problem, result, timeout)
+# # # for i in xrange(0, len(planners)):
+# # #     planner = rootpath + "/" + planners[i] + "/plan"
+# # #     run (planner, original_domain, original_problem, result, timeout)
