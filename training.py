@@ -91,7 +91,7 @@ def execute_problem(domain, problem, trainingPlanners):
     :param trainingPlanners: List containing the planners to be used
     :return res: The list created
     """
-    timeAllocated = 60
+    timeAllocated = 10
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
@@ -108,37 +108,25 @@ def execute_problem(domain, problem, trainingPlanners):
         for p in trainingPlanners:
             if(p != 'lpg'):
                 # Solve the given `problem` with tamer/enhsp/fast-downward planner
-                with OneshotPlanner(name=p) as planner:
-                    try:
-                        result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
-                        plan = result.plan
-                    except TimeoutError:
-                        # Planner couldn't solve the problem with the `timeAllocated`
-                        print(f"{p} TIMED OUT")
-                        toBeAppended = p + ", False"
-                        res.append(toBeAppended)
-                        continue
-                    except:
-                        # Planner couldn't solve the problem (Throws exception while solving)
-                        print(f"{p} has encountered an exception while attempting to solve")
-                        continue 
+                planner = OneshotPlanner(name=p)
             else:
-                # Solve problem with LPG planner
-                with LPGEngine() as planner:
-                    try:
-                        # Creating and starting solving sub-process
-                        result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
-                        plan = result.plan
-                    except TimeoutError:
-                        # Planner couldn't solve the problem with the `timeAllocated`
-                        print(f"{p} TIMED OUT")
-                        toBeAppended = p + ", False"
-                        res.append(toBeAppended)
-                        continue
-                    except:
-                        # Planner couldn't solve the problem (Throws exception while solving)
-                        print(f"{p} has encountered an exception while attempting to solve")
-                        continue
+                # Solve the given `problem` with lpg planner
+                planner = LPGEngine()
+
+            with planner:
+                try:
+                    result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
+                    plan = result.plan
+                except TimeoutError:
+                    # Planner couldn't solve the problem with the `timeAllocated`
+                    print(f"{p} TIMED OUT")
+                    toBeAppended = p + ", False"
+                    res.append(toBeAppended)
+                    continue
+                except:
+                    # Planner couldn't solve the problem (Throws exception while solving)
+                    print(f"{p} has encountered an exception while attempting to solve")
+                    continue
 
             if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
@@ -170,7 +158,7 @@ def execute_problem(domain, problem, trainingPlanners):
 
 rootpath = os.path.dirname(__file__)
 pathIPCs = os.path.join(rootpath, "domain")
-trainingPlanners = ['tamer','fast-downward','enhsp','lpg']
+trainingPlanners = ['tamer', 'lpg']
 
 # Fetch list of IPC competition directories
 ipcList = getSubdirectories(pathIPCs)
