@@ -4,6 +4,7 @@ from unified_planning.shortcuts import OneshotPlanner, PlanValidator
 from unified_planning.io import PDDLReader
 from up_lpg.lpg_planner import LPGEngine
 from multiprocessing import Process, Pipe
+from models import joinFile
 
 # Custom Process class that supports solving of a `problem` with the given `planner` and sends the result through a Pipe estabilished connection
 class SolverProcess(Process):
@@ -91,7 +92,7 @@ def execute_problem(domain, problem, trainingPlanners):
     :param trainingPlanners: List containing the planners to be used
     :return res: The list created
     """
-    timeAllocated = 10
+    timeAllocated = 35
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
@@ -117,10 +118,11 @@ def execute_problem(domain, problem, trainingPlanners):
                 try:
                     result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
                     plan = result.plan
+                    print(plan)
                 except TimeoutError:
                     # Planner couldn't solve the problem with the `timeAllocated`
                     print(f"{p} TIMED OUT")
-                    toBeAppended = p + ", False"
+                    toBeAppended = p + "|, False"
                     res.append(toBeAppended)
                     continue
                 except:
@@ -131,7 +133,7 @@ def execute_problem(domain, problem, trainingPlanners):
             if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
                 print(f"{p} couldn't solve the problem")
-                toBeAppended = p + ", False"
+                toBeAppended = p + "|, False"
                 res.append(toBeAppended)
             else:
                 # Plan is not None
@@ -142,15 +144,16 @@ def execute_problem(domain, problem, trainingPlanners):
                     print(val.status)
                     if(val.status == ValidationResultStatus.VALID):
                         # To be appended a positive result if validation concludes positively
-                        toBeAppended = p + ", " + str(result.status in results.POSITIVE_OUTCOMES)
+                        toBeAppended = p + "|, " + str(result.status in results.POSITIVE_OUTCOMES)
                         print(toBeAppended)
                     else:
                         # To be appended a negative result if validation concludes negatively
-                        toBeAppended = p + ", False"
+                        toBeAppended = p + "|, False"
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
                     print(f"{p} has encountered an exception while attempting to validate the plan")   
+                    continue
     except Exception: 
         print("Error with the parsing of the problem")
         return []
@@ -158,7 +161,7 @@ def execute_problem(domain, problem, trainingPlanners):
 
 rootpath = os.path.dirname(__file__)
 pathIPCs = os.path.join(rootpath, "domain")
-trainingPlanners = ['tamer', 'lpg']
+trainingPlanners = ['lpg', 'enhsp']
 
 # Fetch list of IPC competition directories
 ipcList = getSubdirectories(pathIPCs)
@@ -188,7 +191,7 @@ for specificIPC in ipcList:
                 if(not os.path.isdir(pathCurrentResult)):
                     os.mkdir(pathCurrentResult)
                 os.chdir(pathCurrentResult)
-                # extract_features(original_domain, original_problem, pathCurrentResult)
+                extract_features(original_domain, original_problem, pathCurrentResult)
 
                 # Solve Problem `i` with all planners and obtain a list containing the results (solved or not solved) 
                 res_planner = execute_problem(original_domain, original_problem, trainingPlanners)
@@ -197,9 +200,10 @@ for specificIPC in ipcList:
                     pathModels = os.path.join(rootpath, "models")
                     res_planner_str = str(res_planner)[1:-1:1].replace("',", "'")
                     print(res_planner_str)
-#                     command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
-#                     print(command)
-#                     os.system(command)
+                    # command = "python2.7 "+ pathModels + "/joinFile.py " + pathCurrentResult + " " + res_planner_str
+                    # print(command)
+                    # os.system(command)
+                    joinFile.create_globals(pathCurrentResult, res_planner, [])
 
 #                 #i+=1
 
