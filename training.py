@@ -113,7 +113,6 @@ def execute_problem(domain, problem, trainingPlanners):
             else:
                 # Solve the given `problem` with lpg planner
                 planner = LPGEngine()
-
             with planner:
                 try:
                     result = solve_plan(planner, parsed_problem, connMain, connSolver, timeAllocated)
@@ -122,7 +121,7 @@ def execute_problem(domain, problem, trainingPlanners):
                 except TimeoutError:
                     # Planner couldn't solve the problem with the `timeAllocated`
                     print(f"{p} TIMED OUT")
-                    toBeAppended = p + "|, False"
+                    toBeAppended = p + "||oneshot_planner, False"
                     res.append(toBeAppended)
                     continue
                 except:
@@ -133,7 +132,7 @@ def execute_problem(domain, problem, trainingPlanners):
             if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
                 print(f"{p} couldn't solve the problem")
-                toBeAppended = p + "|, False"
+                toBeAppended = p + "||oneshot_planner, False"
                 res.append(toBeAppended)
             else:
                 # Plan is not None
@@ -144,11 +143,11 @@ def execute_problem(domain, problem, trainingPlanners):
                     print(val.status)
                     if(val.status == ValidationResultStatus.VALID):
                         # To be appended a positive result if validation concludes positively
-                        toBeAppended = p + "|, " + str(result.status in results.POSITIVE_OUTCOMES)
+                        toBeAppended = p + "||oneshot_planner, " + str(result.status in results.POSITIVE_OUTCOMES)
                         print(toBeAppended)
                     else:
                         # To be appended a negative result if validation concludes negatively
-                        toBeAppended = p + "|, False"
+                        toBeAppended = p + "||oneshot_planner, False"
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
@@ -161,7 +160,7 @@ def execute_problem(domain, problem, trainingPlanners):
 
 rootpath = os.path.dirname(__file__)
 pathIPCs = os.path.join(rootpath, "domain")
-trainingPlanners = ['lpg', 'enhsp']
+trainingPlanners = ['enhsp','fast-downward','lpg', 'tamer']
 
 # Fetch list of IPC competition directories
 ipcList = getSubdirectories(pathIPCs)
@@ -174,7 +173,7 @@ for specificIPC in ipcList:
     for specificDomain in domainList:
         pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
         # Get domain/problem `i`
-        for i in range(1,2):
+        for i in range(1,10):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
             original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")
@@ -207,31 +206,31 @@ for specificIPC in ipcList:
 
 #                 #i+=1
 
-# # Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
-# #potremmo richiamarlo con python3 no?
-# command = "python2.7 "+ rootpath + "/join_globals.py"
-# print(command)
-# os.system(command)
+# Create `joined_global_features` containing all the features' (from all the problems to be used in the training session)
+#potremmo richiamarlo con python3 no?
+command = "python2.7 "+ rootpath + "/join_globals.py"
+print(command)
+os.system(command)
 
-# # Remove unused attributes
-# ##TODO: la dobbiamo fare o no?
-# command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
-# os.system(command)
+# Remove unused attributes
+##TODO: la dobbiamo fare o no?
+command = "java -cp "+ rootpath +"/models/weka.jar -Xms256m -Xmx1024m weka.filters.unsupervised.attribute.Remove -R 1-3,18,20,65,78-79,119-120 -i "+ rootpath + "/joined_global_features.arff -o "+ rootpath +"/joined_global_features_simply.arff"
+os.system(command)
 
-# #TODO: da lasciare -Xmx1024M?
-# #the flag Xmx specifies the maximum memory allocation pool for a Java Virtual Machine (JVM)
-# # For example, starting a JVM like below will start it with 256 MB of memory and will allow the process to use up to 2048 MB of memory:
-# # java -Xms256m -Xmx2048m
+#TODO: da lasciare -Xmx1024M?
+#the flag Xmx specifies the maximum memory allocation pool for a Java Virtual Machine (JVM)
+# For example, starting a JVM like below will start it with 256 MB of memory and will allow the process to use up to 2048 MB of memory:
+# java -Xms256m -Xmx2048m
 
-# # Check the result      
-# command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
-# print(command)
-# os.system(command)
+# Check the result      
+command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest -t " + rootpath +"/joined_global_features_simply.arff > " + rootpath + "/output"
+print(command)
+os.system(command)
 
-# # Save the model created
-# command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
-# print(command)
-# os.system(command)
+# Save the model created
+command = "java -Xms256m -Xmx1024m -cp " + rootpath + "/models/weka.jar weka.classifiers.meta.RotationForest  -t " + rootpath + "/joined_global_features_simply.arff -d " + rootpath + "/RotationForest.model"
+print(command)
+os.system(command)
 
 # # # #comando che prende in ingresso il model (gia' allenato) e il train set utilizzati per avere una predizione in output nel file outputModel
 # # # command = "java -Xms256m -Xmx1024m -cp "+ pathname +"/models/weka.jar weka.classifiers.meta.RotationForest -l "+pathname+"/RotationForest.model -T "+pathname+"/global_features_simply.arff -p 113 > "+pathname+"/outputModel"
