@@ -121,7 +121,7 @@ def execute_problem(domain, problem, trainingPlanners):
                 except TimeoutError:
                     # Planner couldn't solve the problem with the `timeAllocated`
                     print(f"{p} TIMED OUT")
-                    toBeAppended = p + "||oneshot_planner, False"
+                    toBeAppended = p + "|, False"
                     res.append(toBeAppended)
                     continue
                 except:
@@ -132,7 +132,7 @@ def execute_problem(domain, problem, trainingPlanners):
             if plan is None:
                 # Planner tried solving, successfully concluded that it cannot find a plan
                 print(f"{p} couldn't solve the problem")
-                toBeAppended = p + "||oneshot_planner, False"
+                toBeAppended = p + "|, False"
                 res.append(toBeAppended)
             else:
                 # Plan is not None
@@ -143,11 +143,11 @@ def execute_problem(domain, problem, trainingPlanners):
                     print(val.status)
                     if(val.status == ValidationResultStatus.VALID):
                         # To be appended a positive result if validation concludes positively
-                        toBeAppended = p + "||oneshot_planner, " + str(result.status in results.POSITIVE_OUTCOMES)
+                        toBeAppended = p + "|, " + str(result.status in results.POSITIVE_OUTCOMES)
                         print(toBeAppended)
                     else:
                         # To be appended a negative result if validation concludes negatively
-                        toBeAppended = p + "||oneshot_planner, False"
+                        toBeAppended = p + "|, False"
                     # Append the outcome relative to the planner
                     res.append(toBeAppended)        
                 except:
