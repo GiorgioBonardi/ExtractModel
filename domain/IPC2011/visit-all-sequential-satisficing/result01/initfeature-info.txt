@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/visit-all-sequential-satisficing/p01.pddl, 287, 528, 12, 143, 11.916667, -4, 0.498258, 0.687745, 1, 1.000000, 0.000000, 43.655300, 2.083333, 202

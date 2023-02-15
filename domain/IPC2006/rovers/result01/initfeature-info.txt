@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2006/rovers/p01.pddl, 33, 63, 4, 9, 2.250000, -2, 0.121212, 0.728534, 1, 1.000000, 0.000000, 5.269842, 0.095238, 2

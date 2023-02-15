@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/blocksworld-target/p01.pddl, 2651, 5100, 13, 91, 7.000000, -5, -0.003395, 0.227304, -1, 0.954545, 0.298065, 25.593334, 5.854902, 594

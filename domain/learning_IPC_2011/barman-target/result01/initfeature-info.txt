@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/barman-target/p01.pddl, 1271, 10448, 5, 70, 14.000000, -14, -0.039339, 1.176090, 1, 1.000000, 0.000000, 18.140507, 27.032543, 240

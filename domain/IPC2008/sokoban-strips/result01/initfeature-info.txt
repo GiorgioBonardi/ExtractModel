@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2008/sokoban-strips/p01.pddl, 72, 102, 10, 17, 1.700000, -3, -0.069444, 0.769675, -3, -2.500000, 0.500000, 8.500000, 4.568627, 115

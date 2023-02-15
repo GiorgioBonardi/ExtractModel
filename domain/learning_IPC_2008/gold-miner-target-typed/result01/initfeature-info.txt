@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/gold-miner-target-typed/p01.pddl, 95, 250, 13, 13, 1.000000, -2, -0.021053, 0.480766, 1, 1.000000, 0.000000, 1.784000, 0.156000, 9

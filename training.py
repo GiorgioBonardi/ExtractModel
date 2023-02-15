@@ -92,7 +92,7 @@ def execute_problem(domain, problem, trainingPlanners):
     :param trainingPlanners: List containing the planners to be used
     :return res: The list created
     """
-    timeAllocated = 35
+    timeAllocated = 300
     print("PROBLEM: " + problem)
     print("DOMAIN" + domain)
     reader = PDDLReader()
@@ -173,7 +173,7 @@ for specificIPC in ipcList:
     for specificDomain in domainList:
         pathCurrentDomain = os.path.join(pathCurrentIPC, specificDomain)
         # Get domain/problem `i`
-        for i in range(1,10):
+        for i in range(1,31):
         #i = 1
         #for file in os.listdir(pathSpecificDomain):
             original_domain = os.path.join(pathCurrentDomain, "p"+str(i).zfill(2)+"-domain.pddl")

@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/matching-bw-target-typed/p01.pddl, 302, 960, 11, 24, 2.181818, -4, -0.049669, 0.468388, -1, 0.800000, 0.600000, 6.620833, 2.541667, 121

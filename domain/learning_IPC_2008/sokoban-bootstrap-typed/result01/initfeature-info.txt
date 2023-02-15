@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/sokoban-bootstrap-typed/p01.pddl, 92, 164, 11, 24, 2.181818, -2, 0.000000, 0.531610, 1, 1.000000, 0.000000, 8.195122, 0.731707, 57

@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/parking-target/p01.pddl, 1456, 63480, 3, 61, 20.333334, -23, -0.001374, 0.798349, 0, 0.966667, 0.179506, 29.384247, 15.656616, 161

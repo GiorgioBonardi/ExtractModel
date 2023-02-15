@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/openstacks-sequential-satisficing/p01.pddl, 301, 5100, 4, 151, 37.750000, -1, 0.000000, 0.819205, 1, 1.000000, 0.000000, 6.941764, 0.970392, 98

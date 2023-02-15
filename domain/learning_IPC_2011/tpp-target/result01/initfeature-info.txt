@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2011/tpp-target/p01.pddl, 2094, 49470, 10, 121, 12.100000, -5, 0.000000, 0.460472, 1, 1.000000, 0.000000, 42.902447, 17.765312, 387

@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/matching-bw-bootstrap-typed/p01.pddl, 52, 120, 5, 9, 1.800000, -1, -0.115385, 0.542567, 1, 1.000000, 0.000000, 6.083333, 1.150000, 13

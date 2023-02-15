@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/learning_IPC_2008/parking-bootstrap-typed/p01.pddl, 39, 196, 3, 5, 1.666667, -3, 0.076923, 0.916644, 0, 0.750000, 0.433013, 4.224490, 1.744898, 10

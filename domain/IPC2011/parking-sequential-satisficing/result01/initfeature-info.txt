@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/parking-sequential-satisficing/p01.pddl, 804, 25432, 3, 36, 12.000000, -12, 0.009950, 0.630802, 0, 0.954545, 0.208299, 37.667385, 12.198097, 74

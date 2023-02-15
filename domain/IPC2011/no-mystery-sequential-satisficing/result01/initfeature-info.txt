@@ -1,1 +1,0 @@
-  1, /home/gio/Desktop/up_update/ExtractModel/domain/IPC2011/no-mystery-sequential-satisficing/p01.pddl, 129, 1294, 4, 16, 4.000000, -4, 0.000000, 0.584025, 1, 1.000000, 0.000000, 8.244977, 1.564915, 25
